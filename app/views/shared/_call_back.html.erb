@@ -1,0 +1,66 @@
+<section class="black-bg-4 py-50">
+  <div class="container-1">
+    <div class="heading-1 fs-35">
+      Request a call back
+    </div>
+
+    <div class="mt-80">
+      <div class="call">
+        <form id="myCall" class="call-back mt-50 row align-items-center">
+          <div class="col-md-3">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required>
+          </div>
+          <div class="col-md-3">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" required>
+          </div>
+          <div class="col-md-3">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="col-md-3 text-center">
+            <div class="">
+              <button type="button" class="btn btn-4">VIEW ALL</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .call form {
+    width: 100%;
+  }
+
+  .call-back label,
+  input {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .call-back label {
+    color: #FFF;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .call-back input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #8D8D8D;
+    background-color: #1E1E1E;
+  }
+
+  /* Remove the default input focus outline */
+  .call-back input:focus {
+    outline: none;
+  }
+</style>
