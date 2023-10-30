@@ -6,15 +6,14 @@ Rails.application.routes.draw do
 
   root 'homes#index'
   get 'homes/index'
-  get '/brands' => 'homes#brands'
+  get '/media' => 'homes#media'
   get '/contact_us' => 'homes#contact_us'
   get '/blogs' => 'homes#blogs'
-  get '/accessories' => 'homes#accessories'
-  get '/wall-covering' => 'homes#wall-covering'
-  get '/furnitures' => 'homes#furnitures'
-  get '/floor-covering' => 'homes#floor-covering'
-  get '/fabrics' => 'homes#fabrics'
-  get '/trims' => 'homes#trims'
+  get '/our_collections' => 'homes#our_collections'
+  get '/our_story' => 'homes#our_story'
+  get '/brands' => 'homes#brands'
+  get '/clientele' => 'homes#clientele'
+  get '/our_services' => 'homes#our_services'
 
 
   devise_for :users

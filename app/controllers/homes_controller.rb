@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   def index
   end
 
-  def brands
+  def media
   end
 
   def contact_us
@@ -10,5 +10,19 @@ class HomesController < ApplicationController
 
   def blogs
   end
+
+  def our_collections
+  end
+
+  def our_story
+  end
+
+  def brands
+  end
+
+  def clientele
+  end
+
+  def our_services
 
 end

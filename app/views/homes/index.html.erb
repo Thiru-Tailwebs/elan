@@ -1,17 +1,16 @@
 <%= render "shared/header" %>
-  <section class="bg-image-1 position-relative">
-    <div class="bg-shadow h-100vh">
+  <section class="bg-image-home position-relative" style="background-image: url('/images/home-page/home-banner.png');">
+    <div class="bg-shadow h-100vh h-90vh-lg h-90vh-md h-90vh-mob">
       <div class="container">
-        <div class="row h-100vh align-items-center">
-          <div class="col-md-5">
+        <div class="row h-100vh h-90vh-lg h-90vh-md h-90vh-mob align-center align-base-mob">
+          <div class="col-lg-4 col-md-2">
           </div>
-          <div class="col-md-7">
-            <div class="heading-1 text-right" data-aos="fade-up">Curated Decor, in vogue and luxury for your dream home
+          <div class="col-lg-8 col-md-10">
+            <div class="heading-1 fs-30-mob text-right" data-aos="fade-up">Elevate Your Home with Timeless Elegance
             </div>
-            <div class="mt-3 heading-2 text-right" data-aos="fade-up">There are many variations of the passages of lorem
-              Ipsum
-              fromavailable,variations of the
-              passages.</div>
+            <div class="mt-3 heading-2 text-right ml-80 fs-14-mob" data-aos="fade-up">Discover hand picked treasures
+              that turn your living space into a sanctuary of style and comfort
+            </div>
           </div>
         </div>
         <div class="text-right position-2">
@@ -30,206 +29,44 @@
     </div>
   </section>
 
-  <section class="black-bg-1 pt-40 pb-400">
+  <section class="black-bg-1 pt-40 pb-400 pb-100-mob pb-200-md">
     <div class="container">
-      <div class="heading-2 text-center" data-aos="fade-up">
-        CATEGORIES
+      <div class="heading-2 fs-16-mob text-center" data-aos="fade-up">
+        Explore Our Categories
       </div>
-      <div class="mt-4 heading-1 text-center" data-aos="fade-up">
-        Crafting an ambience with<br>style and luxury
+      <div class="mt-4 heading-1 w-80p w-80p-md w-100p-mob mx-auto fs-30-mob text-center" data-aos="fade-up">
+        Where Every Corner Finds Its Perfect Match
       </div>
 
-      <div class="mt-40">
-        <!-- Nav tabs -->
-        <div class="mx-10">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-right">
-                <a class="nav-link" data-toggle="tab" href="#tab-1" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">Accessories</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-right">
-                <a class="nav-link" data-toggle="tab" href="#tab-2" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">Furnitures</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-left">
-                <a class="nav-link" data-toggle="tab" href="#tab-3" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">Fabrics & DRAPERY</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-left">
-                <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">FLOOR COVERINGS</span></a>
-              </div>
-            </div>
-          </div>
+      <%= render "shared/home_tabs" %>
 
-          <div class="row mt-30">
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-right">
-                <a class="nav-link" data-toggle="tab" href="#tab-5" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">Wall Coverings</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-right">
-                <a class="nav-link" data-toggle="tab" href="#tab-6" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">TRIMS & TASSELS</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-left">
-                <a class="nav-link" data-toggle="tab" href="#tab-7" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">MATTRESSES</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-left">
-                <a class="nav-link" data-toggle="tab" href="#tab-8" role="tab"><span><img src="/images/home-page/tab-img.png"
-                      class="w-25px mr-2">HARDWARE & AUTOMATION</span></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mt-30">
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-right">
-                <a class="nav-link" data-toggle="tab" href="#tab-9" role="tab"><span><img src="/images/home-page/tab-img.png"
-                      class="w-25px mr-2">Lighting</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-right">
-                <a class="nav-link" data-toggle="tab" href="#tab-10" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">Bath & Bed linen</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-left">
-                <a class="nav-link" data-toggle="tab" href="#tab-11" role="tab"><span><img
-                      src="/images/home-page/tab-img.png" class="w-25px mr-2">tablewares</span></a>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="nav-item tab-head" data-aos="fade-left">
-                <a class="nav-link" data-toggle="tab" href="#tab-11" role="tab"><span><img src="/images/home-page/tab-img.png"
-                      class="w-25px mr-2">upholstery</span></a>
-              </div>
-            </div>
+        <div class="mt-50">
+          <div class="position-relative" data-aos="zoom-in">
+            <img src="/images/home-page/banner-2.png" class="w-100p position-absolute">
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="row mt-50">
-          <div class="col-md-12">
-            <div id="tab-1" class="tab-content">
-              <div class="row">
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-1.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-2.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-3.png" class="w-100">
-                  </div>
-                </div>
-              </div>
-              <div class="row mt-20">
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-4.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-5.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-6.png" class="w-100">
-                  </div>
-                </div>
-              </div>
-              <div class="mt-50 d-flex justify-content-center">
-                <button type="button" class="btn btn-1">VIEW ALL</button>
-              </div>
-            </div>
-            <div id="tab-2" class="tab-content">
-              <div class="row">
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-4.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-5.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-6.png" class="w-100">
-                  </div>
-                </div>
-              </div>
-              <div class="row mt-20">
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-1.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-2.png" class="w-100">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <img src="/images/home-page/tab-1-3.png" class="w-100">
-                  </div>
-                </div>
-              </div>
-              <div class="mt-50 d-flex justify-content-center">
-                <button type="button" href="" class="btn btn-1">VIEW ALL</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mt-50">
-        <div class="position-relative" data-aos="zoom-in">
-          <img src="/images/home-page/banner-2.png" class="w-100p position-absolute">
-        </div>
-      </div>
     </div>
   </section>
 
 
-  <section class="sandal-bg pt-250 pb-40">
+  <section class="sandal-bg pt-250 pt-150-mob pt-150-lg pb-40">
     <div class="container">
-      <div class="fs-16 heading-2 black-1 text-center" data-aos="fade-up">
+      <div class="fs-16 fs-14-mob heading-2 black-1 text-center" data-aos="fade-up">
         BOOK APPOINTMENT
       </div>
-      <div class="mt-15 heading-1 text-center black-1 fs-35" data-aos="fade-up">
-        We Create The Art Of Stylish <br> Living Stylishly
+      <div class="mt-15 heading-1 w-60p w-80p-md w-80p-mob mx-auto text-center black-1 fs-25-mob fs-35"
+        data-aos="fade-up">
+        Your Dream Space Starts Here <br> Let's Chat!
       </div>
-      <div class="mt-50 heading-2 px-300 black-1 text-center fs-20" data-aos="fade-up">
-        It is a long established fact that a reader will be distracted by the of readable content of
-        a page when
-        lookings at its
-        layouts the points of using that it has a more-or-less normal.
+      <div class="mt-50 heading-2 w-80p mx-auto black-1 text-center fs-20 d-none-mob" data-aos="fade-up">
+        Every home has a unique story waiting to be told. If you're ready to transform your living space or need expert
+        advice
+        on the perfect decor solutions, our consultation services are here to make your vision a reality. Schedule an
+        appointment with our design experts, and together, we'll craft the perfect plan for your dream home. Whether
+        it's a
+        single-room makeover or a full-scale renovation, we're here to guide you every step of the way. Your dream space
+        is just
+        a consultation away.
       </div>
       <div class="mt-30 text-center" data-aos="flip-up">
         <svg xmlns="http://www.w3.org/2000/svg" id="phone" width="50" height="50" viewBox="0 0 60 60" fill="none">
@@ -245,29 +82,30 @@
     </div>
   </section>
 
-  <section class="black-bg-2 pt-40 pb-400">
+  <section class="black-bg-2 pt-40 pb-100-mob pb-400">
     <div class="container">
-      <div class="heading-1 fs-35 text-center" data-aos="fade-up">
-        What are client say
+      <div class="heading-1 fs-35 fs-25-mob text-center" data-aos="fade-up">
+        What our client say
       </div>
-      <div class="mt-20 heading-3 text-center" data-aos="fade-up">
-        What our customer thinks about us?
+      <div class="mt-20 heading-3 fs-14-mob text-center" data-aos="fade-up">
+        What our customers think about us?
       </div>
 
       <div class="mt-30" data-aos="zoom-in-up">
         <div class="owl-carousel owl-1 owl-theme">
           <div class="item">
             <div class="d-flex">
-              <div class="flex-1">
+              <div class="flex-1 d-none-md d-none-mob">
                 <img src="/images/home-page/slide-1.png" class="max-w-100 h-100" alt="Your Image">
               </div>
-              <div class="flex-1 p-40 black-bg-3">
+              <div class="flex-1 p-40 py-20-mob black-bg-3">
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="w-20p">
+                  <div class="w-20p w-25p-mob">
                     <img src="/images/home-page/avatar-1.png" class="w-100">
                   </div>
                   <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="125" height="125" viewBox="0 0 148 148" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-75-mob h-75-mob" width="125" height="125"
+                      viewBox="0 0 148 148" fill="none">
                       <g clip-path="url(#clip0_372_7147)">
                         <path
                           d="M49.3333 123.337H24.6667C18.1247 123.337 11.8506 120.738 7.2247 116.112C2.5988 111.487 0 105.213 0 98.6705L0 74.0039C0 70.7329 1.2994 67.5958 3.61235 65.2829C5.9253 62.9699 9.06233 61.6705 12.3333 61.6705H48.7783C47.3152 53.0585 42.8551 45.2408 36.1862 39.5988C29.5173 33.9567 21.0687 30.8534 12.3333 30.8372C10.6978 30.8372 9.12932 30.1875 7.97284 29.031C6.81637 27.8745 6.16667 26.306 6.16667 24.6705C6.16667 23.035 6.81637 21.4665 7.97284 20.31C9.12932 19.1536 10.6978 18.5039 12.3333 18.5039C25.4128 18.5185 37.9524 23.7209 47.201 32.9695C56.4497 42.2181 61.652 54.7577 61.6667 67.8372V111.004C61.6667 114.275 60.3673 117.412 58.0543 119.725C55.7414 122.038 52.6043 123.337 49.3333 123.337Z"
@@ -284,16 +122,16 @@
                     </svg>
                   </div>
                 </div>
-                <div class="mt-30">
-                  <div class="heading-4">
+                <div class="mt-30 mt-20-mob">
+                  <div class="heading-4 fs-14-mob text-center-mob lh-inherit-mob">
                     The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and
                     minimalist design
                     make it a perfect fit for my modern living room, <span class="brown">incorporate other accent
                       pieces.</span>
                   </div>
                 </div>
-                <div class="mt-30">
-                  <div class="heading-5">
+                <div class="mt-30 mt-20-mob">
+                  <div class="heading-5 fs-14-mob text-center-mob">
                     Larry Jonhson
                   </div>
                 </div>
@@ -302,16 +140,17 @@
           </div>
           <div class="item">
             <div class="d-flex">
-              <div class="flex-1">
-                <img src="/images/home-page/slide-1.png" class="max-w-100 h-auto" alt="Your Image">
+              <div class="flex-1 d-none-md d-none-mob">
+                <img src="/images/home-page/slide-1.png" class="max-w-100 h-100" alt="Your Image">
               </div>
-              <div class="flex-1 p-40 black-bg-3">
+              <div class="flex-1 p-40 py-20-mob black-bg-3">
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="w-20p">
+                  <div class="w-20p w-25p-mob">
                     <img src="/images/home-page/avatar-1.png" class="w-100">
                   </div>
                   <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="125" height="125" viewBox="0 0 148 148" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-75-mob h-75-mob" width="125" height="125"
+                      viewBox="0 0 148 148" fill="none">
                       <g clip-path="url(#clip0_372_7147)">
                         <path
                           d="M49.3333 123.337H24.6667C18.1247 123.337 11.8506 120.738 7.2247 116.112C2.5988 111.487 0 105.213 0 98.6705L0 74.0039C0 70.7329 1.2994 67.5958 3.61235 65.2829C5.9253 62.9699 9.06233 61.6705 12.3333 61.6705H48.7783C47.3152 53.0585 42.8551 45.2408 36.1862 39.5988C29.5173 33.9567 21.0687 30.8534 12.3333 30.8372C10.6978 30.8372 9.12932 30.1875 7.97284 29.031C6.81637 27.8745 6.16667 26.306 6.16667 24.6705C6.16667 23.035 6.81637 21.4665 7.97284 20.31C9.12932 19.1536 10.6978 18.5039 12.3333 18.5039C25.4128 18.5185 37.9524 23.7209 47.201 32.9695C56.4497 42.2181 61.652 54.7577 61.6667 67.8372V111.004C61.6667 114.275 60.3673 117.412 58.0543 119.725C55.7414 122.038 52.6043 123.337 49.3333 123.337Z"
@@ -328,16 +167,16 @@
                     </svg>
                   </div>
                 </div>
-                <div class="mt-30">
-                  <div class="heading-4">
+                <div class="mt-30 mt-20-mob">
+                  <div class="heading-4 fs-14-mob text-center-mob lh-inherit-mob">
                     The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and
                     minimalist design
                     make it a perfect fit for my modern living room, <span class="brown">incorporate other accent
                       pieces.</span>
                   </div>
                 </div>
-                <div class="mt-30">
-                  <div class="heading-5">
+                <div class="mt-30 mt-20-mob">
+                  <div class="heading-5 fs-14-mob text-center-mob">
                     Larry Jonhson
                   </div>
                 </div>
@@ -347,25 +186,25 @@
         </div>
       </div>
 
-      <div class="mt-100" data-aos="zoom-in-down">
+      <div class="mt-100 mt-50-mob" data-aos="zoom-in-down">
         <div>
-          <img src="/images/home-page/brand-banner.png" class="w-100">
+          <img src="/images/home-page/brand-banner1.png" class="w-100">
         </div>
       </div>
 
       <div class="mt-40">
-        <div class="heading-1 fs-35 text-center" data-aos="fade-up">
-          Brands we house
+        <div class="heading-1 fs-35 fs-25-mob text-center" data-aos="fade-up">
+          Elevating Space With Top-Tier Brands
         </div>
-        <div class="mt-20 fs-18 px-300 grey heading-2 text-center" data-aos="fade-up">
-          Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim placerat nisi, adipiscing mauris non
-          purus
-          parturient.
+        <div class="mt-20 fs-18 fs-12-mob w-70p w-100p-mob mx-auto grey heading-2 text-center" data-aos="fade-up">
+          Discover our handpicked brand partners, all dedicated to elevating your home decor experience with their
+          unmatched
+          craftsmanship and innovation. <br> Explore excellence, one brand at a time.
         </div>
       </div>
 
-      <div class="mt-80" data-aos="zoom-in-left">
-        <div class="owl-carousel owl-2 owl-theme">
+      <div class="mt-80 d-none-mob" data-aos="zoom-in-left">
+        <div class="owl-carousel owl-2 owl-theme ">
           <div class="item">
             <div class="row align-items-center">
               <div class="col-md-1">
@@ -497,59 +336,145 @@
         </div>
       </div>
 
-      <div class="mt-50" data-aos="zoom-in-right">
+      <div class="d-none-web d-block-mob">
+        <div class="container">
+          <div class="row text-center-mob align-items-center ">
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-1.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-2.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-1.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-2.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-3.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-4.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-4.png" class="w-50p">
+              </div>
+            </div>
+            <div class="col-6 mt-40-mob">
+              <div class="img-center">
+                <img src="images/home-page/bran-5.png" class="w-50p">
+              </div>
+            </div>
+          </div>
+          <div class="mt-40-mob text-center" data-aos="fade-up">
+            <button type="button" class="btn btn-1">View All Brands</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-30" data-aos="zoom-in-right">
         <div class="position-relative">
-          <img src="/images/home-page/banner-3.png" class="w-100 position-absolute top-125">
+          <img src="/images/home-page/banner-3n.png" class="w-100 position-absolute top-90 top-30-mob">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pt-250 pb-100">
+  <section class="pt-350 pt-150-md pt-150-mob pt-250-lg pb-100 pb-50-mob">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <div class="pr-70">
-            <div class="heading-1 black-2 fs-35" data-aos="fade-up">
-              Brands we work with
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="pr-70 pr-0-lg pr-0-mob">
+            <div class="heading-1 black-2 fs-25-mob fs-35 text-center-mob" data-aos="fade-up">
+              Infinite Brands, 1 Promise: Excellence in Every Detail
             </div>
-            <div class="heading-2 black-1 fs-20 mt-30" data-aos="fade-up">
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-              alteration
-              in
-              some form,
-              by injected humour, or randomised words which don't look even slightly believable.
+            <div class="heading-2 black-1 fs-20 mt-30 d-none-mob" data-aos="fade-up">
+              we proudly collaborate with infinite exceptional brands, each one representing a unique facet of design,
+              quality, and
+              innovation. With a shared commitment to excellence, our brand partners enrich your home decor experience
+              with products
+              that exemplify craftsmanship and creativity.
             </div>
-            <div class="heading-2 black-1 fs-20 mt-30" data-aos="fade-up">
-              If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
-              hidden in the
-              middle of text.
+            <div class="heading-2 black-1 fs-20 mt-30 d-none-mob" data-aos="fade-up">
+              Explore the world of home decor through our carefully selected partners and
+              elevate your space with the finest brands in the industry.
             </div>
-            <div class="mt-80" data-aos="flip-down">
+            <div class="heading-2 black-1 fs-12-mob mt-30 mt-20-mob d-none-web d-block-mob text-center-mob" data-aos="
+              fade-up">
+              we proudly collaborate with eight exceptional brands, each one representing a unique facet of design,
+              quality, and
+              innovation. With a shared commitment to excellence, our brand partners enrich your home decor experience
+              with products
+              that exemplify craftsmanship and creativity.
+            </div>
+            <div class="mt-80 mt-40-md mt-40-lg d-none-mob" data-aos="flip-down">
               <button type="button" class="btn btn-2">EXPLORE OUR brands</button>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="mx-50">
-            <div class="row">
-              <div class="col-md-4 text-center">
-                <img src="images/home-page/laspen-logo.png" data-aos="fade-up-left" class="w-70p">
-                <img src="images/home-page/n-logo.png" data-aos="fade-left" class="w-70p">
-                <img src="images/home-page/missy-logo.png" data-aos="fade-left" class="w-70p">
-                <img src="images/home-page/missy-logo.png" data-aos="fade-down-left" class="w-70p">
+        <div class="col-lg-6 col-md-12 col-12 mt-40-md">
+          <div class="mx-50 mx-0-lg mx-0-mob d-none-mob">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img src="images/home-page/laspen-logo.png" data-aos="fade-up-left" class="w-70p">
+                  <img src="images/home-page/n-logo.png" data-aos="fade-left" class="w-70p">
+                  <img src="images/home-page/missy-logo.png" data-aos="fade-left" class="w-70p">
+                  <img src="images/home-page/missy-logo.png" data-aos="fade-down-left" class="w-70p">
+                </div>
+                <div class="col-md-4 text-center">
+                  <img src="images/home-page/crop-logo.png" data-aos="fade-up" class="w-70p">
+                  <img src="images/home-page/pixie-logo.png" data-aos="fade-up" class="w-70p">
+                  <img src="images/home-page/pepper-logo.png" data-aos="fade-down" class="w-70p">
+                  <img src="images/home-page/laspen-logo.png" data-aos="fade-down" class="w-70p">
+                </div>
+                <div class="col-md-4 text-center">
+                  <img src="images/home-page/n-logo.png" data-aos="fade-up-right" class="w-70p">
+                  <img src="images/home-page/pepper-logo.png" data-aos="fade-right" class="w-70p">
+                  <img src="images/home-page/pixie-logo.png" data-aos="fade-right" class="w-70p">
+                  <img src="images/home-page/crop-logo.png" data-aos="fade-down-right" class="w-70p">
+                </div>
               </div>
-              <div class="col-md-4 text-center">
-                <img src="images/home-page/crop-logo.png" data-aos="fade-up" class="w-70p">
-                <img src="images/home-page/pixie-logo.png" data-aos="fade-up" class="w-70p">
-                <img src="images/home-page/pepper-logo.png" data-aos="fade-down" class="w-70p">
-                <img src="images/home-page/laspen-logo.png" data-aos="fade-down" class="w-70p">
+            </div>
+          </div>
+          <div class="d-block-mob d-none-web">
+            <div class="container">
+              <div class="row text-center-mob">
+                <div class="col-6">
+                  <img src="images/home-page/laspen-logo.png" class="w-70p">
+                </div>
+                <div class="col-6">
+                  <img src="images/home-page/n-logo.png" class="w-70p">
+                </div>
+                <div class="col-6">
+                  <img src="images/home-page/missy-logo.png" class="w-70p">
+                </div>
+                <div class="col-6">
+                  <img src="images/home-page/crop-logo.png" class="w-70p">
+                </div>
+                <div class="col-6">
+                  <img src="images/home-page/pixie-logo.png" class="w-70p">
+                </div>
+                <div class="col-6">
+                  <img src="images/home-page/pepper-logo.png" class="w-70p">
+                </div>
               </div>
-              <div class="col-md-4 text-center">
-                <img src="images/home-page/n-logo.png" data-aos="fade-up-right" class="w-70p">
-                <img src="images/home-page/pepper-logo.png" data-aos="fade-right" class="w-70p">
-                <img src="images/home-page/pixie-logo.png" data-aos="fade-right" class="w-70p">
-                <img src="images/home-page/crop-logo.png" data-aos="fade-down-right" class="w-70p">
+              <div class="mt-80 mt-40-md mt-40-lg mt-20-mob text-center-mob" data-aos="flip-down">
+                <button type="button" class="btn btn-2">EXPLORE OUR brands</button>
               </div>
             </div>
           </div>
@@ -560,33 +485,26 @@
 
   <section class="black-bg-1 py-50">
     <div class="container">
-      <div class="heading-1 fs-35 text-center" data-aos="fade-up">
+      <div class="heading-1 fs-35 fs-25-mob text-center" data-aos="fade-up">
         Work we have done
       </div>
-      <div class="heading-2 grey fs-18 mt-20 text-center px-300" data-aos="fade-up">
-        Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim placerat nisi, adipiscing mauris non
-        purus
-        parturient.
+      <div class="heading-2 grey fs-18 fs-12-mob mt-20 text-center w-90p-mob w-50p mx-auto" data-aos="fade-up">
+        Our portfolio showcases the magic we bring to interior spaces.
+        See how we've transformed living areas into captivating, cozy retreats.
+      </div>
+      <div class="heading-1 fs-25 fs-18-mob text-center mt-20" data-aos="fade-up">
+        Turning Houses into Homes, One Snapshot at a Time
       </div>
       <div class="mt-40" data-aos="zoom-in-down">
         <div class="owl-carousel owl-3 owl-theme">
           <div class="item">
-            <img src="images/home-page/owl-3-1.png">
-            <div class="heading-2 fs-20 grey-1 mt-20 text-center">
-              Curtains
-            </div>
+            <img src="/images/home-page/wwh-1.png" class="w-100p">
           </div>
           <div class="item">
-            <img src="images/home-page/owl-3-2.png">
-            <div class="heading-2 fs-20 grey-1 mt-20 text-center">
-              Lamp
-            </div>
+            <img src="/images/home-page/wwh-1.png" class="w-100p">
           </div>
           <div class="item">
-            <img src="images/home-page/owl-3-3.png">
-            <div class="heading-2 fs-20 grey-1 mt-20 text-center">
-              Chair
-            </div>
+            <img src="/images/home-page/wwh-1.png" class="w-100p">
           </div>
         </div>
         <div class="mt-30">
@@ -596,33 +514,29 @@
         </div>
       </div>
 
-      <div class="mt-50">
-        <div class="heading-2 fs-20 px-300 text-center" data-aos="fade-up">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat dolor odio odio
-          malesuada at condimentum
-          adipiscing
-          iaculis semper.
+      <div class="mt-50 mt-20-mob">
+        <div class="heading-2 fs-20 w-60p w-100p-mob fs-12-mob mx-auto text-center" data-aos="fade-up">
+          Picture-perfect results! Dive into a visual journey of our home decor projects. Witness the astonishing transitions
+          we've achieved through our passion for design.
         </div>
-        <div class="mt-50 text-center" data-aos="fade-up">
+        <div class="mt-50 mt-20-mob text-center" data-aos="fade-up">
           <button type="button" class="btn btn-1">EXPLORE OUR WORK</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-50">
+  <section class="py-50 py-20-mob">
     <div class="container">
-      <div class="heading-3 fs-26 text-center black-3 text-upper" data-aos="fade-up">
-        Media & publication
+      <div class="heading-3 fs-26 fs-16-mob text-center black-3 text-upper" data-aos="fade-up">
+        Our Media Moments
       </div>
-      <div class="heading-1 fs-45 black-1 text-center" data-aos="fade-up">
-        We featured for our work
+      <div class="heading-1 fs-45 fs-30-mob black-1 text-center" data-aos="fade-up">
+        Ink Meets Inspiration
       </div>
-      <div class="heading-2 text-center fs-18 black-4 px-300 mt-15" data-aos="fade-up">
-        Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim placerat nisi,
-        adipiscing mauris non
-        purus
-        parturient.
+      <div class="heading-2 text-center fs-18 black-4 w-90p-mob fs-12-mob w-60p mx-auto mt-15" data-aos="fade-up">
+        Explore our media and publications moments, where our home decor journey unfolds in the spotlight. From magazine
+        features to news articles, witness the buzz and inspiration we've stirred in the world of design.
       </div>
       <div class="mt-50 text-center" data-aos="zoom-in-left">
         <img src="/images/home-page/media1.png" class="w-70p text-center">
@@ -636,112 +550,418 @@
     </div>
   </section>
 
-  <section class="mt-50 mb-50">
+  <section class="mt-50 mt-30-mob mb-30-mob mb-50">
     <div class="position-relative">
       <div class="container">
-        <div class="">
-          <img src="/images/home-page/zoom-img.png" class="w-100p">
+        <div class="position-relative">
+          <img src="/images/home-page/zoom-img.png" class="w-100p position-relative">
         </div>
-        <!-- <img src="/images/home-page/zoom-btn.png" class=""> -->
+        <img src="/images/home-page/zoom-btn.png" class="position-3 w-4p w-10p-mob">
       </div>
     </div>
   </section>
 
-  
+  <section class="mt-50 mt-30-mob mb-30-mob mb-50">
+    <div class="container">
+      <div class="heading-2 fs-16 fs-12-mob text-center black-1 text-upper" data-aos="fade-up">
+        BLOGS
+      </div>
+      <div class="heading-1 fs-45 fs-30-mob black-1 text-center" data-aos="fade-up">
+        Article & News
+      </div>
+      <div class="heading-2 text-center fs-18 fs-14-mob black-4 w-60p w-90p-mob d-none-mob mx-auto mt-15"
+        data-aos="fade-up">
+        Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim placerat nisi, adipiscing mauris non
+        purus
+        parturient.
+      </div>
+      <div class="mt-50 mt-30-mob mx-0-mob mx-30">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-12">
+            <div class="heading-1 black-1 fs-18-mob w-80p-mob fs-35">
+              The best furniture comes from Lalasia
+            </div>
+            <div class="mt-20">
+              <div class="heading-2 black-1 fs-12-mob fs-16">
+                Pellentesque etiam blandit in tincidunt at donec.
+              </div>
+            </div>
+            <div class="mt-30">
+              <div class="owl-carousel owl-4 owl-theme">
+                <div class="item">
+                  <div class="h-500px h-300px-mob h-400px-lg bg-img-position br-10"
+                    style="background-image: url('/images/home-page/blog-home-1.png');">
+                    <div class="position-4">
+                      <div class="heading-2 fs-16 opacity-1">
+                        Tips and Trick
+                      </div>
+                      <div class="heading-8 white mt-10">
+                        Create Cozy Dinning Room Vibes
+                      </div>
+                      <div class="heading-2 fs-16 opacity-1 text-count mt-1">
+                        Decorating with neutrals brings balance to the dining room. With eclectic decoration on the
+                        sides, Caruso Dining Table
+                        and Cyrillo Dining Chairs elevate the tonal base of the room. The modern furniture set gives
+                        personality to any space in
+                        all types of architecture.‎ The wide volume enables everyone to sit back and relax, be it in the
+                        dining room,
+                        conference, or office.
+                      </div>
+                      <div class="mt-15">
+                        <a href=""><span class="heading-2 fs-16">Read More</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="h-500px h-300px-mob h-400px-lg bg-img-position br-10"
+                    style="background-image: url('/images/home-page/blog-home-1.png');">
+                    <div class="position-4">
+                      <div class="heading-2 fs-16 opacity-1">
+                        Tips and Trick
+                      </div>
+                      <div class="heading-8 white mt-10">
+                        Create Cozy Dinning Room Vibes
+                      </div>
+                      <div class="heading-2 fs-16 opacity-1 text-count mt-1">
+                        Decorating with neutrals brings balance to the dining room. With eclectic decoration on the
+                        sides, Caruso Dining Table
+                        and Cyrillo Dining Chairs elevate the tonal base of the room. The modern furniture set gives
+                        personality to any space in
+                        all types of architecture.‎ The wide volume enables everyone to sit back and relax, be it in the
+                        dining room,
+                        conference, or office.
+                      </div>
+                      <div class="mt-15">
+                        <a href=""><span class="heading-2 fs-16">Read More</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="h-500px h-300px-mob h-400px-lg bg-img-position br-10"
+                    style="background-image: url('/images/home-page/blog-home-1.png');">
+                    <div class="position-4">
+                      <div class="heading-2 fs-16 opacity-1">
+                        Tips and Trick
+                      </div>
+                      <div class="heading-8 white mt-10">
+                        Create Cozy Dinning Room Vibes
+                      </div>
+                      <div class="heading-2 fs-16 opacity-1 text-count mt-1">
+                        Decorating with neutrals brings balance to the dining room. With eclectic decoration on the
+                        sides, Caruso Dining Table
+                        and Cyrillo Dining Chairs elevate the tonal base of the room. The modern furniture set gives
+                        personality to any space in
+                        all types of architecture.‎ The wide volume enables everyone to sit back and relax, be it in the
+                        dining room,
+                        conference, or office.
+                      </div>
+                      <div class="mt-15">
+                        <a href=""><span class="heading-2 fs-16">Read More</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-none-md d-none-mob">
+            <div class="d-flex align-items-center">
+              <div class="w-50p w-66p-lg">
+                <img src="/images/home-page/blog-home-2.png" class="w-100p">
+              </div>
+              <div class="ml-3">
+                <div class="heading-2 fs-16 black-1" data-aos="fade-up">
+                  Tips and Trick
+                </div>
+                <div class="mt-15">
+                  <div class="heading-8 fs-18-lg black-1">
+                    6 ways to give your home minimalistic vibes
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <div class="heading-2 fs-16 black-1">
+                    Pellentesque etiam blandit in
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <div class="d-flex align-items-center">
+                    <div class="w-10p">
+                      <img src="/images/home-page/blog-profile1.png" class="w-100p">
+                    </div>
+                    <div class="ml-2 heading-3 fs-12 fs-10-lg black-1">
+                      By Jerremy Jean
+                    </div>
+                    <div class="ml-3 heading-2 fs-12 fs-10-lg black-1">
+                      Friday, 1 April 2022
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mt-30">
+              <div class="w-60p w-76p-lg">
+                <img src="/images/home-page/blog-home-3.png" class="w-100p">
+              </div>
+              <div class="ml-3">
+                <div class="heading-2 fs-16 black-1" data-aos="fade-up">
+                  Design Inspiration
+                </div>
+                <div class="mt-15">
+                  <div class="heading-8 fs-18-lg black-1">
+                    How to make your interiors cooler and more stylish
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <div class="heading-2 fs-16 black-1">
+                    Pellentesque etiam blandit in
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <div class="d-flex align-items-center">
+                    <div class="w-10p">
+                      <img src="/images/home-page/blog-profile2.png" class="w-100p">
+                    </div>
+                    <div class="ml-2 heading-3 fs-12 fs-10-lg black-1">
+                      By Michaela Augus
+                    </div>
+                    <div class="ml-3 heading-2 fs-12 fs-10-lg black-1">
+                      Friday, 1 April 2022
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mt-30">
+              <div class="w-50p w-56p-lg">
+                <img src="/images/home-page/blog-home-4.png" class="w-100p">
+              </div>
+              <div class="ml-3">
+                <div class="heading-2 fs-16 black-1" data-aos="fade-up">
+                  Tips and Trick
+                </div>
+                <div class="mt-15">
+                  <div class="heading-8 fs-18-lg black-1">
+                    Elements to add character to your space
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <div class="heading-2 fs-16 black-1">
+                    Pellentesque etiam blandit in
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <div class="d-flex align-items-center">
+                    <div class="w-10p">
+                      <img src="/images/home-page/blog-profile3.png" class="w-100p">
+                    </div>
+                    <div class="ml-2 heading-3 fs-12 fs-10-lg black-1">
+                      By Kim Gurameh
+                    </div>
+                    <div class="ml-3 heading-2 fs-12 fs-10-lg black-1">
+                      Friday, 1 April 2022
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-  <%= render "shared/footer" %>
+          </div>
+        </div>
+        <div class="d-none-md d-none-mob">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
 
-  <style>
-    
-    .tab-content {
-      display: none;
-    }
+              </div>
+              <div class="col-md-6">
+                <div class="mt-40" data-aos="flip-down">
+                  <button type="button" class="btn btn-2">VIEW ALL</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .tab-content.active {
-      display: block !important;
-    }
+  <%= render "shared/call_back" %>
 
-    .nav-item.tab-head {
-      border-radius: 30px;
-      border: 2px solid #FFF;
-    }
+    <%= render "shared/footer" %>
 
-    .nav-item span {
-      display: flex;
-      align-items: center;
-    }
+      <style>
+        .owl-theme .owl-nav [class*=owl-]:hover {
+          background: none !important;
+        }
 
-    .nav-link {
-      color: #FFF;
-      text-align: center;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-style: normal;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
+        .owl-1.owl-theme .owl-nav {
+          text-align: right;
+        }
 
-    .owl-1.owl-theme .owl-nav {
-      text-align: right;
-    }
+        .owl-carousel.owl-2 .owl-item img {
+          width: 50%;
+        }
 
-    .owl-carousel.owl-2 .owl-item img {
-      width: 50%;
-    }
+        .owl-carousel.owl-2 .owl-item .img-center {
+          display: flex;
+          justify-content: center;
+        }
 
-    .owl-carousel.owl-2 .owl-item .img-center {
-      display: flex;
-      justify-content: center;
-    }
+        .owl-carousel.owl-2 .owl-nav button.owl-prev {
+          position: absolute;
+          left: 0;
+          top: 35%;
+        }
 
-    .owl-carousel.owl-2 .owl-nav button.owl-prev {
-      position: absolute;
-      left: 0;
-      top: 35%;
-    }
+        .owl-carousel.owl-2 .owl-nav button.owl-next {
+          position: absolute;
+          right: 0;
+          top: 35%;
+        }
 
-    .owl-carousel.owl-2 .owl-nav button.owl-next {
-      position: absolute;
-      right: 0;
-      top: 35%;
-    }
+        .owl-carousel.owl-3 .owl-nav button.owl-prev {
+          position: absolute;
+          left: -5%;
+          top: 45%;
+        }
 
-    
-  </style>
+        .owl-carousel.owl-3 .owl-nav button.owl-next {
+          position: absolute;
+          right: -5%;
+          top: 45%;
+        }
 
-  <script>
-    $(document).ready(function () {
-      $(".owl-1").owlCarousel({
-        items: 1,
-        margin: 10,
-        loop: true,
-        nav: true,
-        dots: false
-      });
-      $(".owl-1 .owl-nav .owl-prev").html('<img src="/images/home-page/owl-1l.png" class="w-40px">');
-      $(".owl-1 .owl-nav .owl-next").html('<img src="/images/home-page/owl-1r.png" class="w-40px">');
-    });
+        .owl-carousel.owl-4 .owl-nav {
+          position: absolute;
+          right: 0;
+          bottom: -4%;
+        }
 
-    $(document).ready(function () {
-      $(".owl-2").owlCarousel({
-        items: 1,
-        margin: 10,
-        loop: true,
-        nav: true,
-        dots: false
-      });
-      $(".owl-2 .owl-nav .owl-prev").html('<img src="/images/home-page/owl-1l.png" class="w-40px">');
-      $(".owl-2 .owl-nav .owl-next").html('<img src="/images/home-page/owl-1r.png" class="w-40px">');
-    });
+        .owl-carousel.owl-4 .owl-nav button.owl-prev {
+          padding: 15px !important;
+          background: #1E1E1E !important;
+          margin: 0 !important;
+          border-radius: 0px !important;
+        }
 
-    $(document).ready(function () {
-      $(".owl-3").owlCarousel({
-        items: 3,
-        margin: 20,
-        loop: true,
-        nav: true,
-        dots: false
-      });
-    });
+        .owl-carousel.owl-4 .owl-nav button.owl-next {
+          padding: 15px !important;
+          background: #A7833D !important;
+          margin: 0 !important;
+          border-radius: 0px !important;
+        }
 
-  </script>
+        @media (min-width: 992px) and (max-width: 1099.98px) {
+          .tab-head .nav-link {
+            font-size: 10px !important;
+          }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199.98px) {
+          .tab-head .nav-link {
+            font-size: 10px !important;
+          }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+          .tab-head .nav-link {
+            font-size: 10px !important;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .owl-1.owl-theme .owl-nav {
+            text-align: center;
+          }
+
+          .owl-1 .owl-nav button.owl-prev {
+            position: absolute;
+            left: 0;
+            top: 40%;
+          }
+
+          .owl-1 .owl-nav button.owl-next {
+            position: absolute;
+            right: 0;
+            top: 40%;
+          }
+
+          .owl-carousel.owl-4 .owl-nav button.owl-next {
+            padding: 10px !important;
+          }
+
+          .owl-carousel.owl-4 .owl-nav button.owl-prev {
+            padding: 10px !important;
+          }
+
+          .owl-carousel.owl-3 .owl-nav button.owl-next {
+            right: 0;
+          }
+
+          .owl-carousel.owl-3 .owl-nav button.owl-prev {
+            left: 0;
+          }
+        }
+      </style>
+
+      <script>
+        $(document).ready(function () {
+          $(".owl-1").owlCarousel({
+            items: 1,
+            margin: 10,
+            loop: true,
+            nav: true,
+            dots: false
+          });
+          $(".owl-1 .owl-nav .owl-prev").html('<img src="/images/home-page/owl-1l.png" class="w-40px w-25-mob">');
+          $(".owl-1 .owl-nav .owl-next").html('<img src="/images/home-page/owl-1r.png" class="w-40px w-25-mob">');
+        });
+
+        $(document).ready(function () {
+          $(".owl-2").owlCarousel({
+            items: 1,
+            margin: 10,
+            loop: true,
+            nav: true,
+            dots: false
+          });
+          $(".owl-2 .owl-nav .owl-prev").html('<img src="/images/home-page/owl-1l.png" class="w-40px">');
+          $(".owl-2 .owl-nav .owl-next").html('<img src="/images/home-page/owl-1r.png" class="w-40px">');
+        });
+
+        $(document).ready(function () {
+          $(".owl-3").owlCarousel({
+            items: 1,
+            margin: 20,
+            loop: true,
+            nav: true,
+            dots: false
+          });
+          $(".owl-3 .owl-nav .owl-prev").html('<img src="/images/home-page/owl-1l.png" class="w-40px w-25-mob">');
+          $(".owl-3 .owl-nav .owl-next").html('<img src="/images/home-page/owl-1r.png" class="w-40px w-25-mob">');
+        });
+
+        $(document).ready(function () {
+          $(".owl-4").owlCarousel({
+            items: 1,
+            margin: 20,
+            loop: true,
+            nav: true,
+            dots: false
+          });
+          $(".owl-4 .owl-nav .owl-prev").html('<img src="/images/home-page/blog-harrow1.png" class="w-20px">');
+          $(".owl-4 .owl-nav .owl-next").html('<img src="/images/home-page/blog-harrow.png" class="w-20px">');
+        });
+
+        $(document).ready(function () {
+          $('.nav-link').on('click', function () {
+            // Remove the active class from all tabs
+            $('.nav-item').removeClass('active-tab');
+            // Add the active class to the clicked tab
+            $(this).closest('.nav-item').addClass('active-tab');
+          });
+        });
+
+      </script>
