@@ -30,6 +30,14 @@
   </div>
 </section>
 
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="para-1">Thank you for your Interest</div>
+    <div class="para-2">Will get back to you shortly.</div>
+    <a type="button" class="close-btn" id="closeModal">ok</a>
+  </div>
+</div>
+
 <style>
   .call form {
     width: 100%;
@@ -63,5 +71,97 @@
   /* Remove the default input focus outline */
   .call-back input:focus {
     outline: none;
+  }
+</style>
+
+<script>
+  // Get the modal and the button to close it
+  var modal = document.getElementById("myModal");
+  var closeModal = document.getElementById("closeModal");
+
+  // Get the submit button
+  var submitButton = document.querySelector(".btn.btn-4");
+
+  // When the submit button is clicked, show the modal
+  submitButton.addEventListener("click", function () {
+    modal.style.display = "block";
+  });
+
+  // When the close button is clicked, hide the modal
+  closeModal.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  // Close the modal if the user clicks outside of it
+  window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+<style>
+  /* Style for the modal */
+  .modal {
+    display: none;
+    /* Hide by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Style for the modal content */
+  .modal-content {
+    border-radius: 10px;
+    background: #FFF;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #8D8D8D;
+    border-radius: 5px;
+    color: #2D2D2D;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal-content .para-1 {
+    color: #2D2D2D;
+    font-family: 'DM Serif Display', serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .modal-content .para-2 {
+    color: #2D2D2D;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 30px;
+    /* 24px */
+    letter-spacing: 0.16px;
+  }
+
+  /* Style for the close button */
+  .close-btn {
+    border-radius: 6px !important;
+    background: #A7833D !important;
+    color: #FFF !important;
+    font-family: 'Lexend', sans-serif !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+    text-transform: uppercase !important;
+    width: fit-content !important;
+    margin: 30px auto;
+    padding: 10px 25px;
   }
 </style>

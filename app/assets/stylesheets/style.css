@@ -704,6 +704,15 @@
   right: 5%;
 }
 
+.position-5 {
+  position: absolute;
+  bottom: 10%;
+  left: 7%;
+  right: 10%;
+}
+
+
+
 .flex-position {
   display: flex;
   align-items: center;
@@ -757,6 +766,10 @@
   /* Center the text precisely */
   padding: 10px;
   /* Optional: Add some padding around the text */
+}
+
+a:hover {
+  text-decoration: none !important;
 }
 
 .d-flex-lg {

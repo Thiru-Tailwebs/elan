@@ -3,18 +3,18 @@
     <div class="container-fluid">
       <div class="d-flex align-items-center justify-content-end">
         <div class="mr-4">
-          <a href="">
+          <a href=" https://www.facebook.com/ELANFurnishings" target="_blank">
             <img src="/images/home-page/fb-banner.png" class="w-10px">
           </a>
         </div>
         <div class="mr-4">
-          <a href="">
-            <img src="/images/home-page/twit-banner.png" class="w-20px">
+          <a href="https://www.instagram.com/elanfurnishing/" target="_blank">
+            <img src="/images/home-page/insta-banner.png" class="w-20px">
           </a>
         </div>
         <div class="">
           <a href="">
-            <img src="/images/home-page/insta-banner.png" class="w-20px">
+            <img src="/images/home-page/twit-banner.png" class="w-20px">
           </a>
         </div>
       </div>
@@ -23,7 +23,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">
-      <img src="/images/home-page/elan-logo.png" width="100" class="d-inline-block align-top" alt="">
+      <img src="/images/home-page/elan-logo.png" width="80" class="d-inline-block align-top" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,11 +34,23 @@
         <li class="nav-item">
           <a class="nav-link" href="/">HOME</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/our_story">OUR STORY</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/our_story"  data-toggle="dropdown"
+            aria-expanded="false">
+            OUR STORY
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/media">MEDIA & PUBLICATION</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/brands">BRANDS</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/brands" role="button" data-toggle="dropdown" aria-expanded="true">
+            BRAND
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/brands">BRANDS WE HOUSE</a>
+            <a class="dropdown-item" href="/clientele">CLIENTELE</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/our_collections">OUR COLLECTIONS</a>
@@ -50,10 +62,10 @@
           <a class="nav-link" href="">Nri Homes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/media">Media Publications</a>
+          <a class="nav-link" href="/blogs">BLOG</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/blogs">BLOG</a>
+          <a class="nav-link" href="/contact_us">CONTACT</a>
         </li>
       </ul>
     </div>
@@ -107,6 +119,29 @@
     padding-right: 80px !important;
   }
 
+  .navbar .dropdown-menu {
+    font-size: 12px !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #A7833D !important;
+  }
+
+  .navbar-light .navbar-nav .show>.nav-link {
+    color: #A7833D !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link:focus {
+    color: #A7833D !important;
+  }
+
+  /* Custom CSS for dropdown hover */
+  .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+
+
   @media (min-width: 992px) and (max-width: 1199.98px) {
     .navbar-light .navbar-nav .nav-link {
       font-size: 12px;
@@ -119,7 +154,7 @@
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    .navbar-light .navbar-toggler-icon{
+    .navbar-light .navbar-toggler-icon {
       background-image: url('/images/home-page/hamber-mob.png') !important;
     }
 
@@ -135,7 +170,7 @@
       background-color: #1e1e1e !important;
     }
 
-    .navbar-collapse .nav-link{
+    .navbar-collapse .nav-link {
       text-align: left !important;
     }
   }
@@ -146,9 +181,8 @@
       padding-right: 20px !important;
     }
 
-    .navbar-light .navbar-toggler-icon{
+    .navbar-light .navbar-toggler-icon {
       background-image: url('/images/home-page/hamber-mob.png') !important;
     }
   }
-  
 </style>

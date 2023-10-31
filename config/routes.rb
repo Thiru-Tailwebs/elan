@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
   get '/our_services' => 'homes#our_services'
+  get '/book_services' => 'homes#book_services'
+  get '/blogs_detail' => 'homes#blogs_detail'
 
   get '/accessories' => 'product#accessories'
+  get '/fabrics' => 'product#fabrics'
 
 
   devise_for :users

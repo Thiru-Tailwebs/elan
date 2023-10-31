@@ -26,4 +26,10 @@ class HomesController < ApplicationController
   def our_services
   end
 
+  def book_services
+  end
+
+  def blogs_detail
+  end
+
 end
