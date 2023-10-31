@@ -24,5 +24,6 @@ class HomesController < ApplicationController
   end
 
   def our_services
+  end
 
 end

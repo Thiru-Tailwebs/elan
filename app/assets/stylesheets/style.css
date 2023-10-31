@@ -453,6 +453,10 @@
   color: #FFF;
 }
 
+.dark-grey {
+  color: #383838;
+}
+
 /* bg-colors */
 
 .black-bg {
@@ -580,6 +584,10 @@
 
 .w-30px {
   width: 30px;
+}
+
+.w-35px {
+  width: 35px;
 }
 
 .w-40px {

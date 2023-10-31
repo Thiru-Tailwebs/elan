@@ -1,16 +1,16 @@
 <%= render "shared/header" %>
-  <section class="bg-image-4">
-    <div class="bg-shadow-1 h-90vh">
-      <div class="container-1">
-        <div class="h-90vh d-flex align-items-center justify-content-center">
+  <section class="bg-images" style="background-image: url('/images/blogs/blog-banner.png');">
+    <div class="bg-shadow-1 h-90vh h-80vh-lg h-80vh-md h-80vh-mob">
+      <div class="container">
+        <div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
           <div>
-            <div data-aos="fade-up" class="heading-4 white fs-26 text-upper text-center">
-              blogs
+            <div class="heading-4 white fs-26 fs-18-mob text-upper text-center">
+              blogs & Article
             </div>
-            <div data-aos="fade-up" class="mt-15 heading-1 text-center">
+            <div data-aos="fade-up" class="mt-15 w-70p w-90p-mob mx-auto fs-35-mob heading-1 text-center">
               Primary tagline for blogs & articles
             </div>
-            <div data-aos="fade-up" class="mt-30 w-70p mx-auto heading-3 white text-center">
+            <div data-aos="fade-up" class="mt-30 w-70p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
               It is a long established fact that a reader will be distracted by the of readable content of a page.
             </div>
           </div>
@@ -22,7 +22,7 @@
   <section class="mt-50 mb-50">
     <div class="container">
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-10">
           <div data-aos="fade-right">
             <div class="">
               <img src="/images/blogs/blog-1.png" class="w-100p">
@@ -496,9 +496,9 @@
             <button type="button" class="btn btn-3">Submit</button>
           </div>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search...">
             <div class="input-group-append">
@@ -566,7 +566,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -637,3 +637,7 @@
       $(".blog-owl .owl-nav .owl-next").html('<img src="/images/blogs/blog-arrow-right.png" class="w-40px">');
     });
   </script>
+
+  <%= render "shared/call_back" %>
+  
+    <%= render "shared/footer" %>

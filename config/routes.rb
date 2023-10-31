@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root 'homes#index'
   get 'homes/index'
+
   get '/media' => 'homes#media'
   get '/contact_us' => 'homes#contact_us'
   get '/blogs' => 'homes#blogs'
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
   get '/our_services' => 'homes#our_services'
+
+  get '/accessories' => 'product#accessories'
 
 
   devise_for :users
