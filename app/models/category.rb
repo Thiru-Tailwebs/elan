@@ -9,11 +9,6 @@
 #  updated_at :datetime         not null
 #
 class Category < ApplicationRecord
-    has_many :category_images
+    has_many :category_images, dependent: :destroy
 
-	# def update_associations category_params
-	# 	self.category_images = Category.find(category_params["category"].reject(&:empty?)) if category_params["category"].present?
-	# 	self.countries = Country.find(master_class_params["countries"].reject(&:empty?)) if master_class_params["countries"].present?
-	# 	self.save!
-	# end
 end

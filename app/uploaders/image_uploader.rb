@@ -10,11 +10,4 @@ class ImageUploader < Shrine
         }
     end
 
-    # Attacher.validate do
-    #     # MAX 5 mb image we will get.
-    #     validate_max_size 5*1024*1024 # 5mb
-    #     validate_mime_type %w[image/jpeg image/png image/webp image/tiff]
-    #     validate_extension_inclusion %w[jpg jpeg png webp tiff tif]
-    # end
-
 end

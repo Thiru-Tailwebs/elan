@@ -12,3 +12,4 @@ rails g model Category name active:boolean
 rails g model CategoryImage category:references image_data:text priority:integer
 
 rails g scaffold admin/Category
+rails g scaffold admin/CategoryImage

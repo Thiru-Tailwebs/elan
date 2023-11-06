@@ -25,7 +25,6 @@ class Admin::CategoriesController < Admin::AdminbaseController
 
     respond_to do |format|
       if @category.save
-        # @category.update_associations(params["category"])
         format.html { redirect_to admin_categories_url, notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @category }
       else
@@ -67,7 +66,9 @@ class Admin::CategoriesController < Admin::AdminbaseController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.fetch(:category, {})
-      params.require(:category).permit(:name, :active)
+      params.require(:category).permit(
+        :name, :active,
+        category_images_attributes: [:id, :image]
+      )
     end
 end

@@ -19,4 +19,18 @@
 #
 class CategoryImage < ApplicationRecord
   belongs_to :category
+  include ImageUploader::Attachment(:image)
+
+	def update_associations params
+    qry_category = Category.find(params['category_id'])
+
+    params['image'].each do |i|
+      if i.present?
+        CategoryImage.create(
+          category: qry_category,
+          image: i
+        )
+      end
+    end
+	end
 end
