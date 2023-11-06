@@ -1,0 +1,49 @@
+<%= form_with(model: [:admin, @header_image], html: { class: 'form-horizontal' }) do |form| %>
+  <% if @header_image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@header_image.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @header_image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, class: 'form-control', placeholder: "Enter name" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label :description, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :description, class: 'form-control', placeholder: "Enter description" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :image, class: 'form-control', accept:'image/*', required: "required" %>
+        <% else %>
+          <%= form.file_field :image, class: 'form-control', accept:'image/*' %>
+        <% end %>
+        <p><strong>Note: </strong> We accept 323 × 366 dimation image.</p>
+      </div>
+      <%= form.label "Active*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <select class="select2 form-control" data-placeholder="Select role" style="width: 100%;" name="header_image[active]" id="header_image_active" required>
+          <option value="true" <% if @header_image.active == true %> selected <% end %>>True</option>
+          <option value="false" <% if @header_image.active == false %> selected <% end %>>False</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_header_images_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %>

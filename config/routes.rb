@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    resources :header_images
     get '/admin/dashboard' => 'admin/dashboard#index'
   end
 end

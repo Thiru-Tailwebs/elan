@@ -6,3 +6,6 @@ rails g migration AddRoleToUser role:references
 User.create(email: "kartik@tailwebs.com", role_id: 1, password: "123456")
 
 rails g model HeaderImage name description active:boolean image_data:text
+rails g scaffold admin/HeaderImage --skip
+
+

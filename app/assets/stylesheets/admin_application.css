@@ -11,4 +11,5 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require admin/custom_css/custom_css.css
  */
