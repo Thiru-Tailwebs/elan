@@ -1,0 +1,49 @@
+# name will be display in github action main page.
+name: ROR CI/CD Pipeline 🚀
+
+# define your branch like which branch you want to create the CI/CD Pipeline
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # name will be display inside the action page (once you open single workflow that page you will be see this name).
+    name: Deploy Code
+
+    steps:
+      # once you click on 'Deploy Code' that time this name will be displayed
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # once you click on 'Deploy Code' that time this name will be displayed
+      # here we are creating the ssh key filename and updating the filename permission.
+      - name: Setup SSH key :)
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.tw_staging }}" > ~/.ssh/tw_staging
+          chmod 600 ~/.ssh/tw_staging
+
+      - name: Install and use RVM
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2 # Replace with your desired Ruby version
+
+      - name: Add x86_64-linux platform to Gemfile.lock
+        run: bundle lock --add-platform x86_64-linux
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --deployment --without development test
+
+      - name: Connected To SSH Server & Deploy 🚀
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/tw_staging ${{ secrets.username }}@${{ secrets.host }} 'bash -s' <<'ENDSSH'
+          cd /home/gaganbabber/rails/staging/demo_ci_cd
+          git pull
+          # bundle install --deployment --without development test
+          ENDSSH

@@ -75,3 +75,5 @@ gem 'mysql2', '~> 0.5.5'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'annotate', '~> 3.2'
 gem 'cancancan', '~> 3.5'
+gem "shrine", "~> 3.5.0"
+gem "image_processing", "~> 1.12.2"
