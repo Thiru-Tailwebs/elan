@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: one
+  image_data: MyText
+  priority: 1
+
+two:
+  category: two
+  image_data: MyText
+  priority: 1
