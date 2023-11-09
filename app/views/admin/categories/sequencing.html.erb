@@ -1,0 +1,86 @@
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Update Sequencing</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="<%= admin_dashboard_path %>">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="<%= admin_categories_path %>">Categories</a></li>
+                <li class="breadcrumb-item active">Update Sequencing</li>
+              </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<div class="callout callout-info">
+					<h5><i class="fas fa-info"></i> Note:</h5>
+					You can update the ranking or priority using drang and drop functionality.
+				</div>
+                <div class="card card-primary">
+                    <div class="card-header p-0 pt-1"></div>
+					<div class="card-body">
+						<br>
+						<div class="col-lg-7 col-md-12 mb-3">
+							<ul id="sortable-list" class="list-group">
+								<% @categories.each_with_index do |item, index| %>
+									<li data-id="<%= item.id %>" data-index="<%= index %>" class="list-group-item d-flex justify-content-between align-items-center handle" style="cursor: move; background-color: #dddddd;">
+										<div class="d-flex align-items-center">
+											<div class="item-number mr-3"><%= index + 1 %>.</div>
+											<div class="mr-3">
+												<%= item.name %>
+											</div>
+										</div>
+										<i class="fas fa-grip-vertical"></i>
+									</li>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const sortableList = document.getElementById("sortable-list");
+
+		if (sortableList) {
+			new Sortable(sortableList, {
+				handle: ".handle",
+				onUpdate: function(event) {
+					const sortedItemIds = Array.from(event.to.children).map(item => item.dataset.id);
+
+					fetch("/admin/categories/update_sequence", {
+						method: "POST",
+						headers: {
+						"Content-Type": "application/json",
+						"X-CSRF-Token": "<%= form_authenticity_token %>"
+						},
+						body: JSON.stringify({ item_ids: sortedItemIds })
+					});
+					updateNumbers();
+				}
+			});
+		}
+
+		function updateNumbers() {
+			$("#sortable-list .list-group-item").each(function(index) {
+				const itemNumber = index + 1;
+				$(this).find(".item-number").text(itemNumber + ".");
+				$(this).attr("data-index", index);
+			});
+		}
+	});
+</script>

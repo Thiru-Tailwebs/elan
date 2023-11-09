@@ -58,6 +58,18 @@ class Admin::CategoriesController < Admin::AdminbaseController
     # end
   end
 
+  def sequencing
+    @categories = Category.where(active: true).order(:priority)
+  end
+
+  def update_sequence
+    params[:item_ids].each_with_index do |item_id, index|
+      Category.find(item_id).update(priority: index + 1)
+    end
+
+    head :ok
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category

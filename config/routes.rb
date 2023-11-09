@@ -28,7 +28,12 @@ Rails.application.routes.draw do
   # Admin sidebar manus
   namespace :admin do
     resources :category_images
-    resources :categories
+    resources :categories do
+      collection do
+        get '/sequencing', to: "categories#sequencing"
+        post "/update_sequence", to: "categories#update_sequence"
+      end
+    end
     resources :header_images
     get '/admin/dashboard' => 'admin/dashboard#index'
   end
