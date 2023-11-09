@@ -1,6 +1,6 @@
 class Admin::CategoryImagesController < Admin::AdminbaseController
   before_action :set_category_image, only: %i[ show edit update destroy ]
-  before_action :set_category, only: [:new, :edit, :sequencing]
+  before_action :set_category, only: [:index, :new, :edit, :sequencing]
 
   # GET /admin/category_images or /admin/category_images.json
   def index

@@ -27,7 +27,7 @@
                         </ul> %>
                     </div>
                     <div class="card-body">
-                        <div class="mb-3">
+                        <div class="form-group row ml-1">
                             <% if can? :create, @category_image %>
                                 <a href="<%= new_admin_category_image_path %>" class="btn btn-primary mr-3">
                                     <i class="fa fa-plus">&nbsp;</i>Add Record
@@ -35,6 +35,17 @@
                             <% end %>
                             <a href="<%= sequencing_admin_category_images_path %>" class="btn btn-secondary mr-3">
                                 <i class="fa fa-edit">&nbsp;</i>Edit Sequencing
+                            </a>
+                            <div class="col-sm-3 mr-3">
+                                <select class="select2" data-placeholder="Select people type" style="width: 100%;" name="category" id="category" required>
+                                    <option value="" selected disabled>Select people type</option>
+                                    <% @categories.each do |data| %>
+                                        <option value="<%= data.name %>"><%= data.name %></option>
+                                    <% end %>
+                                </select>
+                            </div>
+                            <a href="<%= admin_category_images_path %>" class="btn btn-info mr-3">
+                                <i class="fas fa-sync-alt" aria-hidden="true"></i>
                             </a>
                         </div>
 
@@ -109,6 +120,23 @@
 
 <script>
 	$(document).ready(function() {
+        // Event listener for the categories type select dropdown
+        $('#category').on('change', function() {
+            var selectedValue = $(this).val(); // Get the selected value
+
+            // Loop through each table row
+            $('#example1 tbody tr').each(function() {
+                var dataValue = $(this).find('td:first-child').text(); // Get the people type value from the first cell
+
+                // Compare the selected people type with the row's people type
+                if (selectedValue === '' || dataValue === selectedValue) {
+                    $(this).show(); // Show the row
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+
         document.getElementById('related-data-div').style.display = 'none';
 
 		$('.delete-record').click(function () {
