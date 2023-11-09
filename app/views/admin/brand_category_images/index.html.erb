@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">BrandCategories</h1>
+                <h1 class="m-0">Brand Category Images</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="<%= admin_dashboard_url %>">Dashboard</a></li>
-                <li class="breadcrumb-item active">Brand Categories</li>
+                <li class="breadcrumb-item"><a href="<%= admin_brand_category_images_url %>">Dashboard</a></li>
+                <li class="breadcrumb-item active">Brand Category Images</li>
                 </ol>
             </div>
         </div>
@@ -27,14 +27,25 @@
                         </ul> %>
                     </div>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <% if can? :create, @brand_categories %>
-                                <a href="<%= new_admin_brand_category_path %>" class="btn btn-primary mr-3">
+                        <div class="form-group row ml-1">
+                            <% if can? :create, @brand_category_image %>
+                                <a href="<%= new_admin_brand_category_image_path %>" class="btn btn-primary mr-3">
                                     <i class="fa fa-plus">&nbsp;</i>Add Record
                                 </a>
                             <% end %>
-                            <a href="<%= sequencing_admin_brand_categories_path %>" class="btn btn-secondary mr-3">
+                            <a href="<%= sequencing_admin_brand_category_images_path %>" class="btn btn-secondary mr-3">
                                 <i class="fa fa-edit">&nbsp;</i>Edit Sequencing
+                            </a>
+                            <div class="col-sm-3 mr-3">
+                                <select class="select2" data-placeholder="Select brand category" style="width: 100%;" id="category" required>
+                                    <option value="" selected disabled>Select brand category</option>
+                                    <% @brand_categories.each do |data| %>
+                                        <option value="<%= data.name %>"><%= data.name %></option>
+                                    <% end %>
+                                </select>
+                            </div>
+                            <a href="<%= admin_brand_category_images_path %>" class="btn btn-info mr-3">
+                                <i class="fas fa-sync-alt" aria-hidden="true"></i>
                             </a>
                         </div>
 
@@ -42,30 +53,27 @@
                             <table class="table table-bordered table-striped" id="example1">
                                 <thead>
                                     <tr>
-                                        <th>Brand Category</th>
-                                        <th>Active</th>
+                                        <th>Brand Category Name</th>
+                                        <th>Image</th>
+                                        <th>View Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <% @brand_categories.each do |data| %>
+                                    <% @brand_category_images.each do |data| %>
                                         <tr>
-                                            <td><%= data.name %></td>
+                                            <td><%= data.brand_category.name %></td>
                                             <td>
-                                                <% if data.active == true %>
-                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                <% if data.image.present? %>
+                                                    <%= image_tag data.image_url, height: "80px", width: "150px" %> 
                                                 <% else %>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                    <img src="/images/user_avtar.png" alt="Not found!" height="80px" width="80px">
                                                 <% end %>
                                             </td>
+                                            <td><a href="<%= data.image_url %>" class="btn btn-info" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                             <td>
-                                                <% if can? :update, @brand_categories %>
-                                                    <%= link_to edit_admin_brand_category_path(data), class: 'btn btn-primary mr-3' do %>
-                                                        <i class="fa fa-edit "></i>
-                                                    <% end %>
-                                                <% end %>
-                                                <% if can? :destroy, @brand_categories %>
+                                                <% if can? :destroy, @brand_category_images %>
                                                     <button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
@@ -107,6 +115,23 @@
 
 <script>
 	$(document).ready(function() {
+        // Event listener for the categories type select dropdown
+        $('#category').on('change', function() {
+            var selectedValue = $(this).val(); // Get the selected value
+
+            // Loop through each table row
+            $('#example1 tbody tr').each(function() {
+                var dataValue = $(this).find('td:first-child').text(); // Get the people type value from the first cell
+
+                // Compare the selected people type with the row's people type
+                if (selectedValue === '' || dataValue === selectedValue) {
+                    $(this).show(); // Show the row
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+
 		$('.delete-record').click(function () {
             var recordId = $(this).data('id');
             $('#deleteModel').modal('show');
@@ -116,7 +141,7 @@
                 var csrfToken = $('meta[name=csrf-token]').attr('content');
 
                 $.ajax({
-                    url: '/admin/brand_categories/' + recordId,
+                    url: '/admin/brand_category_images/' + recordId,
                     headers: {
                         'X-CSRF-Token': csrfToken
                     },

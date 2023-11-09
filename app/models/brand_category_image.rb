@@ -19,4 +19,18 @@
 #
 class BrandCategoryImage < ApplicationRecord
   belongs_to :brand_category
+  include ImageUploader::Attachment(:image)
+
+	def update_associations params
+    qry_category = BrandCategory.find(params['brand_category_id'])
+
+    params['image'].each do |i|
+      if i.present?
+        BrandCategoryImage.create(
+          brand_category: qry_category,
+          image: i
+        )
+      end
+    end
+	end
 end

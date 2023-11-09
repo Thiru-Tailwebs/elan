@@ -1,0 +1,145 @@
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Update Sequencing</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="<%= admin_dashboard_path %>">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="<%= admin_brand_category_images_path %>">Brand Category Images</a></li>
+                <li class="breadcrumb-item active">Update Sequencing</li>
+              </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+				<div class="callout callout-info">
+					<h5><i class="fas fa-info"></i> Note:</h5>
+					You can update the ranking or priority using drang and drop functionality.
+				</div>
+                <div class="card card-primary">
+                    <div class="card-header p-0 pt-1"></div>
+					<div class="card-body">
+						<div class="form-group row ml-1">
+							<label class='col-sm-2 col-form-label'>Category: </label>
+                            <div class="col-sm-3">
+                                <select class="select2" data-placeholder="Select brand category" style="width: 100%;" name="category" id="category" required>
+                                    <option value="" selected disabled>Select brand category</option>
+                                    <% @brand_categories.each do |data| %>
+                                        <option value="<%= data.code %>"><%= data.name %></option>
+                                    <% end %>
+                                </select>
+                            </div>
+						</div><br>
+
+						<div class="col-lg-7 col-md-12 mb-3">
+							<ul id="sortable-list" class="list-group">
+								<% if @brand_category_images.present? %>
+									<% @brand_category_images.each_with_index do |item, index| %>
+										<li data-id="<%= item.id %>" data-index="<%= index %>" class="list-group-item d-flex justify-content-between align-items-center handle" style="cursor: move; background-color: #dddddd;">
+											<div class="d-flex align-items-center">
+												<div class="item-number mr-3"><%= index + 1 %>.</div>
+												<div class="mr-3">
+													<%# item.category.name %>
+													<%= image_tag item.image_url, height: "60px", width: "100px", style: "background-color: #bfbfbf;" %>
+												</div>
+												<%# item.brand_category.name %>
+											</div>
+											<i class="fas fa-grip-vertical"></i>
+										</li>
+									<% end %>
+								<% else %>
+									<li data-id="1" data-index="1" class="list-group-item d-flex justify-content-between align-items-center">
+										<div class="d-flex align-items-center">
+											<div class="mr-3">
+												<span style="text-align: center;">No record found!</span>
+											</div>
+										</div>
+										<i class="fas fa-grip-vertical"></i>
+									</li>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const sortableList = document.getElementById("sortable-list");
+
+		if (sortableList) {
+			new Sortable(sortableList, {
+				handle: ".handle",
+				onUpdate: function(event) {
+					const sortedItemIds = Array.from(event.to.children).map(item => item.dataset.id);
+
+					fetch("/admin/brand_category_images/update_sequence", {
+						method: "POST",
+						headers: {
+						"Content-Type": "application/json",
+						"X-CSRF-Token": "<%= form_authenticity_token %>"
+						},
+						body: JSON.stringify({ item_ids: sortedItemIds })
+					});
+					updateNumbers();
+				}
+			});
+		}
+
+		function updateNumbers() {
+			$("#sortable-list .list-group-item").each(function(index) {
+				const itemNumber = index + 1;
+				$(this).find(".item-number").text(itemNumber + ".");
+				$(this).attr("data-index", index);
+			});
+		}
+	});
+</script>
+
+<script>
+	// Function to get URL query parameter by name
+	function getUrlParam(name) {
+		var urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get(name);
+	}
+
+	if (getUrlParam('category') != null) {
+		var searchParam = getUrlParam('category');
+		// Set the values in the text boxes
+		document.getElementById('category').value = searchParam;
+	}
+
+	$(document).ready(function() {
+		// Listen for changes in the dropdown
+		$('#category').change(function() {
+			var selectedType = $('#category').val();
+
+			$.ajax({
+				url: '<%= sequencing_admin_brand_category_images_path %>',
+				method: 'GET',
+				data: { category: selectedType },
+				success: function(response) {
+					var newUrl = window.location.href.split('?')[0] + '?category='+selectedType;
+					history.pushState({ path: newUrl }, '', newUrl);
+					location.reload();
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		});
+	});
+</script>

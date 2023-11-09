@@ -1,0 +1,41 @@
+<%= form_with(model: [:admin, @brand_category_image], html: { class: 'form-horizontal' }) do |form| %>
+  <% if @brand_category_image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@brand_category_image.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @brand_category_image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label "Brand Category*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <select class="select2 form-control" data-placeholder="Select brand category" style="width: 100%;" name="brand_category_image[brand_category_id]" required>
+          <option value="" selected disabled>Select brand category</option>
+          <% @brand_categories.each do |data| %>
+            <option value="<%= data.id %>" <% if @brand_category_image.brand_category_id == data.id %> selected <% end %>><%= data.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :image, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required" %>
+        <% else %>
+          <%= form.file_field :image, class: 'form-control', multiple: "multiple", accept:'image/*' %>
+        <% end %>
+        <p><strong>Note: </strong> We accept 323 × 366 dimation image.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_brand_category_images_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %>
