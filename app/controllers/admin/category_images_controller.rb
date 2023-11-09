@@ -4,7 +4,7 @@ class Admin::CategoryImagesController < Admin::AdminbaseController
 
   # GET /admin/category_images or /admin/category_images.json
   def index
-    @category_images = CategoryImage.all
+    @category_images = CategoryImage.all.order(:category_id)
   end
 
   # GET /admin/category_images/1 or /admin/category_images/1.json
