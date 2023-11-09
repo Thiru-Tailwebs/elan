@@ -1,0 +1,32 @@
+<%= form_with(model: [:admin, @brand_category], html: { multipart: true, class: 'form-horizontal' }) do |form| %>
+  <% if @brand_category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@brand_category.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @brand_category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <%= form.text_field :name, class: 'form-control', placeholder: "Enter name" %>
+      </div>
+      <%= form.label "Active*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <select class="select2 form-control" data-placeholder="Select role" style="width: 100%;" name="brand_category[active]" id="category_active" required>
+          <option value="true" <% if @brand_category.active == true %> selected <% end %>>True</option>
+          <option value="false" <% if @brand_category.active == false %> selected <% end %>>False</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_brand_categories_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %>
