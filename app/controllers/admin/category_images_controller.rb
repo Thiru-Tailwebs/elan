@@ -1,6 +1,6 @@
 class Admin::CategoryImagesController < Admin::AdminbaseController
   before_action :set_category_image, only: %i[ show edit update destroy ]
-  before_action :set_category, only: [:new, :edit]
+  before_action :set_category, only: [:new, :edit, :sequencing]
 
   # GET /admin/category_images or /admin/category_images.json
   def index
@@ -49,6 +49,23 @@ class Admin::CategoryImagesController < Admin::AdminbaseController
     #   format.html { redirect_to admin_category_images_url, notice: "Category image was successfully destroyed." }
     #   format.json { head :no_content }
     # end
+  end
+
+  def update_sequence
+    params[:item_ids].each_with_index do |item_id, index|
+      CategoryImage.find(item_id).update(priority: index + 1)
+    end
+
+    head :ok
+  end
+
+  def sequencing
+    @category_images = nil
+    if params['category'].present?
+      @category_images = CategoryImage.joins(:category).where(
+        :categories => {:code => params['category']},
+      ).order(:priority)
+    end
   end
 
   private

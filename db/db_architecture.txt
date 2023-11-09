@@ -15,3 +15,4 @@ rails g scaffold admin/Category
 rails g scaffold admin/CategoryImage
 
 rails g migration AddPriorityToCategory priority:integer
+rails g migration AddCodeToCategory code

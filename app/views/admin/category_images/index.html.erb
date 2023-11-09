@@ -27,13 +27,16 @@
                         </ul> %>
                     </div>
                     <div class="card-body">
-                        <% if can? :create, @category_image %>
-                            <div class="mb-3">
+                        <div class="mb-3">
+                            <% if can? :create, @category_image %>
                                 <a href="<%= new_admin_category_image_path %>" class="btn btn-primary mr-3">
                                     <i class="fa fa-plus">&nbsp;</i>Add Record
                                 </a>
-                            </div>
-                        <% end %>
+                            <% end %>
+                            <a href="<%= sequencing_admin_category_images_path %>" class="btn btn-secondary mr-3">
+                                <i class="fa fa-edit">&nbsp;</i>Edit Sequencing
+                            </a>
+                        </div>
 
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped" id="example1">
