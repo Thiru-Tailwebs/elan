@@ -16,3 +16,9 @@ rails g scaffold admin/CategoryImage
 
 rails g migration AddPriorityToCategory priority:integer
 rails g migration AddCodeToCategory code
+
+rails g model BrandCategory name active:boolean code priority:integer image_data:text
+rails g model BrandCategoryImage brand_category:references image_data:text priority:integer
+rails g scaffold admin/BrandCategory
+rails g scaffold admin/BrandCategoryImage
+
