@@ -22,3 +22,6 @@ rails g model BrandCategoryImage brand_category:references image_data:text prior
 rails g scaffold admin/BrandCategory
 rails g scaffold admin/BrandCategoryImage
 
+rails g model Author name active:boolean code image_data:text
+
+rails g model BlogType name active:boolean code
