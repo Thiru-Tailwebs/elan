@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Categories</h1>
+                <h1 class="m-0">Blog Type</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="<%= admin_dashboard_url %>">Dashboard</a></li>
-                <li class="breadcrumb-item active">Categories</li>
+                <li class="breadcrumb-item active">Blog Type</li>
                 </ol>
             </div>
         </div>
@@ -27,16 +27,13 @@
                         </ul> %>
                     </div>
                     <div class="card-body">
-                        <div class="mb-3">
-                            <% if can? :create, @categories %>
-                                <a href="<%= new_admin_category_path %>" class="btn btn-primary mr-3">
+						<% if can? :create, @blog_types %>
+                        	<div class="mb-3">
+                                <a href="<%= new_admin_blog_type_path %>" class="btn btn-primary mr-3">
                                     <i class="fa fa-plus">&nbsp;</i>Add Record
                                 </a>
-                            <% end %>
-                            <a href="<%= sequencing_admin_categories_path %>" class="btn btn-secondary mr-3">
-                                <i class="fa fa-edit">&nbsp;</i>Edit Sequencing
-                            </a>
-                        </div>
+                        	</div>
+						<% end %>
 
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped" id="example1">
@@ -49,7 +46,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <% @categories.each do |data| %>
+                                    <% @blog_types.each do |data| %>
                                         <tr>
                                             <td><%= data.name %></td>
                                             <td>
@@ -60,12 +57,12 @@
                                                 <% end %>
                                             </td>
                                             <td>
-                                                <% if can? :update, @categories %>
-                                                    <%= link_to edit_admin_category_path(data), class: 'btn btn-primary mr-3' do %>
+                                                <% if can? :update, @blog_types %>
+                                                    <%= link_to edit_admin_blog_type_path(data), class: 'btn btn-primary mr-3' do %>
                                                         <i class="fa fa-edit "></i>
                                                     <% end %>
                                                 <% end %>
-                                                <% if can? :destroy, @categories %>
+                                                <% if can? :destroy, @blog_types %>
                                                     <button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
@@ -93,7 +90,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="related-data-div">
-                        <p><b>NOTE: </b>Listed below are the categories that <strong id="person-name-strong"></strong> is linked to:</p>
+                        <p><b>NOTE: </b>Listed below are the blog_types that <strong id="person-name-strong"></strong> is linked to:</p>
                         <ul id="related-data-ul">
                         </ul>
                     </div>
@@ -123,7 +120,7 @@
                 var csrfToken = $('meta[name=csrf-token]').attr('content');
 
                 $.ajax({
-                    url: '/admin/categories/' + recordId,
+                    url: '/admin/blog_types/' + recordId,
                     headers: {
                         'X-CSRF-Token': csrfToken
                     },

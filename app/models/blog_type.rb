@@ -10,7 +10,6 @@
 #  updated_at :datetime         not null
 #
 class BlogType < ApplicationRecord
-    include ImageUploader::Attachment(:image)
 	before_save :update_code
 
     private
