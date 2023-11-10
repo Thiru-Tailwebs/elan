@@ -23,5 +23,6 @@ rails g scaffold admin/BrandCategory
 rails g scaffold admin/BrandCategoryImage
 
 rails g model Author name active:boolean code image_data:text
+rails g scaffold admin/Author
 
 rails g model BlogType name active:boolean code

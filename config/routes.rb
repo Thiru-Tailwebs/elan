@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    resources :authors
     resources :brand_category_images do
       collection do
         get '/sequencing', to: "brand_category_images#sequencing"
