@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   root 'homes#index'
-  get 'homes/index'
 
   get '/media' => 'homes#media'
+
+  get '/products' => 'products#index'
+  get '/products/:id', to: 'products#show', as: 'show_product'
+
   get '/contact_us' => 'homes#contact_us'
   get '/blogs' => 'homes#blogs'
   get '/our_collections' => 'homes#our_collections'
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/accessories' => 'product#accessories'
   get '/fabrics' => 'product#fabrics'
+
+
 
 
   devise_for :users

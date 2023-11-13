@@ -21,7 +21,7 @@
   <div class="row mt-50">
     <div class="col-md-12">
       <% @categories.each_with_index do |data, index|%>
-        <% @images = CategoryImage.get_images_from_category(data.code) %>
+        <% @images = CategoryImage.get_images_from_category(data.code).first(6) %>
         <div id="tab-<%= index + 1 %>" class="tab-content <% if index == 0 %>active<% end %>">
           <div class="row">
             <% @images.each do |i| %>

@@ -42,6 +42,8 @@
                             <table class="table table-bordered table-striped" id="example1">
                                 <thead>
                                     <tr>
+                                        <th>Image</th>
+                                        <th>Image2</th>
                                         <th>Name</th>
                                         <th>Active</th>
                                         <th>Action</th>
@@ -51,6 +53,20 @@
                                 <tbody>
                                     <% @categories.each do |data| %>
                                         <tr>
+                                            <td>
+                                                <% if data.image.present? %>
+                                                    <%= image_tag data.image_url, height: "80px", width: "150px" %> 
+                                                <% else %>
+                                                    <img src="/images/user_avtar.png" alt="Not found!" height="80px" width="80px">
+                                                <% end %>
+                                            </td>
+                                            <td>
+                                                <% if data.image2.present? %>
+                                                    <%= image_tag data.image2_url, height: "80px", width: "80px" %> 
+                                                <% else %>
+                                                    <img src="/images/user_avtar.png" alt="Not found!" height="80px" width="80px">
+                                                <% end %>
+                                            </td>
                                             <td><%= data.name %></td>
                                             <td>
                                                 <% if data.active == true %>

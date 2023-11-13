@@ -5,9 +5,6 @@ class HomesController < ApplicationController
 
   def index
     @banner_image = HeaderImage.where(active: true).last
-    @category_tab1 = CategoryImage.joins(:category).where(
-      :categories => {:code => @categories[0].code}
-    ).order(:priority)
   end
 
   def media

@@ -79,8 +79,7 @@ class Admin::CategoriesController < Admin::AdminbaseController
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(
-        :name, :active,
-        category_images_attributes: [:id, :image]
+        :name, :active, :image, :image2
       )
     end
 end
