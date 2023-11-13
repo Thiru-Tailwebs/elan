@@ -1,5 +1,13 @@
 class HomesController < ApplicationController
+  before_action :set_category, only: %i[
+    index media
+  ]
+
   def index
+    @banner_image = HeaderImage.where(active: true).last
+    @category_tab1 = CategoryImage.joins(:category).where(
+      :categories => {:code => @categories[0].code}
+    ).order(:priority)
   end
 
   def media
@@ -32,4 +40,8 @@ class HomesController < ApplicationController
   def blogs_detail
   end
 
+  private
+    def set_category
+      @categories = Category.where(active: true).order(:priority)
+    end
 end

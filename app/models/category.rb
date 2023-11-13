@@ -17,6 +17,6 @@ class Category < ApplicationRecord
     private
 
         def update_code
-        self.code = self.name.downcase.gsub(/[^a-zA-Z0-9\s]/, '').gsub(/\s+/, '_')
+            self.code = self.name.downcase.gsub(/[^a-zA-Z0-9\s]/, '').gsub(/\s+/, '_')
         end
 end
