@@ -80,7 +80,7 @@ class Admin::BlogsController < Admin::AdminbaseController
     # Only allow a list of trusted parameters through.
     def blog_params
       params.require(:blog).permit(
-        :title, :name, :description1, :description2, :image, :author_id
+        :title, :name, :description1, :description2, :image, :author_id, :is_featured
       )
     end
 end

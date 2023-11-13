@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 
@@ -9,17 +8,16 @@ Rails.application.routes.draw do
 
   get '/products' => 'products#index'
   get '/products/:id', to: 'products#show', as: 'show_product'
+  get '/blogs' => 'blogs#index'
+  get '/blogs/:id', to: 'blogs#show', as: 'show_blog'
 
   get '/contact_us' => 'homes#contact_us'
-  get '/blogs' => 'homes#blogs'
   get '/our_collections' => 'homes#our_collections'
   get '/our_story' => 'homes#our_story'
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
   get '/our_services' => 'homes#our_services'
   get '/book_services' => 'homes#book_services'
-  get '/blogs_detail' => 'homes#blogs_detail'
-
   get '/accessories' => 'product#accessories'
   get '/fabrics' => 'product#fabrics'
 

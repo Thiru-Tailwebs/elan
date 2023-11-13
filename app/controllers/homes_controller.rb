@@ -5,6 +5,10 @@ class HomesController < ApplicationController
 
   def index
     @banner_image = HeaderImage.where(active: true).last
+    @blogs_featured = Blog.where(is_featured: true).last(3)
+    @blogs_latest = Blog.all_published_data.where.not(
+      id: @blogs_featured.pluck(:id)
+    ).order('published_dt DESC').first(3)
   end
 
   def media

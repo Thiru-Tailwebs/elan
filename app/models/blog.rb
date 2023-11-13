@@ -6,6 +6,7 @@
 #  description1 :text(65535)
 #  description2 :text(65535)
 #  image_data   :text(65535)
+#  is_featured  :boolean          default(FALSE)
 #  name         :string(255)
 #  published_dt :date
 #  slug         :text(65535)
@@ -33,6 +34,10 @@ class Blog < ApplicationRecord
 	# has_many :blogs, through: :blog_types
 	has_many :blog_blog_types
 	has_many :blog_types , through: :blog_blog_types
+
+	scope :all_published_data, -> {
+		with_state(:published)
+	}
 
 	state_machine :state , :initial => :draft do
 		state :draft , :value => "Draft"
