@@ -64,6 +64,9 @@
                                                         <i class="fa fa-edit "></i>
                                                     <% end %>
                                                 <% end %>
+                                                <%= link_to admin_blog_path(data), class: 'btn btn-info mr-3' do %>
+                                                    <i class="fa fa-eye"></i>
+                                                <% end %>
                                                 <% if can? :destroy, @blogs %>
                                                     <button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
                                                         <i class="fa fa-trash"></i>

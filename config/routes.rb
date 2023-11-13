@@ -27,7 +27,11 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
-    resources :blogs
+    resources :blogs do 
+      member do 
+        put 'publish'
+      end
+    end
     resources :blog_types
     resources :authors
     resources :brand_category_images do

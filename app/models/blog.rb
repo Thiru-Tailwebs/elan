@@ -51,7 +51,7 @@ class Blog < ApplicationRecord
 	end
 
 	def set_published_at
-		self.published_at = DateTime.now
+		self.published_dt = DateTime.now
 	end
 
 	def update_associations(params)

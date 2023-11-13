@@ -1,5 +1,5 @@
 class Admin::BlogsController < Admin::AdminbaseController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ show edit update destroy publish ]
   before_action :set_dropdown_data, only: [:new, :edit]
 
   # GET /admin/blogs or /admin/blogs.json
@@ -58,6 +58,12 @@ class Admin::BlogsController < Admin::AdminbaseController
     #   format.html { redirect_to admin_blogs_url, notice: "Blog was successfully destroyed." }
     #   format.json { head :no_content }
     # end
+  end
+
+  def publish
+    @blog.record_publish
+  
+    redirect_to admin_blogs_url
   end
 
   private
