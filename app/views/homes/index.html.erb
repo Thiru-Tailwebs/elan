@@ -598,7 +598,7 @@
               <% @blogs_featured.each do |data| %>
                 <div class="item">
                   <a href="<%= show_blog_path(data) %>">
-                    <div class="h-500px h-300px-mob h-400px-lg bg-img-position br-10" style="background-image: url('<%= data.image_url(:large) %>');">
+                    <div class="h-500px h-300px-mob h-400px-lg bg-img-position br-10" style="background-image: url('<%= data.square_image_url(:large) %>');">
                       <div class="h-500px h-300px-mob h-400px-lg bg-img-position br-10" style="border-radius: 10px; background: linear-gradient(107deg, rgba(0, 0, 0, 0.60) -61.68%, rgba(0, 0, 0, 0.00) 146.43%);">
                       <div class="position-4">
                         <div class="heading-2 fs-16 opacity-1">
@@ -629,7 +629,7 @@
             <a href="<%= show_blog_path(data) %>">
               <div class="d-flex align-items-center <% if index != 0 %>mt-30<% end %>">
                 <div class="w-50p w-66p-lg">
-                  <img src="<%= data.image_url(:large) %>" class="w-100p">
+                  <img src="<%= data.square_image_url(:large) %>" class="w-100p">
                 </div>
                 <div class="ml-3">
                   <div class="heading-2 fs-16 black-1" data-aos="fade-up">

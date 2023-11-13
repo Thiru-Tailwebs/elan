@@ -2,19 +2,20 @@
 #
 # Table name: blogs
 #
-#  id           :bigint           not null, primary key
-#  description1 :text(65535)
-#  description2 :text(65535)
-#  image_data   :text(65535)
-#  is_featured  :boolean          default(FALSE)
-#  name         :string(255)
-#  published_dt :date
-#  slug         :text(65535)
-#  state        :string(255)
-#  title        :string(255)
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  author_id    :bigint           not null
+#  id                :bigint           not null, primary key
+#  description1      :text(65535)
+#  description2      :text(65535)
+#  image_data        :text(65535)
+#  is_featured       :boolean          default(FALSE)
+#  name              :string(255)
+#  published_dt      :date
+#  slug              :text(65535)
+#  square_image_data :text(65535)
+#  state             :string(255)
+#  title             :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  author_id         :bigint           not null
 #
 # Indexes
 #
@@ -28,6 +29,7 @@ class Blog < ApplicationRecord
 	extend FriendlyId
 	friendly_id :name, use: :slugged
     include ImageUploader::Attachment(:image)
+    include ImageUploader::Attachment(:square_image)
 
   	belongs_to :author
 	# has_many :blog_types, dependent: :destroy

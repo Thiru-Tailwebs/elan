@@ -34,6 +34,7 @@ rails g scaffold admin/BlogType
 
 rails g model Blog title name state slug:text description1:text description2:text image_data:text author:references published_dt:date
 rails g migration AddIsFeaturedToBlog is_featured:boolean
+rails g migration AddSquareImageToBlog square_image_data:text
 
 rails g model BlogBlogType blog:references blog_type:references
 
