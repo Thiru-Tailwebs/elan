@@ -6,13 +6,12 @@ Rails.application.routes.draw do
 
   get '/media' => 'homes#media'
 
-  get '/products' => 'products#index'
-  get '/products/:id', to: 'products#show', as: 'show_product'
+  get '/our_collections' => 'products#index'
+  get '/our_collections/:id', to: 'products#show', as: 'show_product'
   get '/blogs' => 'blogs#index'
   get '/blogs/:id', to: 'blogs#show', as: 'show_blog'
 
   get '/contact_us' => 'homes#contact_us'
-  get '/our_collections' => 'homes#our_collections'
   get '/our_story' => 'homes#our_story'
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
