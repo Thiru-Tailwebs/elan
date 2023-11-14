@@ -33,4 +33,12 @@ class BrandCategoryImage < ApplicationRecord
       end
     end
 	end
+
+	def self.get_images_from_brand_category category_code
+    data = BrandCategoryImage.joins(:brand_category).where(
+      :brand_categories => {:code => category_code}
+    ).order(:priority)
+
+    return data
+	end
 end

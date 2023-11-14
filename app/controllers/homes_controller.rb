@@ -27,6 +27,9 @@ class HomesController < ApplicationController
   end
 
   def brands
+    @brand_categories = BrandCategory.where(
+      active: true
+    ).order(:priority)
   end
 
   def clientele

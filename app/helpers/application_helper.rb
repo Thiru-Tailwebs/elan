@@ -6,6 +6,13 @@ module ApplicationHelper
 		end
 	end
 
+	# Nov 03, 2023
+	def formatted_date2 datetime
+		if datetime
+            datetime.strftime("%b %d, %Y")
+		end
+	end
+
 	def formatted_title_dynamic data, max_length = 10
 		if data.present?
 			if data.size >= max_length
