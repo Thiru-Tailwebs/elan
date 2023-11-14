@@ -20,135 +20,52 @@
 <section class="sandal-bg py-50">
     <div class="container">
         <div class="row">
-            <% @categories.each_with_index do |data, index| %>
-                <% if (index + 1 / 2) != 1 %>
-                    <div class="col-md-12 mt-30">
-                        <a href="<%= show_product_path(data) %>">
-                            <div class="position-relative">
-                                <img src="<%= data.image_url(:large) %>" class="w-100p">
-                                <div class="collection-position"></div>
-                                <div class="heading-8 white position-4 text-upper">
-                                    <%= data.name %> - <%= index + 1 %>
+            <% (0...@num_batches).each do |batch_number| %>
+                <% offset_value = batch_number * @loop_size %>
+                <% batch = @categories.offset(offset_value).limit(@loop_size) %>
+
+                <% batch.each_with_index do |data, index| %>
+                    <% if index == 0 %>
+                        <div class="col-md-12 mt-30">
+                            <a href="<%= show_product_path(data) %>">
+                                <div class="position-relative">
+                                    <img src="<%= data.image_url(:large) %>" class="w-100p">
+                                    <div class="collection-position"></div>
+                                    <div class="heading-8 white position-4 text-upper">
+                                        <%= data.name %>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                <% else %>
-                    <div class="col-md-6 mt-30">
-                        <a href="<%= show_product_path(data) %>">
-                            <div class="position-relative">
-                                <img src="<%= data.image2_url(:large) %>" class="w-100p">
-                                <div class="collection-position"></div>
-                                <div class="heading-8 white position-4 text-upper">
-                                    <%= data.name %> - <%= index + 1 %>
+                            </a>
+                        </div>
+                    <% end %>
+                    <% if index == 1 %>
+                        <div class="col-md-6 mt-30">
+                            <a href="<%= show_product_path(data) %>">
+                                <div class="position-relative">
+                                    <img src="<%= data.image2_url(:large) %>" class="w-100p">
+                                    <div class="collection-position"></div>
+                                    <div class="heading-8 white position-4 text-upper">
+                                        <%= data.name %>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 mt-30">
-                        <a href="<%= show_product_path(data) %>">
-                            <div class="position-relative">
-                                <img src="<%= data.image2_url(:large) %>" class="w-100p">
-                                <div class="collection-position"></div>
-                                <div class="heading-8 white position-4 text-upper">
-                                    <%= data.name %> - <%= index + 1 %>
+                            </a>
+                        </div>
+                    <% end %>
+                    <% if index == 2 %>
+                        <div class="col-md-6 mt-30">
+                            <a href="<%= show_product_path(data) %>">
+                                <div class="position-relative">
+                                    <img src="<%= data.image2_url(:large) %>" class="w-100p">
+                                    <div class="collection-position"></div>
+                                    <div class="heading-8 white position-4 text-upper">
+                                        <%= data.name %>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    <% end %>
                 <% end %>
             <% end %>
-===
-            <div class="col-md-12 mt-30">
-                <div class="position-relative">
-                    <img src="/images/our-collections/oc-4.png" class="w-100p">
-                    <div class="collection-position">
-                    </div>
-                    <div class="heading-8 white position-4 text-upper">
-                        Accessories
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-5.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    BATH & bed linen
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-6.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    floor coverings
-                </div>
-                </div>
-            </div>
-            <div class="col-md-12 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-7.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    wall coverings
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-8.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    trims & tassels
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-9.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    mattress
-                </div>
-                </div>
-            </div>
-            <div class="col-md-12 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-10.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    LIGHTINGS
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-11.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    Table wares
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-30">
-                <div class="position-relative">
-                <img src="/images/our-collections/oc-12.png" class="w-100p">
-                <div class="collection-position">
-                </div>
-                <div class="heading-8 white position-4 text-upper">
-                    hardware & automations
-                </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
