@@ -1,0 +1,137 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Clientele Images</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="<%= admin_dashboard_url %>">Dashboard</a></li>
+                <li class="breadcrumb-item active">Clientele Images</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header p-0 pt-1">
+                        <%# <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+                        <li class="pt-2 px-3">abc</li>
+                        </ul> %>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <% if can? :create, @clientele_images %>
+                                <a href="<%= new_admin_clientele_image_path %>" class="btn btn-primary mr-3">
+                                    <i class="fa fa-plus">&nbsp;</i>Add Record
+                                </a>
+                            <% end %>
+                            <a href="<%= sequencing_admin_clientele_images_path %>" class="btn btn-secondary mr-3">
+                                <i class="fa fa-edit">&nbsp;</i>Edit Sequencing
+                            </a>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped" id="example1">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Active</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <% @clientele_images.each do |data| %>
+                                        <tr>
+                                            <td>
+                                                <% if data.image.present? %>
+                                                    <%= image_tag data.image_url, height: "80px", width: "150px" %> 
+                                                <% else %>
+                                                    <img src="/images/home-page/elan-logo.png" alt="Not found!" height="80px" width="80px">
+                                                <% end %>
+                                            </td>
+                                            <td>
+                                                <% if data.active == true %>
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                <% else %>
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                <% end %>
+                                            </td>
+                                            <td>
+                                                <% if can? :update, @clientele_images %>
+                                                    <%= link_to edit_admin_clientele_image_path(data), class: 'btn btn-primary mr-3' do %>
+                                                        <i class="fa fa-edit "></i>
+                                                    <% end %>
+                                                <% end %>
+                                                <% if can? :destroy, @clientele_images %>
+                                                    <button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                <% end %>
+                                            </td>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete <i class="fa fa-trash"></i></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this record?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="number" id="delete_id" name="delete_id" hidden>
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary confirm-delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+	$(document).ready(function() {
+		$('.delete-record').click(function () {
+            var recordId = $(this).data('id');
+            $('#deleteModel').modal('show');
+
+            $('.confirm-delete').click(function () {
+                $('#deleteModel').modal('hide');
+                var csrfToken = $('meta[name=csrf-token]').attr('content');
+
+                $.ajax({
+                    url: '/admin/clientele_images/' + recordId,
+                    headers: {
+                        'X-CSRF-Token': csrfToken
+                    },
+                    method: 'DELETE',
+                    success: function() {
+                        location.reload();
+                    }
+                });
+            });
+		});
+	});
+</script>

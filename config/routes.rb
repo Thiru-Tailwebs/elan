@@ -29,6 +29,12 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    resources :clientele_images do
+      collection do
+        get '/sequencing', to: "clientele_images#sequencing"
+        post "/update_sequence", to: "clientele_images#update_sequence"
+      end
+    end
     resources :blogs do 
       member do 
         put 'publish'

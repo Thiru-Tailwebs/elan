@@ -61,6 +61,13 @@
       </li>
 
       <li class="nav-item">
+        <a href="<%= admin_clientele_images_path %>" class="nav-link <% if controller.controller_name == 'clientele_images' %> active <% end %>">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>Clientele Images</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a href="<%= admin_authors_path %>" class="nav-link <% if controller.controller_name == 'authors' %> active <% end %>">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>Author</p>

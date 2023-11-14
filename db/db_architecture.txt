@@ -40,3 +40,7 @@ rails g model BlogBlogType blog:references blog_type:references
 
 rails g controller Products index show
 rails g controller Blogs index show
+
+rails g model ClienteleImage image_data:text active:boolean priority:integer
+rails g scaffold admin/ClienteleImage
+
