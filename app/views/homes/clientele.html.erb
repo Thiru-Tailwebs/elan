@@ -37,78 +37,11 @@
   <div class="container">
   <div class="mx-50">
     <div class="row">
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/missy-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pixie-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pepper-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/laspen-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/n-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/crop-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/laspen-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/n-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/crop-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/missy-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pixie-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pepper-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/laspen-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/n-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/crop-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/missy-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pixie-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pepper-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/laspen-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/n-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/crop-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/missy-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pixie-logo.png" class="w-100p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/home-page/pepper-logo.png" class="w-100p">
-      </div>
+      <% @clientele_image.each do |data| %>
+        <div class="col-md-2 mt-50">
+          <img src="<%= data.image_url(:large) %>" class="w-100p">
+        </div>
+      <% end %>
     </div>
     <div class="mt-80 mt-40-md mt-40-lg text-center" data-aos="flip-down">
       <a href="<%= brands_path %>" type="button" class="btn btn-2">brands we house</a>
@@ -119,4 +52,4 @@
 
 <%= render "shared/call_back" %>
 
-  <%= render "shared/footer" %>
+<%= render "shared/footer" %>

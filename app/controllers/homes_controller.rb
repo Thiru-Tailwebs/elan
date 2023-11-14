@@ -33,6 +33,9 @@ class HomesController < ApplicationController
   end
 
   def clientele
+    @clientele_image = ClienteleImage.where(
+      active: true
+    ).order(:priority)
   end
 
   def our_services
