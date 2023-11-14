@@ -32,12 +32,12 @@
 						<br>
 						<div class="col-lg-7 col-md-12 mb-3">
 							<ul id="sortable-list" class="list-group">
-								<% @clientele_images.each_with_index do |item, index| %>
+								<% @clientele_image.each_with_index do |item, index| %>
 									<li data-id="<%= item.id %>" data-index="<%= index %>" class="list-group-item d-flex justify-content-between align-items-center handle" style="cursor: move; background-color: #dddddd;">
 										<div class="d-flex align-items-center">
 											<div class="item-number mr-3"><%= index + 1 %>.</div>
 											<div class="mr-3">
-												<%= item.name %>
+												<%= image_tag item.image_url, height: "60px", width: "100px", style: "background-color: #bfbfbf;" %>
 											</div>
 										</div>
 										<i class="fas fa-grip-vertical"></i>
