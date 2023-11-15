@@ -66,287 +66,106 @@
 
 				<div class="mt-80" data-aos="fade-down">
 					<div class="owl-carousel blog-owl owl-theme">
-						<% @all_blogs.each_with_index do |data, index| %>
-						<div class="item">
-							<div class="row">
-								<div class="col-md-6">
-									<div>
-										<div class="">
-											<img src="/images/blogs/blog-5.png" class="w-100p">
-										</div>
-										<div class="mt-30">
-											<div class="border-3">
-											</div>
-										</div>
-										<div class="mt-20">
-											<div class="heading-2 fs-16 black-1">
-												Tips and Trick
-											</div>
-											<div class="mt-15">
-												<div class="heading-8 black-1">
-													Elements to add character to your space
-												</div>
-											</div>
-											<div class="mt-10">
-												<div class="heading-2 black-1 fs-16">
-													Pellentesque etiam blandit in
-													tincidunt at donec. Eget ipsum .
-												</div>
-											</div>
-											<div class="mt-15">
-												<div class="d-flex align-items-center">
-													<div>
-														<img src="/images/blogs/blogs-profile.png" style="width: 25px;">
+						<% (0...@num_batches).each do |batch_number| %>
+							<% offset_value = batch_number * @loop_size %>
+							<% batch = @all_blogs.offset(offset_value).limit(@loop_size) %>
+
+							<div class="item">
+								<div class="row">
+									<% batch.each_with_index do |data, index| %>
+										<% if index == 0 %>
+											<div class="col-md-6">
+												<div>
+													<div class="">
+														<img src="<%= data.image_url(:large) %>" class="w-100p">
 													</div>
-													<div class="ml-2">
-														<div class="heading-3 black-1 fs-12">
-															By Kim Gurameh
+													<div class="mt-30">
+														<div class="border-3"></div>
+													</div>
+													<div class="mt-20">
+														<div class="heading-2 fs-16 black-1">
+															<%= data.title %>
 														</div>
-													</div>
-													<div class="ml-3">
-														<div class="heading-2 black-1 fs-12">
-															Friday, 1 April 2022
+														<div class="mt-15">
+															<div class="heading-8 black-1">
+																<%= data.name %>
+															</div>
 														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div>
-										<div class="">
-											<img src="/images/blogs/blog-6.png" class="w-100p">
-										</div>
-										<div class="mt-30">
-											<div class="border-3">
-											</div>
-										</div>
-										<div class="mt-20">
-											<div class="heading-2 fs-16 black-1">
-												Tips and Trick
-											</div>
-											<div class="mt-15">
-												<div class="heading-8 black-1">
-													Elements to add character to your space
-												</div>
-											</div>
-											<div class="mt-10">
-												<div class="heading-2 black-1 fs-16">
-													Pellentesque etiam blandit in
-													tincidunt at donec. Eget ipsum .
-												</div>
-											</div>
-											<div class="mt-15">
-												<div class="d-flex align-items-center">
-													<div>
-														<img src="/images/blogs/blogs-profile.png" style="width: 25px;">
-													</div>
-													<div class="ml-2">
-														<div class="heading-3 black-1 fs-12">
-															By Kim Gurameh
+														<div class="mt-10">
+															<div class="heading-2 black-1 fs-16">
+                                                    			<%= formatted_title_dynamic(data.description1, 50) %>
+															</div>
 														</div>
-													</div>
-													<div class="ml-3">
-														<div class="heading-2 black-1 fs-12">
-															Friday, 1 April 2022
+														<div class="mt-15">
+															<div class="d-flex align-items-center">
+																<div>
+																	<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+																</div>
+																<div class="ml-2">
+																	<div class="heading-3 black-1 fs-12">
+																		By <%= data.author.name %>
+																	</div>
+																</div>
+																<div class="ml-3">
+																	<div class="heading-2 black-1 fs-12">
+																		<%= formatted_date1(data.published_dt) %>
+																	</div>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-									</div>
+										<% end %>
+
+										<% if index == 1 %>
+											<div class="col-md-6">
+												<div>
+													<div class="">
+														<img src="<%= data.image_url(:large) %>" class="w-100p">
+													</div>
+													<div class="mt-30">
+														<div class="border-3"></div>
+													</div>
+													<div class="mt-20">
+														<div class="heading-2 fs-16 black-1">
+															<%= data.title %>
+														</div>
+														<div class="mt-15">
+															<div class="heading-8 black-1">
+																<%= data.name %>
+															</div>
+														</div>
+														<div class="mt-10">
+															<div class="heading-2 black-1 fs-16">
+                                                    			<%= formatted_title_dynamic(data.description1, 50) %>
+															</div>
+														</div>
+														<div class="mt-15">
+															<div class="d-flex align-items-center">
+																<div>
+																	<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+																</div>
+																<div class="ml-2">
+																	<div class="heading-3 black-1 fs-12">
+																		By <%= data.author.name %>
+																	</div>
+																</div>
+																<div class="ml-3">
+																	<div class="heading-2 black-1 fs-12">
+																		<%= formatted_date1(data.published_dt) %>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										<% end %>
+									<% end %>
 								</div>
 							</div>
-						</div>
 						<% end %>
-
-						<div class="item">
-							<div class="row">
-								<div class="col-md-6">
-									<div>
-										<div class="">
-											<img src="/images/blogs/blog-5.png" class="w-100p">
-										</div>
-										<div class="mt-30">
-											<div class="border-3">
-											</div>
-										</div>
-										<div class="mt-20">
-											<div class="heading-2 fs-16 black-1">
-												Tips and Trick
-											</div>
-											<div class="mt-15">
-												<div class="heading-8 black-1">
-													Elements to add character to your space
-												</div>
-											</div>
-											<div class="mt-10">
-												<div class="heading-2 black-1 fs-16">
-													Pellentesque etiam blandit in
-													tincidunt at donec. Eget ipsum .
-												</div>
-											</div>
-											<div class="mt-15">
-												<div class="d-flex align-items-center">
-													<div>
-														<img src="/images/blogs/blogs-profile.png" style="width: 25px;">
-													</div>
-													<div class="ml-2">
-														<div class="heading-3 black-1 fs-12">
-															By Kim Gurameh
-														</div>
-													</div>
-													<div class="ml-3">
-														<div class="heading-2 black-1 fs-12">
-															Friday, 1 April 2022
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div>
-										<div class="">
-											<img src="/images/blogs/blog-6.png" class="w-100p">
-										</div>
-										<div class="mt-30">
-											<div class="border-3">
-											</div>
-										</div>
-										<div class="mt-20">
-											<div class="heading-2 fs-16 black-1">
-												Tips and Trick
-											</div>
-											<div class="mt-15">
-												<div class="heading-8 black-1">
-													Elements to add character to your space
-												</div>
-											</div>
-											<div class="mt-10">
-												<div class="heading-2 black-1 fs-16">
-													Pellentesque etiam blandit in
-													tincidunt at donec. Eget ipsum .
-												</div>
-											</div>
-											<div class="mt-15">
-												<div class="d-flex align-items-center">
-													<div>
-														<img src="/images/blogs/blogs-profile.png" style="width: 25px;">
-													</div>
-													<div class="ml-2">
-														<div class="heading-3 black-1 fs-12">
-															By Kim Gurameh
-														</div>
-													</div>
-													<div class="ml-3">
-														<div class="heading-2 black-1 fs-12">
-															Friday, 1 April 2022
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="row">
-								<div class="col-md-6">
-									<div>
-										<div class="">
-											<img src="/images/blogs/blog-5.png" class="w-100p">
-										</div>
-										<div class="mt-30">
-											<div class="border-3">
-											</div>
-										</div>
-										<div class="mt-20">
-											<div class="heading-2 fs-16 black-1">
-												Tips and Trick
-											</div>
-											<div class="mt-15">
-												<div class="heading-8 black-1">
-													Elements to add character to your space
-												</div>
-											</div>
-											<div class="mt-10">
-												<div class="heading-2 black-1 fs-16">
-													Pellentesque etiam blandit in
-													tincidunt at donec. Eget ipsum .
-												</div>
-											</div>
-											<div class="mt-15">
-												<div class="d-flex align-items-center">
-													<div>
-														<img src="/images/blogs/blogs-profile.png" style="width: 25px;">
-													</div>
-													<div class="ml-2">
-														<div class="heading-3 black-1 fs-12">
-															By Kim Gurameh
-														</div>
-													</div>
-													<div class="ml-3">
-														<div class="heading-2 black-1 fs-12">
-															Friday, 1 April 2022
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div>
-										<div class="">
-											<img src="/images/blogs/blog-6.png" class="w-100p">
-										</div>
-										<div class="mt-30">
-											<div class="border-3">
-											</div>
-										</div>
-										<div class="mt-20">
-											<div class="heading-2 fs-16 black-1">
-												Tips and Trick
-											</div>
-											<div class="mt-15">
-												<div class="heading-8 black-1">
-													Elements to add character to your space
-												</div>
-											</div>
-											<div class="mt-10">
-												<div class="heading-2 black-1 fs-16">
-													Pellentesque etiam blandit in
-													tincidunt at donec. Eget ipsum .
-												</div>
-											</div>
-											<div class="mt-15">
-												<div class="d-flex align-items-center">
-													<div>
-														<img src="/images/blogs/blogs-profile.png" style="width: 25px;">
-													</div>
-													<div class="ml-2">
-														<div class="heading-3 black-1 fs-12">
-															By Kim Gurameh
-														</div>
-													</div>
-													<div class="ml-3">
-														<div class="heading-2 black-1 fs-12">
-															Friday, 1 April 2022
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 
