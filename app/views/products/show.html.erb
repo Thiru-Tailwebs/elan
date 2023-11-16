@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<section class="bg-images" style="background-image: url('/images/products/product_1/fabric-banner.png');">
+<section class="bg-images" style="background-image: url('<%= @category.image_url(:large) %>');">
     <div class="bg-shadow-1 h-90vh h-80vh-lg h-80vh-md h-80vh-mob">
         <div class="container">
             <div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
