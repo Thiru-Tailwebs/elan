@@ -1,0 +1,216 @@
+<%= render "shared/header" %>
+
+<section class="py-50">
+    <div class="container">
+        <div class="image-container mt-50">
+            <div class="background-gradient"></div>
+            <img src="/images/blogs/blinds-blog.png" class="w-100p" alt="Image with background gradient">
+            <div style="z-index: 111;" class="position-5">
+                <div class="heading-2 text-upper">
+                    <%= @blog.title %>
+                </div>
+                <div class="mt-20 heading-1 fs-35 w-70p">
+                    <%= @blog.name %>
+                </div>
+            </div>
+        </div>
+        <div class="mt-30">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <div class="d-flex align-items-center">
+                        <div class="sub-heading">
+                            <%= formatted_date2(@blog.published_dt) %>
+                        </div>
+                        <div class="border-2 ml-10" style="height: 15px;"></div>
+                        <div class="ml-10 sub-heading">
+                            <%= @blog.blog_types.pluck(:name).join(', ') %>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex align-items-center">
+                        <a href="https://www.facebook.com/ELANFurnishings" target="_blank" class="">
+                            <img src="/images/footer/footer-fb.png" class="w-30px">
+                        </a>
+                        <a href="https://www.instagram.com/elanfurnishing/" target="_blank" class="ml-10">
+                            <img src="/images/footer/footer-insta.png" class="w-30px">
+                        </a>
+                        <a href="" class="ml-10">
+                            <img src="/images/footer/footer-twit.png" class="w-30px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="padding-bottom: 30px;">
+    <div class="container">
+        <div class="heading-1 fs-30 black-4">
+            <%= @blog.name %>
+        </div>
+        
+        <% if @blog.description2.present? %>
+            <%= @blog.description2.html_safe %>
+        <% end %>
+    </div>
+</section>
+
+<section class="container py-50">
+    <div class="w-80p" data-aos="fade-down">
+        <div class="owl-carousel blog-owl owl-theme">
+            <% (0...@num_batches).each do |batch_number| %>
+                <% offset_value = batch_number * @loop_size %>
+                <% batch = @all_blogs.offset(offset_value).limit(@loop_size) %>
+
+                <div class="item">
+                    <div class="row">
+                        <% batch.each_with_index do |data, index| %>
+                            <% if index == 0 %>
+                                <div class="col-md-6">
+                                    <div>
+                                        <div class="">
+                                            <img src="<%= data.image_url(:large) %>" class="w-100p">
+                                        </div>
+                                        <div class="mt-30">
+                                            <div class="border-3"></div>
+                                        </div>
+                                        <div class="mt-20">
+                                            <div class="heading-2 fs-16 black-1">
+                                                <%= data.title %>
+                                            </div>
+                                            <div class="mt-15">
+                                                <div class="heading-8 black-1">
+                                                    <%= data.name %>
+                                                </div>
+                                            </div>
+                                            <div class="mt-10">
+                                                <div class="heading-2 black-1 fs-16">
+                                                    <%= formatted_title_dynamic(data.description1, 50) %>
+                                                </div>
+                                            </div>
+                                            <div class="mt-15">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+                                                    </div>
+                                                    <div class="ml-2">
+                                                        <div class="heading-3 black-1 fs-12">
+                                                            By <%= data.author.name %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-3">
+                                                        <div class="heading-2 black-1 fs-12">
+                                                            <%= formatted_date1(data.published_dt) %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% end %>
+
+                            <% if index == 1 %>
+                                <div class="col-md-6">
+                                    <div>
+                                        <div class="">
+                                            <img src="<%= data.image_url(:large) %>" class="w-100p">
+                                        </div>
+                                        <div class="mt-30">
+                                            <div class="border-3"></div>
+                                        </div>
+                                        <div class="mt-20">
+                                            <div class="heading-2 fs-16 black-1">
+                                                <%= data.title %>
+                                            </div>
+                                            <div class="mt-15">
+                                                <div class="heading-8 black-1">
+                                                    <%= data.name %>
+                                                </div>
+                                            </div>
+                                            <div class="mt-10">
+                                                <div class="heading-2 black-1 fs-16">
+                                                    <%= formatted_title_dynamic(data.description1, 50) %>
+                                                </div>
+                                            </div>
+                                            <div class="mt-15">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+                                                    </div>
+                                                    <div class="ml-2">
+                                                        <div class="heading-3 black-1 fs-12">
+                                                            By <%= data.author.name %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-3">
+                                                        <div class="heading-2 black-1 fs-12">
+                                                            <%= formatted_date1(data.published_dt) %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+
+<%= render "shared/call_back" %>
+
+<%= render "shared/footer" %>
+
+<style>
+    .navbar {
+        display: none;
+    }
+
+    .position-1 {
+        position: initial !important;
+    }
+
+    .image-container {
+        position: relative;
+    }
+
+    .background-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(107deg, #000 -61.68%, rgba(0, 0, 0, 0.00) 146.43%);
+        z-index: 11;
+    }
+
+    img {
+        position: relative;
+        z-index: 1;
+    }
+
+    .owl-nav {
+        margin-top: 60px !important;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $(".blog-owl").owlCarousel({
+            items: 1,
+            margin: 10,
+            loop: true,
+            nav: true,
+            dots: false
+        });
+        $(".blog-owl .owl-nav .owl-prev").html('<img src="/images/blogs/blog-arrow-left.png" class="w-40px">');
+        $(".blog-owl .owl-nav .owl-next").html('<img src="/images/blogs/blog-arrow-right.png" class="w-40px">');
+    });
+</script>

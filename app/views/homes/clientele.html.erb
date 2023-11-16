@@ -36,50 +36,13 @@
 <section class="py-50">
   <div class="container">
   <div class="mx-50">
-    <div class="row align-items-center">
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-1.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-2.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-3.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-4.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-5.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-6.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-7.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-8.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-9.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-10.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-11.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-12.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-13.png" class="w-80p">
-      </div>
-      <div class="col-md-2 mt-50">
-        <img src="images/clientele/client-14.png" class="w-80p">
-      </div>
-      
+    <div class="row">
+<!--     <div class="row align-items-center"> -->
+      <% @clientele_image.each do |data| %>
+        <div class="col-md-2 mt-50">
+          <img src="<%= data.image_url(:large) %>" class="w-100p">
+        </div>
+      <% end %>
     </div>
     <div class="mt-80 mt-40-md mt-40-lg text-center" data-aos="flip-down">
       <a href="<%= brands_path %>" type="button" class="btn btn-2">brands we house</a>
@@ -90,4 +53,4 @@
 
 <%= render "shared/call_back" %>
 
-  <%= render "shared/footer" %>
+<%= render "shared/footer" %>

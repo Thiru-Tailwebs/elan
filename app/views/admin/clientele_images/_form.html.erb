@@ -1,0 +1,37 @@
+<%= form_with(model: [:admin, @clientele_image], html: { multipart: true, class: 'form-horizontal' }) do |form| %>
+  <% if @clientele_image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@clientele_image.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @clientele_image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label "Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :image, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required", name: "clientele_image[image]" %>
+        <% else %>
+          <%= form.file_field :image, class: 'form-control', multiple: "multiple", accept:'image/*', name: "clientele_image[image]" %>
+        <% end %>
+        <p><strong>Note: </strong> We accept 249 × 249 dimation image.</p>
+      </div>
+      <%= form.label "Active*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <select class="select2 form-control" data-placeholder="Select role" style="width: 100%;" name="clientele_image[active]" required>
+          <option value="true" <% if @clientele_image.active == true %> selected <% end %>>True</option>
+          <option value="false" <% if @clientele_image.active == false %> selected <% end %>>False</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_clientele_images_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %>

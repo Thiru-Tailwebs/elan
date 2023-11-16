@@ -1,0 +1,32 @@
+<%= form_with(model: [:admin, @blog_type], html: { multipart: true, class: 'form-horizontal' }) do |form| %>
+  <% if @blog_type.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@blog_type.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @blog_type.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <%= form.text_field :name, class: 'form-control', placeholder: "Enter name" %>
+      </div>
+      <%= form.label "Active*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <select class="select2 form-control" data-placeholder="Select role" style="width: 100%;" name="blog_type[active]" id="blog_type_active" required>
+          <option value="true" <% if @blog_type.active == true %> selected <% end %>>True</option>
+          <option value="false" <% if @blog_type.active == false %> selected <% end %>>False</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_categories_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %>

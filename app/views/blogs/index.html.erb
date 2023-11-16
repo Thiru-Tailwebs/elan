@@ -1,0 +1,343 @@
+<%= render "shared/header" %>
+
+<section class="bg-images" style="background-image: url('/images/blogs/blog-banner.png');">
+	<div class="bg-shadow-1 h-90vh h-80vh-lg h-80vh-md h-80vh-mob">
+		<div class="container">
+			<div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
+				<div>
+					<div class="heading-4 white fs-26 fs-18-mob text-upper text-center">
+						blogs & Article
+					</div>
+					<div data-aos="fade-up" class="mt-15 w-70p w-90p-mob mx-auto fs-35-mob heading-1 text-center">
+						Primary tagline for blogs & articles
+					</div>
+					<div data-aos="fade-up" class="mt-30 w-70p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
+						It is a long established fact that a reader will be distracted by the of readable content of a page.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-50 mb-50">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<% @blogs_of_3.each_with_index do |data, index| %>
+					<div class="<% if index + 1 > 1 %>mt-30<% end %>" data-aos="<% if (index + 1) % 2 == 0 %>fade-left<% else %>fade-right<% end %>">
+						<div class="">
+							<img src="<%= data.image_url(:large) %>" class="w-100p">
+						</div>
+						<div class="mt-15">
+							<div class="d-flex align-items-center">
+								<div class="sub-heading">
+									<%= formatted_date2(data.published_dt) %>
+								</div>
+								<div class="border-2 ml-10" style="height: 15px;">
+								</div>
+								<div class="ml-10 sub-heading">
+									<%= data.blog_types.pluck(:name).join(', ') %>
+								</div>
+								<div class="border-2 ml-10" style="height: 15px;">
+								</div>
+								<div class="ml-10 sub-heading">
+									By <%= data.author.name %>
+								</div>
+							</div>
+						</div>
+						<div class="mt-20 sub-heading-1">
+							<%= data.name %>
+						</div>
+						<div class="mt-20 heading-2 black-5 fs-16">
+							<%= data.description1 %>
+						</div>
+						<div class="mt-20">
+							<a href="<%= show_blog_path(data) %>" class="">
+								<span style="text-decoration: underline;" class="sub-heading black-6 fs-18">Read more</span>
+							</a>
+						</div>
+					</div>
+				<% end %>
+				
+				<div class="mt-60 heading-8 fs-18 black-8" data-aos="fade-down">
+					“ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse massa libero, mattis volutpat id. Egestas adipiscing placerat eleifend a nascetur. Mattis proin enim, nam porttitor vitae. Faucibus vel porttitor imperdiet ultricies a eget sed. Vestibulum velit vulputate amet nunc amet. “
+				</div>
+
+				<div class="mt-80" data-aos="fade-down">
+					<div class="owl-carousel blog-owl owl-theme">
+						<% (0...@num_batches).each do |batch_number| %>
+							<% offset_value = batch_number * @loop_size %>
+							<% batch = @all_blogs.offset(offset_value).limit(@loop_size) %>
+
+							<div class="item">
+								<div class="row">
+									<% batch.each_with_index do |data, index| %>
+										<% if index == 0 %>
+											<div class="col-md-6">
+												<div>
+													<div class="">
+														<img src="<%= data.image_url(:large) %>" class="w-100p">
+													</div>
+													<div class="mt-30">
+														<div class="border-3"></div>
+													</div>
+													<div class="mt-20">
+														<div class="heading-2 fs-16 black-1">
+															<%= data.title %>
+														</div>
+														<div class="mt-15">
+															<div class="heading-8 black-1">
+																<%= data.name %>
+															</div>
+														</div>
+														<div class="mt-10">
+															<div class="heading-2 black-1 fs-16">
+                                                    			<%= formatted_title_dynamic(data.description1, 50) %>
+															</div>
+														</div>
+														<div class="mt-15">
+															<div class="d-flex align-items-center">
+																<div>
+																	<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+																</div>
+																<div class="ml-2">
+																	<div class="heading-3 black-1 fs-12">
+																		By <%= data.author.name %>
+																	</div>
+																</div>
+																<div class="ml-3">
+																	<div class="heading-2 black-1 fs-12">
+																		<%= formatted_date1(data.published_dt) %>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										<% end %>
+
+										<% if index == 1 %>
+											<div class="col-md-6">
+												<div>
+													<div class="">
+														<img src="<%= data.image_url(:large) %>" class="w-100p">
+													</div>
+													<div class="mt-30">
+														<div class="border-3"></div>
+													</div>
+													<div class="mt-20">
+														<div class="heading-2 fs-16 black-1">
+															<%= data.title %>
+														</div>
+														<div class="mt-15">
+															<div class="heading-8 black-1">
+																<%= data.name %>
+															</div>
+														</div>
+														<div class="mt-10">
+															<div class="heading-2 black-1 fs-16">
+                                                    			<%= formatted_title_dynamic(data.description1, 50) %>
+															</div>
+														</div>
+														<div class="mt-15">
+															<div class="d-flex align-items-center">
+																<div>
+																	<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+																</div>
+																<div class="ml-2">
+																	<div class="heading-3 black-1 fs-12">
+																		By <%= data.author.name %>
+																	</div>
+																</div>
+																<div class="ml-3">
+																	<div class="heading-2 black-1 fs-12">
+																		<%= formatted_date1(data.published_dt) %>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										<% end %>
+									<% end %>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+
+				<div class="mt-80">
+					<div class="heading-8 black-9">
+						Post a comment
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control custom-text-box" placeholder="Your comment">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Your name">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Your email">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="website">
+					</div>
+				</div>
+				<div class="mt-30">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="customCheck1">
+						<label class="custom-control-label" for="customCheck1">SAVE MY NAME , EMAIL, AND WEBSITE IN THIS browser for the next time comment</label>
+					</div>
+				</div>
+				<div class="mt-50">
+					<button type="button" class="btn btn-3">Submit</button>
+				</div>
+			</div>
+			<div class="col-md-2">
+			</div>
+			<!-- <div class="col-md-4">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search...">
+					<div class="input-group-append">
+						<span class="input-group-text"><img src="/images/blogs/blog-search.png" class="w-25px"></span>
+					</div>
+				</div>
+				<div class="mt-40">
+					<div class="heading-8">
+						Lorem ipsum dolor sit amet, consectetur
+					</div>
+					<div class="mt-2">
+						<img src="/images/blogs/blog-4.png" class="w-100p">
+					</div>
+					<div class="mt-15 heading-3 black-5">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et gravida ante dolor tristique euismod dui nam.
+					</div>
+					<div class="my-20">
+						<div class="pt-20 heading-8 black-4">
+							Category
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Fabrics (25)
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Bed Linen (25)
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Carpets (25)
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Wall Decor (25)
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Bath Linen (25)
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Furnitures (25)
+						</div>
+					</div>
+					<div class="my-20">
+						<div class="pt-20 heading-8 black-4">
+							Recent post
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Lorem ipsum dolor sit amet, consectetur
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Lorem ipsum dolor sit amet, consectetur
+						</div>
+						<div class="pt-20 heading-2 fs-16 black-4">
+							Lorem ipsum dolor sit amet, consectetur
+						</div>
+					</div>
+					<div class="my-20">
+						<div class="pt-20 heading-8 black-4">
+							Tags
+						</div>
+						<div class="d-flex align-items-center mt-20">
+							<span class="heading-3 black-7" style="text-decoration: underline;">
+								sofa
+							</span>
+							<span class="heading-3 black-7 ml-10" style="text-decoration: underline;">
+								clean
+							</span>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</section>
+
+<style>
+	.form-control {
+		padding: 30px !important;
+		color: #A9A3A3;
+		font-family: 'Poppins', sans-serif;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+
+	.input-group-text {
+		background: #ffffff !important;
+	}
+
+	.owl-nav {
+		margin-top: 30px !important;
+	}
+
+	.form-group {
+		margin-top: 30px !important;
+	}
+
+	.custom-text-box {
+		height: 150px;
+		/* Customize the height as needed */
+	}
+
+	/* Custom checkbox style */
+	.custom-checkbox .custom-control-label::before {
+		border: 1px solid #2D2D2D;
+		/* Change the border color to your desired color */
+	}
+
+	.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+		background-color: #2D2D2D;
+		/* Change the background color to your desired color when checked */
+		border-color: #2D2D2D;
+		/* Change the border color when checked */
+	}
+
+	/* Optional: Change the label text color */
+	.custom-checkbox .custom-control-label {
+		color: #3A3A3A;
+		font-family: 'Jost', sans-serif;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		text-transform: lowercase;
+	}
+</style>
+
+<script>
+	$(document).ready(function () {
+			$(".blog-owl").owlCarousel({
+					items: 1,
+					margin: 10,
+					loop: true,
+					nav: true,
+					dots: false
+			});
+			$(".blog-owl .owl-nav .owl-prev").html('<img src="/images/blogs/blog-arrow-left.png" class="w-40px">');
+			$(".blog-owl .owl-nav .owl-next").html('<img src="/images/blogs/blog-arrow-right.png" class="w-40px">');
+	});
+</script>
+
+<%= render "shared/call_back" %>
+
+<%= render "shared/footer" %>

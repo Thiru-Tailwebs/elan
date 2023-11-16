@@ -4,3 +4,43 @@ rails g model RolePermission role:references permission:references
 
 rails g migration AddRoleToUser role:references
 User.create(email: "kartik@tailwebs.com", role_id: 1, password: "123456")
+
+rails g model HeaderImage name description active:boolean image_data:text
+rails g scaffold admin/HeaderImage --skip
+
+rails g model Category name active:boolean
+rails g migration AddImageToCategory image_data:text
+rails g migration AddImage2ToCategory image2_data:text
+rails g migration AddSlugToCategory slug
+
+rails g model CategoryImage category:references image_data:text priority:integer
+
+rails g scaffold admin/Category
+rails g scaffold admin/CategoryImage
+
+rails g migration AddPriorityToCategory priority:integer
+rails g migration AddCodeToCategory code
+
+rails g model BrandCategory name active:boolean code priority:integer image_data:text
+rails g model BrandCategoryImage brand_category:references image_data:text priority:integer
+rails g scaffold admin/BrandCategory
+rails g scaffold admin/BrandCategoryImage
+
+rails g model Author name active:boolean code image_data:text
+rails g scaffold admin/Author
+
+rails g model BlogType name active:boolean code
+rails g scaffold admin/BlogType
+
+rails g model Blog title name state slug:text description1:text description2:text image_data:text author:references published_dt:date
+rails g migration AddIsFeaturedToBlog is_featured:boolean
+rails g migration AddSquareImageToBlog square_image_data:text
+
+rails g model BlogBlogType blog:references blog_type:references
+
+rails g controller Products index show
+rails g controller Blogs index show
+
+rails g model ClienteleImage image_data:text active:boolean priority:integer
+rails g scaffold admin/ClienteleImage
+

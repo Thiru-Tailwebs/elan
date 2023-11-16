@@ -32,41 +32,40 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/">HOME</a>
+          <a class="nav-link" href="<%= root_path %>">HOME</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/our_story"  data-toggle="dropdown"
-            aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="<%= our_story_path %>"  data-toggle="dropdown" aria-expanded="false">
             OUR STORY
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="/media">MEDIA & PUBLICATION</a>
-            <a class="dropdown-item" href="/our_story">OUR STORY</a>
+            <a class="dropdown-item" href="<%= media_path %>">MEDIA & PUBLICATION</a>
+            <a class="dropdown-item" href="<%= our_story_path %>">OUR STORY</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/brands" role="button" data-toggle="dropdown" aria-expanded="true">
+          <a class="nav-link dropdown-toggle" href="<%= brands_path %>" role="button" data-toggle="dropdown" aria-expanded="true">
             BRAND
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="/brands">BRANDS WE HOUSE</a>
-            <a class="dropdown-item" href="/clientele">CLIENTELE</a>
+            <a class="dropdown-item" href="<%= brands_path %>">BRANDS WE HOUSE</a>
+            <a class="dropdown-item" href="<%= clientele_path %>">CLIENTELE</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/our_collections">OUR COLLECTIONS</a>
+          <a class="nav-link" href="<%= our_collections_path %>">OUR COLLECTIONS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/our_services">OUR SERVICES</a>
+          <a class="nav-link" href="<%= our_services_path %>">OUR SERVICES</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="">Nri Homes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/blogs">BLOG</a>
+          <a class="nav-link" href="<%= blogs_path %>">BLOG</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact_us">CONTACT</a>
+          <a class="nav-link" href="<%= contact_us_path %>">CONTACT</a>
         </li>
       </ul>
     </div>
