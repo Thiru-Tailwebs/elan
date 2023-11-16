@@ -12,6 +12,7 @@ rails g model Category name active:boolean
 rails g migration AddImageToCategory image_data:text
 rails g migration AddImage2ToCategory image2_data:text
 rails g migration AddSlugToCategory slug
+rails g migration AddDescriptionToCategory description:text
 
 rails g model CategoryImage category:references image_data:text priority:integer
 

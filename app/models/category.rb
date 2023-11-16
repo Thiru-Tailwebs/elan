@@ -5,6 +5,7 @@
 #  id          :bigint           not null, primary key
 #  active      :boolean          default(TRUE)
 #  code        :string(255)
+#  description :text(65535)
 #  image2_data :text(65535)
 #  image_data  :text(65535)
 #  name        :string(255)
