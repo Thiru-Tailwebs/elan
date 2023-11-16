@@ -13,7 +13,7 @@
   <div class="card-body">
     <div class="form-group row">
       <%= form.label "Image*", class: 'col-sm-2 col-form-label' %>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <% if controller.action_name == 'new' %>
           <%= form.file_field :image, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required", name: "category[image]" %>
         <% else %>
@@ -21,10 +21,8 @@
         <% end %>
         <p><strong>Note: </strong> We accept 2028 × 792 dimation image.</p>
       </div>
-    </div>
-    <div class="form-group row">
       <%= form.label "Image2*", class: 'col-sm-2 col-form-label' %>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <% if controller.action_name == 'new' %>
           <%= form.file_field :image2, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required", name: "category[image2]" %>
         <% else %>
@@ -44,6 +42,12 @@
           <option value="true" <% if @category.active == true %> selected <% end %>>True</option>
           <option value="false" <% if @category.active == false %> selected <% end %>>False</option>
         </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Description*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :description, class: 'form-control', placeholder: "Enter description", required: true %>
       </div>
     </div>
   </div>
