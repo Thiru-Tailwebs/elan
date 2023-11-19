@@ -133,11 +133,39 @@
         onInit: function() {
           updatePreview(); // Initial preview update
         },
+        onImageUpload: function(files) {
+          var editor = $(this);
+          uploadImage(files[0], editor);
+        },
         onChange: function() {
           updatePreview(); // Update preview on editor content change
         }
       }
     });
+
+    // upload image function
+    function uploadImage(file, editor) {
+      var data = new FormData();
+      var csrfToken = $('meta[name="csrf-token"]').attr('content');
+      data.append('authenticity_token', csrfToken);
+      data.append('image', file);
+
+      $.ajax({
+        method: 'POST',
+        url: '<%= admin_summernote_upload_image_path %>',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          var imageUrl = response.url;
+          $('#summernote').summernote('insertImage', imageUrl);
+        },
+        error: function(xhr, status, error) {
+          console.log(error);
+        }
+      });
+    }
 
     // preview image function
     function updatePreview() {

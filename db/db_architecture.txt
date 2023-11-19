@@ -45,3 +45,5 @@ rails g controller Blogs index show
 rails g model ClienteleImage image_data:text active:boolean priority:integer
 rails g scaffold admin/ClienteleImage
 
+
+rails g model SummernoteImage image_data:text referable_id:integer referable_type:string

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    post '/summernote/upload_image', to: 'summernote_images#upload_image'
     resources :clientele_images do
       collection do
         get '/sequencing', to: "clientele_images#sequencing"
