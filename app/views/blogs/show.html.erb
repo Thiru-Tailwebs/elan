@@ -4,7 +4,7 @@
     <div class="container">
         <div class="image-container mt-50" data-aos="zoom-in">
             <div class="background-gradient"></div>
-            <img src="/images/blogs/blinds-blog.png" class="w-100p" alt="Image with background gradient">
+            <img src="<%= @blog.image_url(:large) %>" class="w-100p" alt="Image with background gradient">
             <div style="z-index: 111;" class="position-5">
                 <div class="heading-2 text-upper" >
                     <%= @blog.title %>
@@ -69,7 +69,7 @@
                         <% batch.each_with_index do |data, index| %>
                             <% if index == 0 %>
                                 <div class="col-md-6">
-                                    <div>
+                                    <a href=<%= show_blog_path(data) %>>
                                         <div class="">
                                             <img src="<%= data.image_url(:large) %>" class="w-100p">
                                         </div>
@@ -108,13 +108,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             <% end %>
 
                             <% if index == 1 %>
                                 <div class="col-md-6">
-                                    <div>
+                                    <a href=<%= show_blog_path(data) %>>
                                         <div class="">
                                             <img src="<%= data.image_url(:large) %>" class="w-100p">
                                         </div>
@@ -153,7 +153,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             <% end %>
                         <% end %>
