@@ -75,8 +75,6 @@
         </a>
       </li>
 
-
-
       <li class="nav-item <% if controller.controller_name == 'authors' || controller.controller_name == 'blog_types' || controller.controller_name == 'blogs' %>menu-open<% end %>">
         <a href="#" class="nav-link <% if controller.controller_name == 'authors' || controller.controller_name == 'blog_types' || controller.controller_name == 'blogs' %>active<% end %>">
           <i class="nav-icon fas fa-server"></i>
@@ -103,6 +101,13 @@
           </li>
 
         </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="<%= admin_inquiries_path %>" class="nav-link <% if controller.controller_name == 'inquiries' %> active <% end %>">
+          <i class="nav-icon fas fa-server"></i>
+          <p>Inquiry</p>
+        </a>
       </li>
 
       <%# Category list demo %>
