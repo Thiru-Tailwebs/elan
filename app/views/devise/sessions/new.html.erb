@@ -1,7 +1,8 @@
 <div class="login-box">
   <div class="login-logo">
     <%# <a href="assets/stylesheets/index2.html"><b>Delivery</b></a> %>
-    <%= link_to "Mosip", new_session_path(resource_name) %><br />
+    <img src="/images/home-page/elan-logo.png" alt="Not found!" height="90px">
+    <%# link_to "Elan", new_session_path(resource_name) %><br />
   </div>
   <div class="card">
     <div class="card-body login-card-body">
@@ -29,13 +30,16 @@
         </div>
         <div class="row">
           <div class="col-4 mx-auto">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button><br/>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #A7833D !important; border-color: #A7833D !important;">Sign In</button><br/>
           </div>
         </div>
 
-        <%= render "shared/links" %>
+        <%# render "shared/links" %>
       <% end %>
 
     </div>
   </div>
 </div>
+<style>
+
+</style>

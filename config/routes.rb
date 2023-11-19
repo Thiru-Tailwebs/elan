@@ -24,10 +24,13 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  get '/admin/dashboard' => 'admin/dashboard#index'
+  # get '/admin/dashboard' => 'admin/dashboard#index'
+  get '/admin' => 'admin/categories#index'
 
   # Admin sidebar manus
   namespace :admin do
+    resources :inquiries
+    post '/summernote/upload_image', to: 'summernote_images#upload_image'
     resources :clientele_images do
       collection do
         get '/sequencing', to: "clientele_images#sequencing"

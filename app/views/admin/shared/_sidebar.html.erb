@@ -18,88 +18,109 @@
       <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
 
+      <!--
       <li class="nav-item">
-        <a href="<%= admin_dashboard_path %>" class="nav-link <% if controller.controller_name == 'dashboard' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Dashboard</p>
+        <a href="<%= admin_categories_path %>" class="nav-link <% if controller.controller_name == 'dashboard' %> active <% end %>">
+          <i class="nav-icon fas fa-server"></i>
+          <p>Home</p>
         </a>
       </li>
+      -->
 
       <li class="nav-item">
         <a href="<%= admin_header_images_path %>" class="nav-link <% if controller.controller_name == 'header_images' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-server"></i>
           <p>Header Image</p>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a href="<%= admin_categories_path %>" class="nav-link <% if controller.controller_name == 'categories' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Category</p>
+      <li class="nav-item <% if controller.controller_name == 'categories' || controller.controller_name == 'category_images' || controller.controller_name == 'brand_categories' || controller.controller_name == 'brand_category_images' %>menu-open<% end %>">
+        <a href="#" class="nav-link <% if controller.controller_name == 'categories' || controller.controller_name == 'category_images' || controller.controller_name == 'brand_categories' || controller.controller_name == 'brand_category_images' %>active<% end %>">
+          <i class="nav-icon fas fa-server"></i>
+          <p>Category <i class="right fas fa-angle-left"></i></p>
         </a>
-      </li>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="<%= admin_categories_path %>" class="nav-link <% if controller.controller_name == 'categories' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Category</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= admin_category_images_path %>" class="nav-link <% if controller.controller_name == 'category_images' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Category Images</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= admin_brand_categories_path %>" class="nav-link <% if controller.controller_name == 'brand_categories' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Brand Category</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= admin_brand_category_images_path %>" class="nav-link <% if controller.controller_name == 'brand_category_images' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>B-Category Images</p>
+            </a>
+          </li>
 
-      <li class="nav-item">
-        <a href="<%= admin_category_images_path %>" class="nav-link <% if controller.controller_name == 'category_images' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Category Images</p>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="<%= admin_brand_categories_path %>" class="nav-link <% if controller.controller_name == 'brand_categories' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Brand Category</p>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="<%= admin_brand_category_images_path %>" class="nav-link <% if controller.controller_name == 'brand_category_images' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Brand Category Images</p>
-        </a>
+        </ul>
       </li>
 
       <li class="nav-item">
         <a href="<%= admin_clientele_images_path %>" class="nav-link <% if controller.controller_name == 'clientele_images' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-server"></i>
           <p>Clientele Images</p>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a href="<%= admin_authors_path %>" class="nav-link <% if controller.controller_name == 'authors' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Author</p>
+      <li class="nav-item <% if controller.controller_name == 'authors' || controller.controller_name == 'blog_types' || controller.controller_name == 'blogs' %>menu-open<% end %>">
+        <a href="#" class="nav-link <% if controller.controller_name == 'authors' || controller.controller_name == 'blog_types' || controller.controller_name == 'blogs' %>active<% end %>">
+          <i class="nav-icon fas fa-server"></i>
+          <p>Blog <i class="right fas fa-angle-left"></i></p>
         </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="<%= admin_authors_path %>" class="nav-link <% if controller.controller_name == 'authors' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Author</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= admin_blog_types_path %>" class="nav-link <% if controller.controller_name == 'blog_types' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Blog Type</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= admin_blogs_path %>" class="nav-link <% if controller.controller_name == 'blogs' %>active<% end %>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Blog</p>
+            </a>
+          </li>
+
+        </ul>
       </li>
 
       <li class="nav-item">
-        <a href="<%= admin_blog_types_path %>" class="nav-link <% if controller.controller_name == 'blog_types' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Blog Types</p>
+        <a href="<%= admin_inquiries_path %>" class="nav-link <% if controller.controller_name == 'inquiries' %> active <% end %>">
+          <i class="nav-icon fas fa-server"></i>
+          <p>Inquiry</p>
         </a>
       </li>
-
-      <li class="nav-item">
-        <a href="<%= admin_blogs_path %>" class="nav-link <% if controller.controller_name == 'blogs' %> active <% end %>">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Blogs</p>
-        </a>
-      </li>
-
 
       <%# Category list demo %>
       <%# <li class="nav-item">
         <a href="#" class="nav-link active">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-server"></i>
           <p>
             Example <i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview" style="display: none;">
-          <li class="nav-item">
-            <a href="./index.html" class="nav-link active">
+          <li class="nav-item active">
+            <a href="./index.html" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Dashboard v1</p>
             </a>
@@ -112,3 +133,9 @@
   <!-- /.sidebar-menu -->
 </div>
 <!-- /.sidebar -->
+
+<style>
+  .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #A7833D !important;
+  }
+</style>

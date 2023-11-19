@@ -46,11 +46,11 @@
 </section>
 
 <section style="padding-bottom: 30px;">
-    <div class="container" data-aos="fade-up">
+    <div class="container full-image" data-aos="fade-up">
         <div class="heading-1 fs-30 black-4">
             <%= @blog.name %>
         </div>
-        
+
         <% if @blog.description2.present? %>
             <%= @blog.description2.html_safe %>
         <% end %>
@@ -198,6 +198,10 @@
 
     .owl-nav {
         margin-top: 60px !important;
+    }
+
+    .full-image img {
+        width: 100% !important;
     }
 </style>
 

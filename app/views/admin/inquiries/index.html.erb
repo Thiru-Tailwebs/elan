@@ -1,0 +1,61 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Inquiry</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="<%= admin_categories_url %>">Home</a></li>
+                <li class="breadcrumb-item active">Inquiry</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header p-0 pt-1">
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive mt-3">
+                            <table class="table table-bordered table-striped" id="example1">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+									<% if @inquiries.present? %>
+										<% @inquiries.each do |data| %>
+											<tr>
+												<td><%= data.name %></td>
+												<td><%= data.email %></td>
+												<td><%= data.mobile %></td>
+											</tr>
+										<% end %>
+									<% else %>
+										<tr>
+											<td colspan="3" style="text-align: center;">Record not found!</td>
+										</tr>
+									<% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
