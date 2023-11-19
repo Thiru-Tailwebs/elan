@@ -5,7 +5,7 @@
     <div class="container">
       <div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
         <div>
-          <div class="heading-4 white fs-26 fs-18-mob text-upper text-center">
+          <div data-aos="fade-up" class="heading-4 white fs-26 fs-18-mob text-upper text-center">
             brands we house
           </div>
           <div data-aos="fade-up" class="mt-15 w-70p w-90p-mob mx-auto fs-35-mob heading-1 text-center">
@@ -24,7 +24,7 @@
 <section>
   <div class="sandal-bg pt-40">
     <div class="container">
-      <ul class="nav nav-tabs brands" role="tablist">
+      <ul class="nav nav-tabs brands" data-aos="fade-down" role="tablist">
         <% @brand_categories.each_with_index do |data, index| %>
           <li class="nav-item">
             <a class="nav-link <% if index == 0 %>active<% end %>" data-toggle="tab" href="#tabs-<%= index + 1 %>" role="tab">
@@ -39,7 +39,7 @@
 
 <section>
   <div class="container py-50">
-    <div class="position-relative">
+    <div class="position-relative" data-aos="zoom-out">
       <img src="/images/brand/brand-1-img.png" class="w-100p img-overlay">
       <div class="heading-1 text-overlay">Brands we house</div>
     </div>
@@ -48,7 +48,7 @@
         <% @images = BrandCategoryImage.get_images_from_brand_category(data.code) %>
         <div class="tab-pane <% if index == 0 %>active<% end %>" id="tabs-<%= index + 1 %>" role="tabpanel">
           <div class="mx-50">
-            <div class="row align-items-center">
+            <div class="row align-items-center" data-aos="zoom-in">
               <% @images.each do |i| %>
                 <div class="col-md-3 mt-50">
                   <img src="<%= i.image_url(:large) %>" class="w-80p">

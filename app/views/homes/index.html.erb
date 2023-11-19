@@ -34,6 +34,7 @@
   </div>
 </section>
 
+
 <section class="black-bg-1 pt-40 pb-400 pb-100-mob pb-200-md">
   <div class="container">
     <div class="heading-2 fs-16-mob text-center" data-aos="fade-up">
@@ -82,9 +83,15 @@
       </svg>
     </div>
     <div class="mt-20 text-center" data-aos="flip-down">
-      <button type="button" class="btn btn-2">book appointment</button>
+      <button type="button" class="btn btn-2" id="bookBtn">book appointment</button>
     </div>
   </div>
+</section>
+
+<section id="calendlySection" style="display: none;">
+  <div class="calendly-inline-widget"
+    data-url="https://calendly.com/kartik-xj0/book-an-appoinment?hide_event_type_details=1&hide_gdpr_banner=1"
+    style="min-width:320px;height:700px;"></div>
 </section>
 
 <section class="black-bg-2 pt-40 pb-100-mob pb-400">
@@ -106,7 +113,7 @@
             <div class="flex-1 p-40 py-20-mob black-bg-3">
               <div class="d-flex justify-content-between align-items-center">
                 <div class="w-20p w-25p-mob">
-                  <img src="/images/home-page/sid-test.png" class="w-100">
+                  <img src="/images/home-page/test-sid.png" class="w-100">
                 </div>
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-75-mob h-75-mob" width="125" height="125"
@@ -934,5 +941,15 @@
       $(this).closest('.nav-item').addClass('active-tab');
     });
   });
+
+  document.getElementById('bookBtn').addEventListener('click', function () {
+      var calendlySection = document.getElementById('calendlySection');
+      if (calendlySection.style.display === 'none') {
+        calendlySection.style.display = 'block';
+      } else {
+        calendlySection.style.display = 'none';
+      }
+    });
+
 
 </script>

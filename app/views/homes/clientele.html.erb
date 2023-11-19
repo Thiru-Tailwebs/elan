@@ -5,7 +5,7 @@
     <div class="container">
       <div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
         <div>
-          <div class="heading-4 white fs-26 fs-18-mob text-upper text-center">
+          <div data-aos="fade-up" class="heading-4 white fs-26 fs-18-mob text-upper text-center">
             Clientele
           </div>
           <div data-aos="fade-up" class="mt-15 w-70p w-90p-mob mx-auto fs-35-mob heading-1 text-center">
@@ -22,11 +22,11 @@
 
 <section class="sandal-bg py-50">
   <div class="container">
-    <div class="heading-8 fs-18 w-80p text-center mx-auto">
+    <div class="heading-8 fs-18 w-80p text-center mx-auto" data-aos="fade-down">
       Discover the stories of businesses that soared to new heights with our collaborative approach, tailored solutions, and
       unwavering commitment.
     </div>
-    <div class="position-relative mt-50">
+    <div class="position-relative mt-50" data-aos="zoom-out">
       <img src="/images/brand/client-1.png" class="w-100p img-overlay">
       <div class="heading-1 text-overlay text-center">Our Clientele, Our Pride</div>
     </div>
@@ -39,7 +39,7 @@
     <div class="row align-items-center">
 <!--     <div class="row align-items-center"> -->
       <% @clientele_image.each do |data| %>
-        <div class="col-md-3 mt-50">
+        <div class="col-md-3 mt-50" data-aos="zoom-in">
           <img src="<%= data.image_url(:large) %>" class="w-80p">
         </div>
       <% end %>
