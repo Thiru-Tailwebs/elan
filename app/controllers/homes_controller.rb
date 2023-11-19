@@ -47,6 +47,25 @@ class HomesController < ApplicationController
   def blogs_detail
   end
 
+  def send_inquiry_mail
+    puts "===> params: ", params
+    name = params['name']
+    email = params['email']
+    mobile = params['number']
+
+    Inquiry.create(
+      name: params['name'],
+      email: params['email'],
+      mobile: params['number']
+    )
+
+    InquiryMailer.send_mail(
+      name, email, mobile
+    ).deliver_later
+
+    head :ok
+  end
+
   private
     def set_category
       @categories = Category.where(active: true).order(:priority)
