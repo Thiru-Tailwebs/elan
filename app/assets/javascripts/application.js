@@ -13,4 +13,6 @@
 // require scrollreveal.js
 //= require owlcarousel/owl.carousel.min.js
 //= require script.js
+//= require jquery.fancybox.js
+
 
