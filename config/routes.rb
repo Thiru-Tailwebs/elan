@@ -24,7 +24,8 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  get '/admin/dashboard' => 'admin/dashboard#index'
+  # get '/admin/dashboard' => 'admin/dashboard#index'
+  get '/admin' => 'admin/categories#index'
 
   # Admin sidebar manus
   namespace :admin do
