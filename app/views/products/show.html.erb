@@ -25,17 +25,19 @@
     <div class="container">
         <div class="py-50">
             <div class="row">
-                <div class="col-md-9">
-                    <div class="heading-1 black-10 fs-35" data-aos="fade-down">
+                <div class="col-lg-9 col-md-7">
+                    <div class="heading-1 black-10 fs-25-mob fs-35" data-aos="fade-down">
                         Request a call back
                     </div>
-                    <div class="mt-30">
-                        <div class="heading-2 fs-18 black-3" data-aos="fade-down">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.
+                    <div class="mt-30 mt-20-mob">
+                        <div class="heading-2 fs-18 fs-14-mob black-3" data-aos="fade-down">
+                        Have a question, a custom project in mind, or simply want to say hello? We'd love to hear from you. Feel
+                        free to reach
+                        out
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 justify-end align-end d-flex-lg" data-aos="flip-down">
+                <div class="col-lg-3 col-md-5 justify-end justify-start-mob align-end d-flex-lg mt-30-mob" data-aos="flip-down">
                     <a href="<%= contact_us_path %>" type="button" class="btn btn-4">Send Request</a>
                 </div>
             </div>
@@ -47,7 +49,7 @@
     <div class="container">
         <div class="row">
             <% @category.category_images.each do |data| %>
-                <div class="col-md-6 mt-30" data-aos="zoom-in">
+                <div class="col-md-6 col-6 mt-30" data-aos="zoom-in">
                     <img src="<%= data.image_url(:large)%>" class="w-100p">
                 </div>
             <% end %>
@@ -55,15 +57,17 @@
     </div>
 </section>
 
-<section class="sandal-bg mt-50">
+<section class="sandal-bg mt-30">
     <div class="container">
         <div class="py-50 text-center">
-            <div class="heading-1 black-10 fs-35" data-aos="fade-up">
+            <div class="heading-1 black-10 fs-25-mob fs-35" data-aos="fade-up">
                 Request a call back
             </div>
             <div class="mt-30">
-                <div class="heading-2 fs-18 black-3" data-aos="fade-up">
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.
+                <div class="heading-2 fs-18 fs-14-mob black-3" data-aos="fade-up">
+                    Have a question, a custom project in mind, or simply want to say hello? We'd love to hear from you. Feel
+                    free to reach
+                    out
                 </div>
             </div>
             <div class="mt-30" data-aos="flip-up">
@@ -78,3 +82,12 @@
 </div>
 
 <%= render "shared/footer" %>
+
+<style>
+    @media (max-width: 576px) {
+        .btn-4 {
+            padding: 10px 30px !important;
+            font-size: 12px !important;
+        }
+    }
+</style>

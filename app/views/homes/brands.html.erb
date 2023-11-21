@@ -41,16 +41,16 @@
   <div class="container py-50">
     <div class="position-relative" data-aos="zoom-out">
       <img src="/images/brand/brand-1-img.png" class="w-100p img-overlay">
-      <div class="heading-1 text-overlay">Brands we house</div>
+      <div class="heading-1 text-overlay fs-20-mob">Brands we house</div>
     </div>
-    <div class="tab-content mt-30">
+    <div class="tab-content mt-30 mt-0-mob">
       <% @brand_categories.each_with_index do |data, index| %>
         <% @images = BrandCategoryImage.get_images_from_brand_category(data.code) %>
         <div class="tab-pane <% if index == 0 %>active<% end %>" id="tabs-<%= index + 1 %>" role="tabpanel">
-          <div class="mx-50">
+          <div class="mx-50 mx-0-mob">
             <div class="row align-items-center" data-aos="zoom-in">
               <% @images.each do |i| %>
-                <div class="col-md-3 mt-50">
+                <div class="col-md-3 col-4 mt-50 mt-30-mob text-center">
                   <img src="<%= i.image_url(:large) %>" class="w-80p">
                 </div>
               <% end %>
@@ -60,7 +60,7 @@
       <% end %>
 
     </div>
-    <div class="mt-80 mt-40-md mt-40-lg text-center" data-aos="flip-down">
+    <div class="mt-80 mt-40-mob mt-40-md mt-40-lg text-center" data-aos="flip-down">
       <a href="<%= clientele_path %>" type="button" class="btn btn-2">Clientele brands</a>
     </div>
   </div>

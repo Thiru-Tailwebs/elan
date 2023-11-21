@@ -2,19 +2,19 @@
 
 <section class="py-50">
     <div class="container">
-        <div class="image-container mt-50" data-aos="zoom-in">
+        <div class="image-container mt-50 mt-0-mob" data-aos="zoom-in">
             <div class="background-gradient"></div>
             <img src="/images/blogs/blinds-blog.png" class="w-100p" alt="Image with background gradient">
             <div style="z-index: 111;" class="position-5">
-                <div class="heading-2 text-upper" >
+                <div class="heading-2 text-upper fs-16-mob" >
                     <%= @blog.title %>
                 </div>
-                <div class="mt-20 heading-1 fs-35 w-70p">
+                <div class="mt-20 heading-1 fs-35 fs-25-mob w-70p w-100p-mob">
                     <%= @blog.name %>
                 </div>
             </div>
         </div>
-        <div class="mt-30">
+        <div class="mt-30 mt-20-mob">
             <div class="d-flex align-items-center justify-content-between">
                 <div>
                     <div class="d-flex align-items-center">
@@ -45,7 +45,7 @@
     </div>
 </section>
 
-<section style="padding-bottom: 30px;">
+<section>
     <div class="container full-image" data-aos="fade-up">
         <div class="heading-1 fs-30 black-4">
             <%= @blog.name %>
@@ -58,108 +58,56 @@
 </section>
 
 <section class="container py-50">
-    <div class="w-80p" data-aos="fade-down">
+    <div class="w-80p w-100p-mob" data-aos="fade-down">
         <div class="owl-carousel blog-owl owl-theme">
-            <% (0...@num_batches).each do |batch_number| %>
-                <% offset_value = batch_number * @loop_size %>
-                <% batch = @all_blogs.offset(offset_value).limit(@loop_size) %>
-
+            <% @all_blogs.each do |data| %>
                 <div class="item">
-                    <div class="row">
-                        <% batch.each_with_index do |data, index| %>
-                            <% if index == 0 %>
-                                <div class="col-md-6">
-                                    <div>
-                                        <div class="">
-                                            <img src="<%= data.image_url(:large) %>" class="w-100p">
+                    <div class="">
+                        <div class="">
+                            <div>
+                                <div class="">
+                                    <img src="<%= data.image_url(:large) %>" class="w-100p">
+                                </div>
+                                <div class="mt-30">
+                                    <div class="border-3"></div>
+                                </div>
+                                <div class="mt-20">
+                                    <div class="heading-2 fs-16 black-1">
+                                        <%= data.title %>
+                                    </div>
+                                    <div class="mt-15">
+                                        <div class="heading-8 black-1">
+                                            <%= data.name %>
                                         </div>
-                                        <div class="mt-30">
-                                            <div class="border-3"></div>
+                                    </div>
+                                    <div class="mt-10">
+                                        <div class="heading-2 black-1 fs-16">
+                                            <%= formatted_title_dynamic(data.description1, 30) %>
                                         </div>
-                                        <div class="mt-20">
-                                            <div class="heading-2 fs-16 black-1">
-                                                <%= data.title %>
+                                    </div>
+                                    <div class="mt-15">
+                                        <div class="d-flex align-items-center">
+                                            <div>
+                                                <img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
                                             </div>
-                                            <div class="mt-15">
-                                                <div class="heading-8 black-1">
-                                                    <%= data.name %>
+                                            <div class="ml-2">
+                                                <div class="heading-3 black-1 fs-12">
+                                                    By <%= data.author.name %>
                                                 </div>
                                             </div>
-                                            <div class="mt-10">
-                                                <div class="heading-2 black-1 fs-16">
-                                                    <%= formatted_title_dynamic(data.description1, 50) %>
-                                                </div>
-                                            </div>
-                                            <div class="mt-15">
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
-                                                    </div>
-                                                    <div class="ml-2">
-                                                        <div class="heading-3 black-1 fs-12">
-                                                            By <%= data.author.name %>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ml-3">
-                                                        <div class="heading-2 black-1 fs-12">
-                                                            <%= formatted_date1(data.published_dt) %>
-                                                        </div>
-                                                    </div>
+                                            <div class="ml-3">
+                                                <div class="heading-2 black-1 fs-12">
+                                                    <%= formatted_date1(data.published_dt) %>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            <% end %>
-
-                            <% if index == 1 %>
-                                <div class="col-md-6">
-                                    <div>
-                                        <div class="">
-                                            <img src="<%= data.image_url(:large) %>" class="w-100p">
-                                        </div>
-                                        <div class="mt-30">
-                                            <div class="border-3"></div>
-                                        </div>
-                                        <div class="mt-20">
-                                            <div class="heading-2 fs-16 black-1">
-                                                <%= data.title %>
-                                            </div>
-                                            <div class="mt-15">
-                                                <div class="heading-8 black-1">
-                                                    <%= data.name %>
-                                                </div>
-                                            </div>
-                                            <div class="mt-10">
-                                                <div class="heading-2 black-1 fs-16">
-                                                    <%= formatted_title_dynamic(data.description1, 50) %>
-                                                </div>
-                                            </div>
-                                            <div class="mt-15">
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
-                                                    </div>
-                                                    <div class="ml-2">
-                                                        <div class="heading-3 black-1 fs-12">
-                                                            By <%= data.author.name %>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ml-3">
-                                                        <div class="heading-2 black-1 fs-12">
-                                                            <%= formatted_date1(data.published_dt) %>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <% end %>
-                        <% end %>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            <% end %>
+                <% end %>
         </div>
     </div>
 </section>
@@ -203,16 +151,32 @@
     .full-image img {
         width: 100% !important;
     }
+
+    @media (max-width: 576px){
+       .owl-nav {
+        margin-top: 30px !important;
+    }
+    }
+
+
 </style>
 
 <script>
     $(document).ready(function () {
         $(".blog-owl").owlCarousel({
-            items: 1,
             margin: 10,
             loop: true,
             nav: true,
-            dots: false
+            dots: false,
+            responsive: {
+            0: {
+              items: 1
+            },
+            900: {
+              items: 2
+            }
+
+          }
         });
         $(".blog-owl .owl-nav .owl-prev").html('<img src="/images/blogs/blog-arrow-left.png" class="w-40px">');
         $(".blog-owl .owl-nav .owl-next").html('<img src="/images/blogs/blog-arrow-right.png" class="w-40px">');
