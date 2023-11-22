@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<section class="py-50">
+<section class="py-50 zoom">
     <div class="container">
         <div class="image-container mt-50 mt-0-mob" data-aos="zoom-in">
             <div class="background-gradient"></div>
@@ -45,7 +45,7 @@
     </div>
 </section>
 
-<section>
+<section class="zoom">
     <div class="container full-image" data-aos="fade-up">
         <div class="heading-1 fs-30 black-4">
             <%= @blog.name %>
@@ -57,7 +57,7 @@
     </div>
 </section>
 
-<section class="container py-50">
+<section class="container py-50 zoom">
     <div class="w-80p w-100p-mob" data-aos="fade-down">
         <div class="owl-carousel blog-owl owl-theme">
             <% @all_blogs.each do |data| %>

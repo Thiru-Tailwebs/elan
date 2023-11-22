@@ -6,35 +6,34 @@
   <section class="bg-image-home position-relative" style="background-image: url('/images/home-page/home-banner.png');">
 <% end %>
   <div class="bg-shadow h-100vh h-90vh-lg h-90vh-md h-90vh-mob">
-    <div class="container">
-      <div class="row h-100vh h-90vh-lg h-90vh-md h-90vh-mob align-center align-base-mob">
-        <div class="col-lg-4 col-md-2">
+    <div class="container-1">
+      <div class="row h-100vh h-90vh-lg h-90vh-md h-90vh-mob align-center align-base-mob position-relative">
+        <div class="col-lg-5 col-md-4">
         </div>
-        <div class="col-lg-8 col-md-10">
+        <div class="col-lg-7 col-md-8 zoom">
           <div class="heading-1 fs-30-mob text-right" data-aos="fade-up">Elevate Your Home with Timeless Elegance
           </div>
           <div class="mt-3 heading-2 text-right ml-80 fs-14-mob" data-aos="fade-up">Discover hand picked treasures
             that turn your living space into a sanctuary of style and comfort
           </div>
         </div>
-      </div>
-      <div class="text-right position-2">
-        <div data-aos="flip-up">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="57" viewBox="0 0 50 67" fill="none">
-            <rect x="2.35645" y="1.5" width="46" height="64" rx="23" stroke="white" stroke-width="3" />
-            <path d="M25.8564 20L25.8564 39" stroke="white" stroke-width="3" stroke-linecap="round">
-              <animate attributeName="d" dur="1s"
-                values="M25.8564 20L25.8564 39; M25.8564 15L25.8564 44; M25.8564 20L25.8564 39"
-                repeatCount="indefinite" />
-            </path>
-          </svg>
+        <div class="text-right position-2">
+          <div data-aos="flip-up">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="57" viewBox="0 0 50 67" fill="none">
+              <rect x="2.35645" y="1.5" width="46" height="64" rx="23" stroke="white" stroke-width="3" />
+              <path d="M25.8564 20L25.8564 39" stroke="white" stroke-width="3" stroke-linecap="round">
+                <animate attributeName="d" dur="1s"
+                  values="M25.8564 20L25.8564 39; M25.8564 15L25.8564 44; M25.8564 20L25.8564 39" repeatCount="indefinite" />
+              </path>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
+<div class="zoom">
 <section class="black-bg-1 pt-40 pb-400 pb-100-mob pb-200-md">
   <div class="container">
     <div class="heading-2 fs-16-mob text-center" data-aos="fade-up">
@@ -750,6 +749,7 @@
     </div>
   </div>
 </section>
+</div>
 
 <%= render "shared/call_back" %>
 <%= render "shared/footer" %>

@@ -11,3 +11,30 @@ document.addEventListener('DOMContentLoaded', function () {
     offset: 50
   });
 });
+
+var zoomFactor = 1.2;
+
+var set_zoom = function () {
+  var zoom_value = 1;
+  var windowWidth = window.innerWidth;
+
+  // Define your zoom logic here based on screen size
+  if (windowWidth > 2000) {
+    zoom_value = windowWidth / 2000;
+  } else {
+    zoom_value = 1; // Default zoom for smaller screens
+  }
+
+  // Apply the zoom to elements with the "zoom" class
+  $(".zoom").css("zoom", zoom_value * zoomFactor);
+}
+
+// Call set_zoom on page load
+$(document).ready(function () {
+  set_zoom();
+});
+
+// Call set_zoom when the window size changes
+$(window).on("resize", function () {
+  set_zoom();
+});
