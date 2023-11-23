@@ -4,7 +4,7 @@
     <div class="container">
         <div class="image-container mt-50 mt-0-mob" data-aos="zoom-in">
             <div class="background-gradient"></div>
-            <img src="/images/blogs/blinds-blog.png" class="w-100p" alt="Image with background gradient">
+            <img src="<%= @blog.image_url(:large) %>" class="w-100p" alt="Image with background gradient">
             <div style="z-index: 111;" class="position-5">
                 <div class="heading-2 text-upper fs-16-mob" >
                     <%= @blog.title %>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <% end %>
+            <% end %>
         </div>
     </div>
 </section>

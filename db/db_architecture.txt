@@ -51,3 +51,4 @@ rails g model SummernoteImage image_data:text referable_id:integer referable_typ
 rails g model Inquiry name email mobile status
 
 rails g scaffold admin/Inquiry
+rails generate mailer InquiryMailer

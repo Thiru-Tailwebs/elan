@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   get '/book_services' => 'homes#book_services'
   get '/accessories' => 'product#accessories'
   get '/fabrics' => 'product#fabrics'
-
-
+  post "/send_inquiry_mail", to: "homes#send_inquiry_mail"
 
 
   devise_for :users

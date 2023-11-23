@@ -6,22 +6,22 @@
 
     <div class="mt-80 mt-30-mob">
       <div class="call">
-        <form id="myCall" class="call-back mt-50 mt-20-mob row align-items-center">
+        <form method="POST" action="<%= send_inquiry_mail_path %>" id="myCall" class="call-back mt-50 mt-20-mob row align-items-center">
           <div class="col-md-3" data-aos="fade-up">
             <label for="firstName">Your Name</label>
-            <input type="text" id="firstName" required>
+            <input type="text" id="name" required>
           </div>
           <div class="col-md-3 mt-20-mob" data-aos="fade-up">
             <label for="email">E-Mail</label>
             <input type="email" id="email" required>
           </div>
           <div class="col-md-3 mt-20-mob" data-aos="fade-up">
-            <label for="email">Phone Number</label>
-            <input type="email" id="email" required>
+            <label for="number">Phone Number</label>
+            <input type="text" id="number" required>
           </div>
           <div class="col-md-3 mt-20-mob text-center">
             <div class="" data-aos="fade-up">
-              <button type="button" class="btn btn-4">Submit</button>
+              <button type="submit" class="btn btn-4">Submit</button>
             </div>
           </div>
         </form>
@@ -79,30 +79,49 @@
     }
   }
 </style>
+<!-- Make sure jQuery is loaded before your custom script -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-  // Get the modal and the button to close it
-  var modal = document.getElementById("myModal");
-  var closeModal = document.getElementById("closeModal");
+  // Use no-conflict mode to avoid conflicts with other libraries
+  jQuery(document).ready(function($) {
+    $('#myCall').submit(function(e) {
+      e.preventDefault(); // Prevent the default form submission
 
-  // Get the submit button
-  var submitButton = document.querySelector(".btn.btn-4");
+      // Get form data
+      var formData = {
+        name: $('#name').val(),
+        email: $('#email').val(),
+        number: $('#number').val()
+        // Add other form fields as needed
+      };
 
-  // When the submit button is clicked, show the modal
-  submitButton.addEventListener("click", function () {
-    modal.style.display = "block";
-  });
+      var csrfToken = $('meta[name=csrf-token]').attr('content');
 
-  // When the close button is clicked, hide the modal
-  closeModal.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
+      // Send AJAX request
+      $.ajax({
+        type: 'POST',
+        url: '<%= send_inquiry_mail_path %>',
+        headers: {
+          'X-CSRF-Token': csrfToken
+        },
+        data: formData,
+        success: function(response) {
+          // Assuming your modal has the ID "myModal"
+          $('#myModal').show();
+        },
+        error: function(error) {
+          console.error('Error submitting the form:', error);
+        }
+      });
+    });
 
-  // Close the modal if the user clicks outside of it
-  window.addEventListener("click", function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
+    // Close modal when the close button is clicked
+    $('#closeModal').click(function() {
+      $('#myModal').hide();
+      $('#myCall')[0].reset();
+      // location.reload();
+    });
   });
 </script>
 
