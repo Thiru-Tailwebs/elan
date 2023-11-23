@@ -4,11 +4,11 @@
 	<div class="bg-shadow-1 h-90vh h-80vh-lg h-80vh-md h-80vh-mob">
 		<div class="container">
 			<div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
-				<div>
+				<div class="zoom">
 					<div data-aos="fade-up" class="heading-4 white fs-26 fs-18-mob text-upper text-center">
 						blogs & Article
 					</div>
-					<div data-aos="fade-up" class="mt-15 w-70p w-90p-mob mx-auto fs-35-mob heading-1 text-center">
+					<div data-aos="fade-up" class="mt-15 w-70p w-100p-tab w-90p-mob mx-auto fs-25-mob heading-1 text-center">
 						Design Diaries: Uncover Trends, Tips, and Transformations in Our Blog Haven
 					</div>
 					<div data-aos="fade-up" class="mt-30 w-70p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
@@ -22,10 +22,10 @@
 	</div>
 </section>
 
-<section class="mt-50 mb-50">
+<section class="mt-50 mb-50 zoom">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-lg-10 col-md-12">
 				<% @blogs_of_3.each_with_index do |data, index| %>
 					<div class="<% if index + 1 > 1 %>mt-30<% end %>" data-aos="<% if (index + 1) % 2 == 0 %>fade-up<% else %>fade-down<% end %>">
 						<div class="">
@@ -48,15 +48,15 @@
 								</div>
 							</div>
 						</div>
-						<div class="mt-20 sub-heading-1">
+						<div class="mt-20 sub-heading-1 fs-20-mob">
 							<%= data.name %>
 						</div>
-						<div class="mt-20 heading-2 black-5 fs-16">
-							<%= data.description1 %>
+						<div class="mt-20 heading-2 black-5 fs-16 fs-14-mob">
+							<%= formatted_title_dynamic(data.description1, 50) %>
 						</div>
 						<div class="mt-20">
 							<a href="<%= show_blog_path(data) %>" class="">
-								<span style="text-decoration: underline;" class="sub-heading black-6 fs-18">Read more</span>
+								<span style="text-decoration: underline;" class="sub-heading black-6 fs-18 fs-16-mob">Read more</span>
 							</a>
 						</div>
 					</div>
@@ -68,103 +68,51 @@
 
 				<div class="mt-80" data-aos="fade-down">
 					<div class="owl-carousel blog-owl owl-theme">
-						<% (0...@num_batches).each do |batch_number| %>
-							<% offset_value = batch_number * @loop_size %>
-							<% batch = @all_blogs.offset(offset_value).limit(@loop_size) %>
-
+						<% @all_blogs.each do |data| %>
 							<div class="item">
-								<div class="row">
-									<% batch.each_with_index do |data, index| %>
-										<% if index == 0 %>
-											<div class="col-md-6">
-												<a href=<%= show_blog_path(data) %>>
-													<div class="">
-														<img src="<%= data.image_url(:large) %>" class="w-100p">
-													</div>
-													<div class="mt-30">
-														<div class="border-3"></div>
-													</div>
-													<div class="mt-20">
-														<div class="heading-2 fs-16 black-1">
-															<%= data.title %>
-														</div>
-														<div class="mt-15">
-															<div class="heading-8 black-1">
-																<%= data.name %>
-															</div>
-														</div>
-														<div class="mt-10">
-															<div class="heading-2 black-1 fs-16">
-                                                    			<%= formatted_title_dynamic(data.description1, 50) %>
-															</div>
-														</div>
-														<div class="mt-15">
-															<div class="d-flex align-items-center">
-																<div>
-																	<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
-																</div>
-																<div class="ml-2">
-																	<div class="heading-3 black-1 fs-12">
-																		By <%= data.author.name %>
-																	</div>
-																</div>
-																<div class="ml-3">
-																	<div class="heading-2 black-1 fs-12">
-																		<%= formatted_date1(data.published_dt) %>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</a>
+								<div class="">
+									<div class="">
+										<div>
+											<div class="">
+												<img src="<%= data.image_url(:large) %>" class="w-100p">
 											</div>
-										<% end %>
-
-										<% if index == 1 %>
-											<div class="col-md-6">
-												<a href=<%= show_blog_path(data) %>>
-													<div class="">
-														<img src="<%= data.image_url(:large) %>" class="w-100p">
-													</div>
-													<div class="mt-30">
-														<div class="border-3"></div>
-													</div>
-													<div class="mt-20">
-														<div class="heading-2 fs-16 black-1">
-															<%= data.title %>
-														</div>
-														<div class="mt-15">
-															<div class="heading-8 black-1">
-																<%= data.name %>
-															</div>
-														</div>
-														<div class="mt-10">
-															<div class="heading-2 black-1 fs-16">
-                                                    			<%= formatted_title_dynamic(data.description1, 50) %>
-															</div>
-														</div>
-														<div class="mt-15">
-															<div class="d-flex align-items-center">
-																<div>
-																	<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
-																</div>
-																<div class="ml-2">
-																	<div class="heading-3 black-1 fs-12">
-																		By <%= data.author.name %>
-																	</div>
-																</div>
-																<div class="ml-3">
-																	<div class="heading-2 black-1 fs-12">
-																		<%= formatted_date1(data.published_dt) %>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</a>
+											<div class="mt-30">
+												<div class="border-3"></div>
 											</div>
-										<% end %>
-									<% end %>
+											<div class="mt-20">
+												<div class="heading-2 fs-16 black-1">
+													<%= data.title %>
+												</div>
+												<div class="mt-15">
+													<div class="heading-8 black-1">
+														<%= data.name %>
+													</div>
+												</div>
+												<div class="mt-10">
+													<div class="heading-2 black-1 fs-16">
+														<%= formatted_title_dynamic(data.description1, 50) %>
+													</div>
+												</div>
+												<div class="mt-15">
+													<div class="d-flex align-items-center">
+														<div>
+															<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
+														</div>
+														<div class="ml-2">
+															<div class="heading-3 black-1 fs-12">
+																By <%= data.author.name %>
+															</div>
+														</div>
+														<div class="ml-3">
+															<div class="heading-2 black-1 fs-12">
+																<%= formatted_date1(data.published_dt) %>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						<% end %>
@@ -198,7 +146,7 @@
 					<button type="button" class="btn btn-3">Submit</button>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-lg-2">
 			</div>
 			<!-- <div class="col-md-4">
 				<div class="input-group">
@@ -329,11 +277,20 @@
 <script>
 	$(document).ready(function () {
 			$(".blog-owl").owlCarousel({
-					items: 1,
+					
 					margin: 10,
 					loop: true,
 					nav: true,
-					dots: false
+					dots: false,
+					responsive: {
+						0: {
+							items: 1
+						},
+						900: {
+							items: 2
+						}
+
+					}
 			});
 			$(".blog-owl .owl-nav .owl-prev").html('<img src="/images/blogs/blog-arrow-left.png" class="w-40px">');
 			$(".blog-owl .owl-nav .owl-next").html('<img src="/images/blogs/blog-arrow-right.png" class="w-40px">');

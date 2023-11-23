@@ -691,8 +691,8 @@
 
 .position-2 {
   position: absolute;
-  right: 11%;
-  bottom: 70px;
+  right: 0%;
+  bottom: 7%;
 }
 
 .position-3 {
@@ -882,6 +882,18 @@ a:hover {
     margin-top: 40px;
   }
 
+  .mt-300-lg {
+    margin-top: 300px;
+  }
+
+  .pb-200-lg {
+    padding-bottom: 200px;
+  }
+
+  .pb-50-lg {
+    padding-bottom: 50px;
+  }
+
   .mx-0-lg {
     margin-left: 0px;
     margin-right: 0px;
@@ -909,6 +921,10 @@ a:hover {
 
   .fs-10-lg {
     font-size: 10px;
+  }
+
+  .fs-30-lg {
+    font-size: 30px;
   }
 
   .container-1 {
@@ -942,6 +958,11 @@ a:hover {
     height: 72vh;
   }
 
+    .container-1 {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
   .h-90vh-md {
     height: 90vh;
   }
@@ -958,12 +979,25 @@ a:hover {
     height: 80vh;
   }
 
+  .fs-30-md {
+    font-size: 30px;
+  }
+
   .bg-image-1 {
     height: 72vh;
   }
 
   .pb-200-md {
     padding-bottom: 200px;
+  }
+
+  .pb-100-md {
+    padding-bottom: 100px;
+  }
+
+  .mx-0-md {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .d-none-md {
@@ -993,6 +1027,16 @@ a:hover {
   .bg-image-home {
     height: 90vh;
   }
+
+  .mt-200-md{
+    margin-top: 200px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px){
+  .w-100p-tab {
+    width: 100%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1002,6 +1046,10 @@ a:hover {
 
   .bg-image-home {
     height: 90vh;
+  }
+
+  .justify-start-mob {
+    justify-content: start;
   }
 
   .bg-images {
@@ -1040,6 +1088,10 @@ a:hover {
     font-size: 18px;
   }
 
+  .fs-20-mob {
+    font-size: 20px;
+  }
+
   .fs-25-mob {
     font-size: 25px;
   }
@@ -1048,9 +1100,9 @@ a:hover {
     font-size: 35px;
   }
 
-  .position-2 {
+  /* .position-2 {
     right: 40%;
-  }
+  } */
 
   .w-80p-mob {
     width: 80%;
@@ -1072,6 +1124,16 @@ a:hover {
     display: block;
   }
 
+  .my-40-mob {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .py-40-mob {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
   .h-90vh-mob {
     height: 90vh;
   }
@@ -1089,8 +1151,16 @@ a:hover {
     margin-top: 20px;
   }
 
+  .mt-0-mob {
+    margin-top: 0px;
+  }
+
   .pb-100-mob {
     padding-bottom: 100px;
+  }
+
+  .pb-150-mob {
+    padding-bottom: 150px;
   }
 
   .pr-0-mob {
@@ -1099,6 +1169,18 @@ a:hover {
 
   .pt-150-mob {
     padding-top: 150px;
+  }
+
+  .pt-100-mob {
+    padding-top: 100px;
+  }
+
+  .pt-20-mob{
+    padding-top: 20px;
+  }
+
+  .pb-50-mob {
+    padding-bottom: 50px;
   }
 
   .btn-2 {
@@ -1163,6 +1245,14 @@ a:hover {
     margin-top: 10px;
   }
 
+  .mt-150-mob {
+    margin-top: 150px;
+  }
+
+  .mt-100-mob{
+    margin-top: 100px;
+  }
+
   .top-30-mob {
     top: 30px;
   }
@@ -1179,4 +1269,10 @@ a:hover {
     height: 300px;
   }
 
+}
+
+@media (max-width: 1900px) {
+  .zoom {
+    zoom: 1 !important;
+  }
 }

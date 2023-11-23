@@ -4,7 +4,7 @@
     <div class="bg-shadow-1 h-90vh">
         <div class="container">
             <div class="h-90vh d-flex align-items-center justify-content-center">
-                <div>
+                <div class="zoom">
                     <div data-aos="fade-up" class="mt-15 w-70p w-90p-mob mx-auto fs-35-mob heading-1 text-center">
                         Home Decor Masterpieces
                     </div>
@@ -18,7 +18,7 @@
     </div>
 </section>
 
-<section class="sandal-bg py-50">
+<section class="sandal-bg py-50 pt-20-mob zoom">
     <div class="container">
         <div class="row">
             <% (0...@num_batches).each do |batch_number| %>
@@ -32,7 +32,7 @@
                                 <div class="position-relative">
                                     <img src="<%= data.image_url(:large) %>" class="w-100p">
                                     <div class="collection-position"></div>
-                                    <div class="heading-8 white position-4 text-upper">
+                                    <div class="heading-8 white fs-14-mob position-4 text-upper">
                                         <%= data.name %>
                                     </div>
                                 </div>
@@ -40,12 +40,12 @@
                         </div>
                     <% end %>
                     <% if index == 1 %>
-                        <div class="col-md-6 mt-30" data-aos="zoom-in">
+                        <div class="col-md-6 col-6 mt-30" data-aos="zoom-in">
                             <a href="<%= show_product_path(data) %>">
                                 <div class="position-relative">
                                     <img src="<%= data.image2_url(:large) %>" class="w-100p">
                                     <div class="collection-position"></div>
-                                    <div class="heading-8 white position-4 text-upper">
+                                    <div class="heading-8 white fs-14-mob position-4 text-upper">
                                         <%= data.name %>
                                     </div>
                                 </div>
@@ -53,12 +53,12 @@
                         </div>
                     <% end %>
                     <% if index == 2 %>
-                        <div class="col-md-6 mt-30" data-aos="zoom-out">
+                        <div class="col-md-6 col-6 mt-30" data-aos="zoom-out">
                             <a href="<%= show_product_path(data) %>">
                                 <div class="position-relative">
                                     <img src="<%= data.image2_url(:large) %>" class="w-100p">
                                     <div class="collection-position"></div>
-                                    <div class="heading-8 white position-4 text-upper">
+                                    <div class="heading-8 white fs-14-mob position-4 text-upper">
                                         <%= data.name %>
                                     </div>
                                 </div>
