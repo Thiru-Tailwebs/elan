@@ -9,6 +9,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="<%= admin_categories_path %>">Home</a></li>
+                <li class="breadcrumb-item"><a href="<%= admin_categories_url %>">Category</a></li>
                 <li class="breadcrumb-item"><a href="<%= admin_category_images_path %>">Category Images</a></li>
                 <li class="breadcrumb-item active">Update Sequencing</li>
               </ol>
@@ -28,18 +29,7 @@
 				</div>
                 <div class="card card-primary">
                     <div class="card-header p-0 pt-1"></div>
-					<div class="card-body">
-						<div class="form-group row ml-1">
-							<label class='col-sm-2 col-form-label'>Category: </label>
-                            <div class="col-sm-3">
-                                <select class="select2" data-placeholder="Select category" style="width: 100%;" name="category" id="category" required>
-                                    <option value="" selected disabled>Select category</option>
-                                    <% @categories.each do |data| %>
-                                        <option value="<%= data.code %>"><%= data.name %></option>
-                                    <% end %>
-                                </select>
-                            </div>
-						</div><br>
+					<div class="card-body"><br>
 
 						<div class="col-lg-7 col-md-12 mb-3">
 							<ul id="sortable-list" class="list-group">

@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     end
     resources :brand_categories do
       collection do
+        post "/edit_brand_category_images", to: "brand_categories#edit_brand_category_images"
         get '/sequencing', to: "brand_categories#sequencing"
         post "/update_sequence", to: "brand_categories#update_sequence"
       end
@@ -63,6 +64,7 @@ Rails.application.routes.draw do
     end
     resources :categories do
       collection do
+        post "/edit_category_images", to: "categories#edit_category_images"
         get '/sequencing', to: "categories#sequencing"
         post "/update_sequence", to: "categories#update_sequence"
       end

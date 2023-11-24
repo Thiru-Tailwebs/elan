@@ -77,9 +77,14 @@
                                             </td>
                                             <td>
                                                 <% if can? :update, @categories %>
-                                                    <%= link_to edit_admin_category_path(data), class: 'btn btn-primary mr-3' do %>
+                                                    <%= link_to edit_admin_category_path(data), class: 'btn btn-primary mr-3', title: "Edit category" do %>
                                                         <i class="fa fa-edit "></i>
                                                     <% end %>
+                                                <% end %>
+                                                <% if can? :update, @categories %>
+                                                    <button class="btn btn-warning mr-3 edit-category-images" title="Edit category images" data-id="<%= data.id %>">
+                                                        <i class="fa fa-edit"></i> Category Image
+                                                    </button>
                                                 <% end %>
                                                 <% if can? :destroy, @categories %>
                                                     <button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
@@ -108,11 +113,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="related-data-div">
-                        <p><b>NOTE: </b>Listed below are the categories that <strong id="person-name-strong"></strong> is linked to:</p>
-                        <ul id="related-data-ul">
-                        </ul>
-                    </div>
                     <p>Are you sure you want to delete this record?</p>
                 </div>
                 <div class="modal-footer">
@@ -128,7 +128,31 @@
 
 <script>
 	$(document).ready(function() {
-        document.getElementById('related-data-div').style.display = 'none';
+		$('.edit-category-images').click(function () {
+            var recordId = $(this).data('id');
+            var csrfToken = $('meta[name=csrf-token]').attr('content');
+
+            $.ajax({
+                url: '/admin/categories/edit_category_images',
+                headers: {
+                    'X-CSRF-Token': csrfToken
+                },
+                data: {recordId: recordId},
+                method: 'POST',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = '<%= admin_category_images_path %>';
+                    } else {
+                        console.error('Error:', response);
+                    }
+                    // location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+		});
 
 		$('.delete-record').click(function () {
             var recordId = $(this).data('id');

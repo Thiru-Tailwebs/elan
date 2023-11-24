@@ -61,9 +61,14 @@
                                             </td>
                                             <td>
                                                 <% if can? :update, @brand_categories %>
-                                                    <%= link_to edit_admin_brand_category_path(data), class: 'btn btn-primary mr-3' do %>
+                                                    <%= link_to edit_admin_brand_category_path(data), class: 'btn btn-primary mr-3', title: "Edit brand category" do %>
                                                         <i class="fa fa-edit "></i>
                                                     <% end %>
+                                                <% end %>
+                                                <% if can? :update, @brand_categories %>
+                                                    <button class="btn btn-warning mr-3 edit-category-images" title="Edit brand category images" data-id="<%= data.id %>">
+                                                        <i class="fa fa-edit"></i> B-Category Image
+                                                    </button>
                                                 <% end %>
                                                 <% if can? :destroy, @brand_categories %>
                                                     <button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
@@ -107,6 +112,32 @@
 
 <script>
 	$(document).ready(function() {
+		$('.edit-category-images').click(function () {
+            var recordId = $(this).data('id');
+            var csrfToken = $('meta[name=csrf-token]').attr('content');
+
+            $.ajax({
+                url: '/admin/brand_categories/edit_brand_category_images',
+                headers: {
+                    'X-CSRF-Token': csrfToken
+                },
+                data: {recordId: recordId},
+                method: 'POST',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = '<%= admin_brand_category_images_path %>';
+                    } else {
+                        console.error('Error:', response);
+                    }
+                    // location.reload();
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+		});
+
 		$('.delete-record').click(function () {
             var recordId = $(this).data('id');
             $('#deleteModel').modal('show');
