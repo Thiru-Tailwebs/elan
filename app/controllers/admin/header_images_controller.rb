@@ -65,6 +65,6 @@ class Admin::HeaderImagesController < Admin::AdminbaseController
 
     # Only allow a list of trusted parameters through.
     def header_image_params
-      params.require(:header_image).permit(:name, :description, :image, :active)
+      params.require(:header_image).permit(:name, :description, :image, :square_image, :active)
     end
 end
