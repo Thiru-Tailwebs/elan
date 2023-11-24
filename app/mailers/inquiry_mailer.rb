@@ -1,6 +1,6 @@
 class InquiryMailer < ApplicationMailer
     def send_mail(name, email, mobile)
-        email = "kartik@tailwebs.com"
+        email = "info@elandecor.in"
         subject = "Elan: new inquiry"
 
         @name = name
