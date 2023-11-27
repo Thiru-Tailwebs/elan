@@ -66,6 +66,29 @@ class HomesController < ApplicationController
     head :ok
   end
 
+  def send_contact_mail
+    puts "===> params: ", params
+    fname = params['fname']
+    lname = params['lname']
+    email = params['email']
+    mobile = params['mobile']
+    message = params['message']
+
+    Contact.create(
+      first_name: params['fname'],
+      last_name: params['lname'],
+      email: params['email'],
+      mobile: params['mobile'],
+      message: params['message']
+    )
+
+    ContactMailer.send_mail(
+      fname, lname, email, mobile, message
+    ).deliver_later
+
+    head :ok
+  end
+
   private
     def set_category
       @categories = Category.where(active: true).order(:priority)

@@ -60,3 +60,4 @@ rails generate migration DropContactUsTable
 rails g model Contact first_name last_name email mobile message:text status
 
 rails g scaffold admin/Contact
+rails generate mailer ContactMailer
