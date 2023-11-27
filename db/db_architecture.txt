@@ -63,3 +63,6 @@ rails g scaffold admin/Contact
 rails generate mailer ContactMailer
 
 rails generate mailer SuccessMailer
+
+rails generate migration ChangeStatusInContact
+rails generate migration ChangeStatusInInquiry

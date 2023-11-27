@@ -1,5 +1,5 @@
 class Admin::ContactsController < Admin::AdminbaseController
-  before_action :set_contact, only: %i[ show edit update destroy ]
+  before_action :set_contact, only: %i[ show edit update destroy update_status ]
 
   # GET /admin/contacts or /admin/contacts.json
   def index
@@ -57,6 +57,10 @@ class Admin::ContactsController < Admin::AdminbaseController
     # end
   end
 
+  def update_status
+    @contact.update(status: true)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
@@ -65,7 +69,6 @@ class Admin::ContactsController < Admin::AdminbaseController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.fetch(:contact, {})
       params.require(:contact).permit(
         :first_name, :last_name, :email, :mobile, :message, :active
       )

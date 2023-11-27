@@ -29,8 +29,16 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
-    resources :contacts
-    resources :inquiries
+    resources :contacts do
+      collection do
+        get '/update_status', to: "contacts#update_status"
+      end
+    end
+    resources :inquiries do
+      collection do
+        get '/update_status', to: "inquiries#update_status"
+      end
+    end
     post '/summernote/upload_image', to: 'summernote_images#upload_image'
     resources :clientele_images do
       collection do

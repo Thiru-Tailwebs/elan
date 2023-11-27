@@ -8,7 +8,7 @@
 #  last_name  :string(255)
 #  message    :text(65535)
 #  mobile     :string(255)
-#  status     :string(255)
+#  status     :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
