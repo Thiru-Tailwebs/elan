@@ -63,6 +63,10 @@ class HomesController < ApplicationController
       name, email, mobile
     ).deliver_later
 
+    SuccessMailer.send_mail(
+      email
+    ).deliver_later
+
     head :ok
   end
 
@@ -84,6 +88,10 @@ class HomesController < ApplicationController
 
     ContactMailer.send_mail(
       fname, lname, email, mobile, message
+    ).deliver_later
+
+    SuccessMailer.send_mail(
+      email
     ).deliver_later
 
     head :ok
