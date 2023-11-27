@@ -55,5 +55,8 @@ rails g model Inquiry name email mobile status
 rails g scaffold admin/Inquiry
 rails generate mailer InquiryMailer
 
-rails g model ContactUs first_name last_name email mobile message:text status
+rails generate migration DropContactUsTable
 
+rails g model Contact first_name last_name email mobile message:text status
+
+rails g scaffold admin/Contact
