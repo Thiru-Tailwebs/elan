@@ -41,27 +41,15 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="<%= admin_categories_path %>" class="nav-link <% if controller.controller_name == 'categories' %>active<% end %>">
+            <a href="<%= admin_categories_path %>" class="nav-link <% if controller.controller_name == 'categories' || controller.controller_name == 'category_images' %>active<% end %>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Category</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="<%= admin_category_images_path %>" class="nav-link <% if controller.controller_name == 'category_images' %>active<% end %>">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Category Images</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<%= admin_brand_categories_path %>" class="nav-link <% if controller.controller_name == 'brand_categories' %>active<% end %>">
+            <a href="<%= admin_brand_categories_path %>" class="nav-link <% if controller.controller_name == 'brand_categories' || controller.controller_name == 'brand_category_images' %>active<% end %>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Brand Category</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<%= admin_brand_category_images_path %>" class="nav-link <% if controller.controller_name == 'brand_category_images' %>active<% end %>">
-                <i class="far fa-circle nav-icon"></i>
-                <p>B-Category Images</p>
             </a>
           </li>
 
@@ -107,6 +95,13 @@
         <a href="<%= admin_inquiries_path %>" class="nav-link <% if controller.controller_name == 'inquiries' %> active <% end %>">
           <i class="nav-icon fas fa-server"></i>
           <p>Inquiry</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="<%= admin_contacts_path %>" class="nav-link <% if controller.controller_name == 'contacts' %> active <% end %>">
+          <i class="nav-icon fas fa-server"></i>
+          <p>Contacts</p>
         </a>
       </li>
 

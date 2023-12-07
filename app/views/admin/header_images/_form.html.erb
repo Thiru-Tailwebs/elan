@@ -31,8 +31,19 @@
         <% else %>
           <%= form.file_field :image, class: 'form-control', accept:'image/*' %>
         <% end %>
-        <p><strong>Note: </strong> We accept 323 × 366 dimation image.</p>
+        <p><strong>Note: </strong> We accept 1175 × 606 dimation image.</p>
       </div>
+      <%= form.label "Square Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :square_image, class: 'form-control', accept:'image/*', required: "required" %>
+        <% else %>
+          <%= form.file_field :square_image , class: 'form-control', accept:'image/*' %>
+        <% end %>
+        <p><strong>Note: </strong> We accept 366 × 323 dimation image.</p>
+      </div>
+    </div>
+    <div class="form-group row">
       <%= form.label "Active*", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-4">
         <select class="select2 form-control" data-placeholder="Select role" style="width: 100%;" name="header_image[active]" id="header_image_active" required>

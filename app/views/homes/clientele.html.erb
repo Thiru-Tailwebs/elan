@@ -41,7 +41,7 @@
 <!--     <div class="row align-items-center"> -->
       <% @clientele_image.each do |data| %>
         <div class="col-md-3 col-4 mt-50 mt-0-mob text-center" data-aos="zoom-in">
-          <img src="<%= data.image_url(:large) %>" class="w-80p">
+          <img src="<%= data.image_url(:medium) %>" class="w-80p">
         </div>
       <% end %>
     </div>

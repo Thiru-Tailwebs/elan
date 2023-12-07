@@ -1,11 +1,13 @@
-class InquiryMailer < ApplicationMailer
-    def send_mail(name, email, mobile)
+class ContactMailer < ApplicationMailer
+    def send_mail(fname, lname, email, mobile, message)
         email = "info@elandecor.in"
-        subject = "Elan: New Inquiry"
+        subject = "Elan: New Contact"
 
-        @name = name
+        @fname = fname
+        @lname = lname
         @email = email
         @mobile = mobile
+        @message = message
 
         # puts("\n===> name: ", name)
         # puts("\n===> email: ", email)

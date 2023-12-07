@@ -82,5 +82,7 @@ Rails.application.configure do
     :password             => ENV['ML_PASSWORD'],
     :authentication       => "plain",
     :enable_starttls_auto => true,
+    :open_timeout         => 50,
+    :read_timeout         => 50,
   }
 end

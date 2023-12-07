@@ -4,7 +4,9 @@ class Admin::CategoryImagesController < Admin::AdminbaseController
 
   # GET /admin/category_images or /admin/category_images.json
   def index
-    @category_images = CategoryImage.all.order(:category_id)
+    @category_images = CategoryImage.where(
+      category_id: session[:category_id]
+    ).order(:priority)
   end
 
   # GET /admin/category_images/1 or /admin/category_images/1.json
@@ -60,17 +62,15 @@ class Admin::CategoryImagesController < Admin::AdminbaseController
   end
 
   def sequencing
-    @category_images = nil
-    if params['category'].present?
-      @category_images = CategoryImage.joins(:category).where(
-        :categories => {:code => params['category']},
-      ).order(:priority)
-    end
+    @category_images = CategoryImage.joins(:category).where(
+      :categories => {:code => @categories.code},
+    ).order(:priority)
   end
 
   private
     def set_category
-      @categories = Category.where(
+      @categories = Category.find_by(
+        id: session[:category_id],
         active: true
       )
     end

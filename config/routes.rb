@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/accessories' => 'product#accessories'
   get '/fabrics' => 'product#fabrics'
   post "/send_inquiry_mail", to: "homes#send_inquiry_mail"
+  post "/send_contact_mail", to: "homes#send_contact_mail"
 
 
   devise_for :users
@@ -30,7 +31,16 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
-    resources :inquiries
+    resources :contacts do
+      collection do
+        get '/update_status', to: "contacts#update_status"
+      end
+    end
+    resources :inquiries do
+      collection do
+        get '/update_status', to: "inquiries#update_status"
+      end
+    end
     post '/summernote/upload_image', to: 'summernote_images#upload_image'
     resources :clientele_images do
       collection do
@@ -53,6 +63,7 @@ Rails.application.routes.draw do
     end
     resources :brand_categories do
       collection do
+        post "/edit_brand_category_images", to: "brand_categories#edit_brand_category_images"
         get '/sequencing', to: "brand_categories#sequencing"
         post "/update_sequence", to: "brand_categories#update_sequence"
       end
@@ -65,6 +76,7 @@ Rails.application.routes.draw do
     end
     resources :categories do
       collection do
+        post "/edit_category_images", to: "categories#edit_category_images"
         get '/sequencing', to: "categories#sequencing"
         post "/update_sequence", to: "categories#update_sequence"
       end

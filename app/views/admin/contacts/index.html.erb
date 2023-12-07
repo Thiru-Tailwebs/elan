@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Inquiry</h1>
+                <h1 class="m-0">Contacts</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="<%= admin_categories_url %>">Home</a></li>
-                <li class="breadcrumb-item active">Inquiry</li>
+                <li class="breadcrumb-item active">Contacts</li>
                 </ol>
             </div>
         </div>
@@ -22,29 +22,36 @@
             <div class="col-12">
                 <div class="card card-primary">
                     <div class="card-header p-0 pt-1">
+                        <%# <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+                        <li class="pt-2 px-3">abc</li>
+                        </ul> %>
                     </div>
                     <div class="card-body">
 
-                        <div class="table-responsive mt-3">
+                        <div class="table-responsive">
                             <table class="table table-bordered table-striped" id="example1">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
                                         <th>Email</th>
                                         <th>Mobile</th>
+                                        <th>Message</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
 
-                                <tbody>
-									<% if @inquiries.present? %>
-										<% @inquiries.each do |data| %>
+								<tbody>
+									<% if @contacts.present? %>
+										<% @contacts.each do |data| %>
 											<tr>
-												<td><%= data.name %></td>
+												<td><%= data.first_name %></td>
+												<td><%= data.last_name %></td>
 												<td><%= data.email %></td>
 												<td><%= data.mobile %></td>
+												<td><%= data.message %></td>
 												<td>
-													<% if can? :update, @inquiries %>
+													<% if can? :update, @contacts %>
                                                         <% if data.status == false %>
                                                             <button class="btn btn-primary mr-3 update-record" title="Resolved inquiry." data-id="<%= data.id %>">
                                                                 <i class="fa fa-check"></i>
@@ -55,7 +62,7 @@
                                                             </button>
                                                         <% end %>
 													<% end %>
-													<% if can? :destroy, @inquiries %>
+													<% if can? :destroy, @contacts %>
 														<button class="btn btn-danger mr-3 delete-record" data-id="<%= data.id %>">
 															<i class="fa fa-trash"></i>
 														</button>
@@ -65,7 +72,9 @@
 										<% end %>
 									<% else %>
 										<tr>
-											<td colspan="3" style="text-align: center;">Record not found!</td>
+											<td colspan="6" style="text-align: center;">
+												No records found!
+											</td>
 										</tr>
 									<% end %>
                                 </tbody>
@@ -133,7 +142,7 @@
                 var csrfToken = $('meta[name=csrf-token]').attr('content');
 
                 $.ajax({
-                    url: '<%= update_status_admin_inquiries_path %>',
+                    url: '<%= update_status_admin_contacts_path %>',
                     method: 'GET',
                     data: { id: recordId },
                     headers: {
@@ -159,7 +168,7 @@
                 var csrfToken = $('meta[name=csrf-token]').attr('content');
 
                 $.ajax({
-                    url: '/admin/inquiries/' + recordId,
+                    url: '/admin/contacts/' + recordId,
                     headers: {
                         'X-CSRF-Token': csrfToken
                     },

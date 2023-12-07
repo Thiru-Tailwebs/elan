@@ -70,6 +70,14 @@ class Admin::CategoriesController < Admin::AdminbaseController
     head :ok
   end
 
+  def edit_category_images
+    session[:category_id] = params['recordId']
+
+    respond_to do |format|
+      format.json { render json: { status: 'success', category_id: params['recordId'] } }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category

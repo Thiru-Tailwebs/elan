@@ -69,6 +69,14 @@ class Admin::BrandCategoriesController < Admin::AdminbaseController
     head :ok
   end
 
+  def edit_brand_category_images
+    session[:brand_category_id] = params['recordId']
+
+    respond_to do |format|
+      format.json { render json: { status: 'success', category_id: params['recordId'] } }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
