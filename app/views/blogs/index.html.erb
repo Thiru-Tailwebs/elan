@@ -9,12 +9,11 @@
 						blogs & Article
 					</div>
 					<div data-aos="fade-up" class="mt-15 w-70p w-100p-tab w-90p-mob mx-auto fs-25-mob heading-1 text-center">
-						Design Diaries: Uncover Trends, Tips, and Transformations in Our Blog Haven
+						Design Diaries
 					</div>
-					<div data-aos="fade-up" class="mt-30 w-70p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
+					<div data-aos="fade-up" class="mt-30 w-80p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
 						Stay ahead in the world of style and home aesthetics. Explore our curated collection of the latest blogs and articles,
-						where we unravel trends, share expert tips, and offer a dose of design inspiration. Discover the art of transforming
-						spaces, one insightful read at a time.
+						where we unravel trends, share expert tips, and offer a dose of design inspiration.
 					</div>
 				</div>
 			</div>
@@ -70,50 +69,46 @@
 					<div class="owl-carousel blog-owl owl-theme">
 						<% @all_blogs.each do |data| %>
 							<div class="item">
-								<div class="">
+								<a href="<%= show_blog_path(data) %>">
 									<div class="">
-										<div>
-											<div class="">
-												<img src="<%= data.image_url(:large) %>" class="w-100p">
+										<img src="<%= data.image_url(:large) %>" class="w-100p">
+									</div>
+									<div class="mt-30">
+										<div class="border-3"></div>
+									</div>
+									<div class="mt-20">
+										<div class="heading-2 fs-16 black-1">
+											<%= data.title %>
+										</div>
+										<div class="mt-15">
+											<div class="heading-8 black-1">
+												<%= data.name %>
 											</div>
-											<div class="mt-30">
-												<div class="border-3"></div>
+										</div>
+										<div class="mt-10">
+											<div class="heading-2 black-1 fs-16">
+												<%= formatted_title_dynamic(data.description1, 50) %>
 											</div>
-											<div class="mt-20">
-												<div class="heading-2 fs-16 black-1">
-													<%= data.title %>
+										</div>
+										<div class="mt-15">
+											<div class="d-flex align-items-center">
+												<div>
+													<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
 												</div>
-												<div class="mt-15">
-													<div class="heading-8 black-1">
-														<%= data.name %>
+												<div class="ml-2">
+													<div class="heading-3 black-1 fs-12">
+														By <%= data.author.name %>
 													</div>
 												</div>
-												<div class="mt-10">
-													<div class="heading-2 black-1 fs-16">
-														<%= formatted_title_dynamic(data.description1, 50) %>
-													</div>
-												</div>
-												<div class="mt-15">
-													<div class="d-flex align-items-center">
-														<div>
-															<img src="<%= data.author.image_url(:large) %>" style="width: 25px;">
-														</div>
-														<div class="ml-2">
-															<div class="heading-3 black-1 fs-12">
-																By <%= data.author.name %>
-															</div>
-														</div>
-														<div class="ml-3">
-															<div class="heading-2 black-1 fs-12">
-																<%= formatted_date1(data.published_dt) %>
-															</div>
-														</div>
+												<div class="ml-3">
+													<div class="heading-2 black-1 fs-12">
+														<%= formatted_date1(data.published_dt) %>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						<% end %>
 					</div>

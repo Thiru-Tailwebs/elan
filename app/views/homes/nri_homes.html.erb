@@ -1,0 +1,287 @@
+<%= render "shared/header" %>
+
+  <section class="bg-images" style="background-image: url('/images/nri/nri-banner.png');">
+    <div class="bg-shadow-1 h-90vh h-80vh-lg h-80vh-md h-80vh-mob">
+      <div class="container">
+        <div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
+          <div class="zoom">
+            <div data-aos="fade-up" class="heading-4 white fs-26 fs-18-mob text-upper text-center">
+              NRI Homes
+            </div>
+            <div data-aos="fade-up"
+              class="mt-15 w-90p w-90p-mob mx-auto fs-30-md fs-30-lg fs-25-mob heading-1 text-center">
+              Elevate Your Space with Tailored Elegance
+              “Our Exclusive Home Decor Services”
+            </div>
+            <div data-aos="fade-up" class="mt-30 w-70p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
+              It is a long established fact that a reader will be distracted by the of readable content of a page.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sandal-bg py-50">
+    <div class="container">
+      <div class="">
+        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+        by injected humour, or randomised words which don't look even slightly believable.
+      </div>
+    </div>
+  </section>
+  <div class="timeline">
+    <div class="container-n left">
+      <div class="icon"><img src="/images/nri/nri-1.png"></div>
+      <div class="content">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>
+          Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+        </p>
+      </div>
+    </div>
+    <div class="container-n right">
+      <div class="icon"><img src="/images/nri/nri-1.png"></div>
+      <div class="content">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>
+          Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+        </p>
+      </div>
+    </div>
+    <div class="container-n left">
+      <div class="icon"><img src="/images/nri/nri-1.png"></div>
+      <div class="content">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>
+          Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+        </p>
+      </div>
+    </div>
+    <div class="container-n right">
+      <div class="icon"><img src="/images/nri/nri-1.png"></div>
+      <div class="content">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>
+          Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+        </p>
+      </div>
+    </div>
+    <div class="container-n left">
+      <div class="icon"><img src="/images/nri/nri-1.png"></div>
+      <div class="content">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>
+          Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+        </p>
+      </div>
+    </div>
+    <div class="container-n right">
+      <div class="icon"><img src="/images/nri/nri-1.png"></div>
+      <div class="content">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>
+          Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .timeline {
+      position: relative;
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 15px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: #A7833D;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+
+    .container-n {
+      padding: 15px 30px;
+      position: relative;
+      background: inherit;
+      width: 50%;
+    }
+
+    .container-n.left {
+      left: 0;
+    }
+
+    .container-n.right {
+      left: 50%;
+    }
+
+    .container-n::after {
+      content: none;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: calc(50% - 8px);
+      right: -8px;
+      background: #ffffff;
+      border: 2px solid #A7833D;
+      border-radius: 16px;
+      z-index: 1;
+    }
+
+    .container-n .icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .container-n.right::after {
+      left: -8px;
+    }
+
+    .container-n::before {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      top: calc(50% - 1px);
+      right: 8px;
+      /* background: #006E51; */
+      border: 1px dashed #A7833D;
+      z-index: 1;
+    }
+
+    .container-n.right::before {
+      left: 8px;
+    }
+
+    .container-n .date {
+      position: absolute;
+      display: inline-block;
+      top: calc(50% - 8px);
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #006E51;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    .container-n.left .date {
+      right: -75px;
+    }
+
+    .container-n.right .date {
+      left: -75px;
+    }
+
+    /* .container .icon {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 9px 0;
+    top: calc(50% - 20px);
+    background: #F6D155;
+    border: 2px solid #006E51;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #006E51;
+    z-index: 1;
+  } */
+
+    .container-n .icon {
+      top: calc(50% - 19px);
+    }
+
+    .container-n.left .icon {
+      right: -19px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .container-n.right .icon {
+      left: -19px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .container-n .content {
+      padding: 30px 90px 30px 30px;
+      position: relative;
+      border-radius: 0 500px 500px 0;
+    }
+
+    .container-n.right .content {
+      padding: 10px 10px 10px 90px;
+      border-radius: 500px 0 0 500px;
+    }
+
+    .container-n .content h2 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      font-weight: normal;
+      color: #006E51;
+    }
+
+    .container-n .content p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 22px;
+      color: #000000;
+    }
+
+    @media (max-width: 767.98px) {
+      .timeline::after {
+        left: 90px;
+      }
+
+      .container-n {
+        width: 100%;
+        padding-left: 120px;
+        padding-right: 30px;
+      }
+
+      .container-n.right {
+        left: 0%;
+      }
+
+      .container-n.left::after,
+      .container-n.right::after {
+        left: 82px;
+      }
+
+      .container-n.left::before,
+      .container-n.right::before {
+        left: 100px;
+        border-color: transparent #006E51 transparent transparent;
+      }
+
+      .container-n.left .date,
+      .container-n.right .date {
+        right: auto;
+        left: 15px;
+      }
+
+      .container-n.left .icon,
+      .container-n.right .icon {
+        right: auto;
+        left: 146px;
+      }
+
+      .container-n.left .content,
+      .container-n.right .content {
+        padding: 30px 30px 30px 90px;
+        border-radius: 500px 0 0 500px;
+      }
+    }
+  </style>
