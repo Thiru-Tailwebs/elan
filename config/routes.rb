@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/media' => 'homes#media'
 
+  get '/nri_homes' => 'homes#nri_homes'
+
   get '/our_collections' => 'products#index'
   get '/our_collections/:id', to: 'products#show', as: 'show_product'
   get '/blogs' => 'blogs#index'

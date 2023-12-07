@@ -47,6 +47,9 @@ class HomesController < ApplicationController
   def blogs_detail
   end
 
+  def nri_homes
+  end
+
   def send_inquiry_mail
     puts "===> params: ", params
     name = params['name']
