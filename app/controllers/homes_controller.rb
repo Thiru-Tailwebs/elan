@@ -17,6 +17,9 @@ class HomesController < ApplicationController
   def contact_us
   end
 
+  def Vendor_Registration
+  end
+
   def blogs
   end
 
