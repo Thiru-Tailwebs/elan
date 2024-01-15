@@ -180,3 +180,25 @@
     text-transform: uppercase;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Activate the first tab by default
+    document.querySelector('.nav-item.tab-head:first-child').classList.add('active-tab');
+    document.querySelector('.tab-content:first-child').classList.add('active');
+
+    // Handle tab click event
+    document.querySelectorAll('.nav-item.tab-head').forEach(function (tab, index) {
+      tab.addEventListener('click', function () {
+        // Deactivate all tabs and contents
+        document.querySelectorAll('.nav-item.tab-head, .tab-content').forEach(function (item) {
+          item.classList.remove('active-tab', 'active');
+        });
+
+        // Activate the clicked tab and corresponding content
+        tab.classList.add('active-tab');
+        document.querySelector(`#tab-${index + 1}`).classList.add('active');
+      });
+    });
+  });
+</script>

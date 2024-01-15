@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/blogs/:id', to: 'blogs#show', as: 'show_blog'
 
   get '/contact_us' => 'homes#contact_us'
+  get '/vendor_registration' => 'homes#vendor_registration'
   get '/our_story' => 'homes#our_story'
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
