@@ -6,7 +6,8 @@
 
     <div class="mt-80 mt-30-mob">
       <div class="call">
-        <form method="POST" action="<%= send_inquiry_mail_path %>" id="myCall" class="call-back mt-50 mt-20-mob row align-items-center">
+        <form method="POST" action="<%= send_inquiry_mail_path %>" id="myCall"
+          class="call-back mt-50 mt-20-mob row align-items-center">
           <div class="col-md-3" data-aos="fade-up">
             <label for="firstName">Your Name</label>
             <input type="text" id="name" required>
@@ -64,8 +65,8 @@
     padding: 5px;
     border: none;
     border-bottom: 1px solid #8D8D8D;
-    background-color: #1E1E1E;
-    color: #FFF;
+    background-color: #1E1E1E !important;
+    color: #FFF !important;
   }
 
   /* Remove the default input focus outline */
@@ -74,7 +75,7 @@
   }
 
   @media (max-width: 768px) {
-    .call-back label{
+    .call-back label {
       font-size: 16px;
     }
   }
@@ -84,8 +85,8 @@
 
 <script>
   // Use no-conflict mode to avoid conflicts with other libraries
-  jQuery(document).ready(function($) {
-    $('#myCall').submit(function(e) {
+  jQuery(document).ready(function ($) {
+    $('#myCall').submit(function (e) {
       e.preventDefault(); // Prevent the default form submission
 
       // Get form data
@@ -106,18 +107,18 @@
           'X-CSRF-Token': csrfToken
         },
         data: formData,
-        success: function(response) {
+        success: function (response) {
           // Assuming your modal has the ID "myModal"
           $('#myModal').show();
         },
-        error: function(error) {
+        error: function (error) {
           console.error('Error submitting the form:', error);
         }
       });
     });
 
     // Close modal when the close button is clicked
-    $('#closeModal').click(function() {
+    $('#closeModal').click(function () {
       $('#myModal').hide();
       $('#myCall')[0].reset();
       // location.reload();
@@ -127,6 +128,8 @@
 
 <style>
   /* Style for the modal */
+
+
   .modal {
     display: none;
     /* Hide by default */
@@ -143,7 +146,11 @@
   .modal-content {
     border-radius: 10px;
     background: #FFF;
-    margin: 15% auto;
+    /* margin: 15% auto; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
     border: 1px solid #8D8D8D;
     border-radius: 5px;
@@ -188,5 +195,16 @@
     width: fit-content !important;
     margin: 30px auto;
     padding: 10px 25px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+        max-width: 90%;
+    }
+}
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
   }
 </style>
