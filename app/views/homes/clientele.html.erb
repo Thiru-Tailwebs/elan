@@ -21,26 +21,26 @@
   </div>
 </section>
 
-<section class="sandal-bg py-50 zoom">
+<section class="sandal-bg py-50 py-20-mob zoom">
   <div class="container">
-    <div class="heading-8 fs-18 w-80p w-100p-mob text-center mx-auto" data-aos="fade-down">
+    <div class="heading-8 fs-16-mob fs-18 w-80p w-100p-mob text-center mx-auto" data-aos="fade-down">
       Discover the stories of businesses that soared to new heights with our collaborative approach, tailored solutions, and
       unwavering commitment.
     </div>
-    <div class="position-relative mt-50" data-aos="zoom-out">
+    <div class="position-relative mt-50 mt-20-mob" data-aos="zoom-out">
       <img src="/images/brand/client-1.png" class="w-100p img-overlay">
       <div class="heading-1 text-overlay text-center fs-20-mob">Our Clientele, Our Pride</div>
     </div>
   </div>
 </section>
 
-<section class="py-50 zoom">
+<section class="py-50 py-20-mob zoom">
   <div class="container">
   <div class="mx-50 mx-0-mob">
     <div class="row align-items-center">
 <!--     <div class="row align-items-center"> -->
       <% @clientele_image.each do |data| %>
-        <div class="col-md-3 col-4 mt-50 mt-0-mob text-center" data-aos="zoom-in">
+        <div class="col-md-3 col-4 mt-50 mt-30-mob text-center" data-aos="zoom-in">
           <img src="<%= data.image_url(:medium) %>" class="w-80p">
         </div>
       <% end %>

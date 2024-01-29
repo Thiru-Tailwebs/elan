@@ -691,7 +691,7 @@
 
 .position-2 {
   position: absolute;
-  right: 0%;
+  right: 7%;
   bottom: 7%;
 }
 
@@ -1142,6 +1142,10 @@ a:hover {
     height: 90vh;
   }
 
+  .btn-4 {
+    padding: 10px 40px !important;
+  }
+
   .mx-0-mob {
     margin-left: 0px;
     margin-right: 0px;
@@ -1270,6 +1274,13 @@ a:hover {
   }
 
 }
+
+@media (max-width: 400px){
+  .fs-smob-25 {
+    font-size: 25px;
+  }
+} 
+
 
 @media (max-width: 1900px) {
   .zoom {
