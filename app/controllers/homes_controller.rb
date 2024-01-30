@@ -20,6 +20,9 @@ class HomesController < ApplicationController
   def Vendor_Registration
   end
 
+  def faq
+  end
+
   def blogs
   end
 
