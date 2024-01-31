@@ -185,6 +185,10 @@
   padding-top: 400px;
 }
 
+.pt-500 {
+  padding-top: 500px;
+}
+
 .pt-250 {
   padding-top: 250px;
 }
@@ -203,6 +207,10 @@
 
 .pb-400 {
   padding-bottom: 400px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
 }
 
 .pb-40 {
@@ -483,6 +491,10 @@
   background-color: #FAFAFA;
 }
 
+.grey-bg-2 {
+  background-color: #2D2D2D;
+}
+
 .sandal-bg {
   background-color: #FFF4DE;
 }
@@ -683,6 +695,10 @@
 .border-4 {
   border-bottom: 1px solid #ffffff;
   opacity: 0.2;
+}
+
+.border-5 {
+  border-bottom: 1px solid #818181;
 }
 
 /* positons */
@@ -1014,6 +1030,10 @@ a:hover {
 
   .pt-150-md {
     padding-top: 150px;
+  }
+
+  .pt-100-md {
+    padding-top: 100px;
   }
 
   .mt-30-md {

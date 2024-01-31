@@ -52,7 +52,9 @@
         </div>
 
         <% if @blog.description2.present? %>
-            <%= @blog.description2.html_safe %>
+            <div >
+                <%= @blog.description2.html_safe %>
+            </div>
         <% end %>
     </div>
 </section>

@@ -457,7 +457,7 @@
   </div>
 </section>
 
-<section class="pt-350 pt-150-md pt-150-mob pt-250-lg pb-100 pb-50-mob">
+<section class="pt-350 pt-150-md pt-150-mob pt-250-lg pb-400 pb-100-mob">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 col-md-12 col-12">
@@ -561,12 +561,36 @@
         </div>
       </div>
     </div>
+
+    <div class="aos-init aos-animate" data-aos="zoom-in">
+      <div class="position-relative">
+        <img src="/images/home-page/design-service-main.png" class="w-100 position-absolute top-90 top-30-mob">
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="black-bg-1 py-50">
+
+<section class="black-bg-1 pt-350 pt-100-md pt-150-mob pt-250-lg pb-50">
   <div class="container">
-    <div class="heading-1 fs-35 fs-25-mob text-center" data-aos="fade-up">
+    <div class="mt-20">
+      <div class="heading-1 fs-35 fs-25-mob text-center aos-init aos-animate" data-aos="fade-up">
+        Design Services
+      </div>
+      <div class="mt-20 fs-18 fs-12-mob w-90p w-100p-mob mx-auto grey heading-2 text-center aos-init aos-animate"
+        data-aos="fade-up">
+        Our expert team will understand your space. We endeavour to transform your spaces with our perfect selected curation of
+        fine fabrics, soft furnishing, wall coverings, floor coverings, bespoke collection of artefacts and unique decor fully
+        customised to your requirements.
+      </div>
+      <div class="mt-20 d-flex justify-content-center">
+        <a href="" class="btn btn-1">Know more</a>
+      </div>
+    </div>
+    <div class="border-5 mt-60 mt-30-mob">
+
+    </div>
+    <div class="heading-1 fs-35 fs-25-mob mt-60 mt-30-mob text-center" data-aos="fade-up">
       Work we have done
     </div>
     <div class="heading-2 grey fs-18 fs-12-mob mt-20 text-center w-90p-mob w-50p mx-auto" data-aos="fade-up">
@@ -702,11 +726,13 @@
         <div class="col-md-6 d-none-md d-none-mob">
           <% @blogs_latest.each_with_index do |data, index| %>
             <a href="<%= show_blog_path(data) %>">
-              <div class="d-flex align-items-center <% if index != 0 %>mt-30<% end %>">
+              <div class="row d-flex align-items-center <% if index != 0 %>mt-30<% end %>">
+                <div class="col-lg-6 col-md-6">
                 <div class="w-50p w-66p-lg">
                   <img src="<%= data.square_image_url(:large) %>" class="w-100p">
                 </div>
-                <div class="ml-3">
+                </div>
+                <div class="col-lg-6 col-md-6">
                   <div class="heading-2 fs-16 black-1" data-aos="fade-up">
                     <%= data.title %>
                   </div>

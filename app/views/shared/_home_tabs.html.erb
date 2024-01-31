@@ -126,10 +126,10 @@
 <div class="mt-20-mob d-block-mob d-none-web" data-aos="fade-up">
   <div class="mx-10 mx-0-mob">
     <div class="row">
-      <% @categories.each_with_index do |data, index|%>
+      <% @categories.each do |data|%>
         <div class="mt-30 col-4">
-          <div class="nav-item mob-head <% if index == 0 %>active-tab<% end %>">
-            <a class="nav-link <% if index == 0 %>active<% end %>" data-toggle="tab" href="#tab-<%= index + 1 %>" role="tab">
+          <div class="nav-item mob-head">
+            <a class="nav-link" href="<%= show_product_path(data) %>">
               <span><%= data.name %></span>
             </a>
           </div>
