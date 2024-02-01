@@ -43,6 +43,11 @@ Rails.application.routes.draw do
         get '/update_status', to: "inquiries#update_status"
       end
     end
+    resources :newsletters do
+      collection do
+        get '/update_status', to: "newsletters#update_status"
+      end
+    end
     post '/summernote/upload_image', to: 'summernote_images#upload_image'
     resources :clientele_images do
       collection do

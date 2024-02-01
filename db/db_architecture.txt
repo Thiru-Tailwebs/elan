@@ -66,3 +66,6 @@ rails generate mailer SuccessMailer
 
 rails generate migration ChangeStatusInContact
 rails generate migration ChangeStatusInInquiry
+
+rails g model Newsletter email active:boolean
+rails g scaffold admin/Newsletter
