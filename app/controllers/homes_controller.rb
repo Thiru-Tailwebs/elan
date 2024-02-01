@@ -73,7 +73,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email
+      email, name
     ).deliver_later
 
     head :ok
@@ -100,7 +100,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email
+      email, fname
     ).deliver_later
 
     head :ok
