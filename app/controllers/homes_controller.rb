@@ -106,6 +106,25 @@ class HomesController < ApplicationController
     head :ok
   end
 
+  def send_newsletter_mail
+    email = params['email']
+    name = params['email']
+
+    Newsletter.create(email: email)
+
+    NewsletterMailer.send_mail(
+      email
+    ).deliver_later
+
+    NewsletterSuccessMailer.send_mail(
+      email
+    ).deliver_later
+
+    # TODO: to user email
+
+    head :ok
+  end
+
   private
     def set_category
       @categories = Category.where(active: true).order(:priority)

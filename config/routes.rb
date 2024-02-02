@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/fabrics' => 'product#fabrics'
   post "/send_inquiry_mail", to: "homes#send_inquiry_mail"
   post "/send_contact_mail", to: "homes#send_contact_mail"
+  post "/send_newsletter_mail", to: "homes#send_newsletter_mail"
 
 
   devise_for :users

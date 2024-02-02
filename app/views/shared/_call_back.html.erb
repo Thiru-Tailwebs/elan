@@ -6,8 +6,7 @@
 
     <div class="mt-80 mt-30-mob">
       <div class="call">
-        <form method="POST" action="<%= send_inquiry_mail_path %>" id="myCall"
-          class="call-back mt-50 mt-20-mob row align-items-center">
+        <form method="POST" action="<%= send_inquiry_mail_path %>" id="myCall" class="call-back mt-50 mt-20-mob row align-items-center">
           <div class="col-md-3" data-aos="fade-up">
             <label for="firstName">Your Name</label>
             <input type="text" id="name" required>
@@ -121,6 +120,7 @@
     $('#closeModal').click(function () {
       $('#myModal').hide();
       $('#myCall')[0].reset();
+      $('#footer')[0].reset();
       // location.reload();
     });
   });

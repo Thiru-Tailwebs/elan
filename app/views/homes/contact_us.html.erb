@@ -37,7 +37,7 @@
           </div>
           <form id="myForm" class="mt-50" data-aos="fade-up">
             <label for="firstName">First Name</label>
-            <input type="text" id="firstName" required>
+            <input type="text" name="firstName" id="firstName" required>
 
           <label for="lastName">Last Name</label>
           <input type="text" name="lname" id="lname">
@@ -271,7 +271,7 @@
 
       // Get form data
       var formData = {
-        fname: $('#fname').val(),
+        fname: $('#firstName').val(),
         lname: $('#lname').val(),
         email: $('#email').val(),
         mobile: $('#mobile').val(),
