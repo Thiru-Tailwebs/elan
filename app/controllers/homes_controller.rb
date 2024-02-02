@@ -9,6 +9,9 @@ class HomesController < ApplicationController
     @blogs_latest = Blog.all_published_data.where.not(
       id: @blogs_featured.pluck(:id)
     ).order('published_dt DESC').first(3)
+    @blogs_latest_mobile = Blog.all_published_data.order(
+      'published_dt DESC'
+    ).last(5)
   end
 
   def media
@@ -21,6 +24,9 @@ class HomesController < ApplicationController
   end
 
   def faq
+  end
+
+  def design_service
   end
 
   def blogs

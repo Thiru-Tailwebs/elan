@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/contact_us' => 'homes#contact_us'
   get '/vendor_registration' => 'homes#vendor_registration'
   get '/faq' => 'homes#faq'
+  get '/design_service' => 'homes#design_service'
   get '/our_story' => 'homes#our_story'
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
