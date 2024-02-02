@@ -74,4 +74,6 @@ rails generate mailer NewsletterMailer
 rails generate mailer NewsletterSuccessMailer
 
 rails g model BookService first_name last_name email phone service message:text status
+rails g migration AddUpdateStatusFieldToBookService
 rails generate mailer BookServiceMailer
+rails g scaffold admin/BookService

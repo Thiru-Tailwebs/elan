@@ -44,6 +44,11 @@ Rails.application.routes.draw do
         get '/update_status', to: "inquiries#update_status"
       end
     end
+    resources :book_services do
+      collection do
+        get '/update_status', to: "book_services#update_status"
+      end
+    end
     resources :newsletters do
       collection do
         get '/update_status', to: "newsletters#update_status"
