@@ -48,6 +48,7 @@ class HomesController < ApplicationController
   end
 
   def book_services
+
   end
 
   def blogs_detail
@@ -121,6 +122,37 @@ class HomesController < ApplicationController
     ).deliver_later
 
     # TODO: to user email
+
+    head :ok
+  end
+
+  def send_book_service_mail
+    puts "===> params: ", params
+    fname = params['fname']
+    lname = params['lname']
+    email = params['email']
+    services = params['services']
+    phone = params['phone']
+    message = params['message']
+
+    BookService.create(
+      first_name: fname,
+      last_name: lname,
+      email: email,
+      service: services,
+      phone: phone,
+      message: message,
+    )
+
+    BookServiceMailer.send_mail(
+      fname, lname, email, services, phone, message
+    ).deliver_later
+    puts "===> BookService: "
+
+    SuccessMailer.send_mail(
+      email, fname
+    ).deliver_later
+    puts "===> SuccessMailer: "
 
     head :ok
   end

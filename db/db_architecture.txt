@@ -73,3 +73,5 @@ rails g scaffold admin/Newsletter
 rails generate mailer NewsletterMailer
 rails generate mailer NewsletterSuccessMailer
 
+rails g model BookService first_name last_name email phone service message:text status
+rails generate mailer BookServiceMailer
