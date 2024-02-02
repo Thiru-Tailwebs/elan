@@ -9,7 +9,7 @@
           <form id="footer" class="mt-30">
             <label for="email">Define E-Mail Address<span><img src="/images/footer/footer-arrow.png"
                   class="w-20px"></span></label>
-            <input type="email" id="email" required>
+            <input type="email" id="email1" required>
           </form>
           <div class="mt-15">
             <div class="heading-2 fs-14 fs-10-mob opacity-1">
@@ -204,8 +204,7 @@
                 <div class="mt-100 mt-40-md mt-10-mob">
                   <div class="text-align-right">
                     <a href="tel:+91 8148107736">
-                      <span class="sub-heading-2 fs-18-mob">+91 81481
-                        07736</span>
+                      <span class="sub-heading-2 fs-18-mob">+91 81481 07736</span>
                     </a>
                   </div>
                   <div class="mt-15 text-align-right heading-2 fs-18 fs-12-mob">
@@ -241,7 +240,6 @@
     </div>
   </div>
 </footer>
-
 
 <style>
   #footer label {
@@ -279,3 +277,43 @@
     }
   }
 </style>
+
+<script>
+  // Use no-conflict mode to avoid conflicts with other libraries
+  jQuery(document).ready(function ($) {
+    $('#footer').submit(function (e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      var formData = {
+        email: $('#email1').val(),
+      };
+
+      var csrfToken = $('meta[name=csrf-token]').attr('content');
+
+      // Send AJAX request
+      $.ajax({
+        type: 'POST',
+        url: '<%= send_newsletter_mail_path %>',
+        headers: {
+          'X-CSRF-Token': csrfToken
+        },
+        data: formData,
+        success: function (response) {
+          // Assuming your modal has the ID "myModal"
+          $('#myModal').show();
+        },
+        error: function (error) {
+          console.error('Error submitting the form:', error);
+        }
+      });
+    });
+
+    // Close modal when the close button is clicked
+    $('#closeModal').click(function () {
+      $('#myModal').hide();
+      $('#myCall')[0].reset();
+      // location.reload();
+    });
+  });
+</script>

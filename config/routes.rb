@@ -6,27 +6,28 @@ Rails.application.routes.draw do
 
   get '/media' => 'homes#media'
 
-  get '/nri_homes' => 'homes#nri_homes'
+  get '/nri-homes' => 'homes#nri_homes'
 
-  get '/our_collections' => 'products#index'
-  get '/our_collections/:id', to: 'products#show', as: 'show_product'
+  get '/our-collections' => 'products#index'
+  get '/our-collections/:id', to: 'products#show', as: 'show_product'
   get '/blogs' => 'blogs#index'
   get '/blogs/:id', to: 'blogs#show', as: 'show_blog'
 
-  get '/contact_us' => 'homes#contact_us'
-  get '/vendor_registration' => 'homes#vendor_registration'
+  get '/contact-us' => 'homes#contact_us'
+  get '/vendor-registration' => 'homes#vendor_registration'
   get '/faq' => 'homes#faq'
   get '/design_service' => 'homes#design_service'
   get '/our_story' => 'homes#our_story'
   get '/brands' => 'homes#brands'
   get '/clientele' => 'homes#clientele'
-  get '/our_services' => 'homes#our_services'
-  get '/book_services' => 'homes#book_services'
+  get '/our-services' => 'homes#our_services'
+  get '/book-services' => 'homes#book_services'
   get '/accessories' => 'product#accessories'
   get '/fabrics' => 'product#fabrics'
-  post "/send_inquiry_mail", to: "homes#send_inquiry_mail"
-  post "/send_contact_mail", to: "homes#send_contact_mail"
-
+  post "/send-inquiry-mail", to: "homes#send_inquiry_mail"
+  post "/send-contact-mail", to: "homes#send_contact_mail"
+  post "/send-book-service-mail", to: "homes#send_book_service_mail"
+  post "/send-newsletter-mail", to: "homes#send_newsletter_mail"
 
   devise_for :users
   # get '/admin/dashboard' => 'admin/dashboard#index'
@@ -42,6 +43,16 @@ Rails.application.routes.draw do
     resources :inquiries do
       collection do
         get '/update_status', to: "inquiries#update_status"
+      end
+    end
+    resources :book_services do
+      collection do
+        get '/update_status', to: "book_services#update_status"
+      end
+    end
+    resources :newsletters do
+      collection do
+        get '/update_status', to: "newsletters#update_status"
       end
     end
     post '/summernote/upload_image', to: 'summernote_images#upload_image'
