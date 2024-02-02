@@ -1,15 +1,20 @@
 // scrolling animation
 
 document.addEventListener('DOMContentLoaded', function () {
- 
-
-  AOS.init({
-    duration: 1000, // Animation duration in milliseconds
-    delay: 1000,   // Delay before the animation starts
-    easing: 'ease', // Easing function
-    once: true,    // Whether to only trigger the animation once
-    offset: 50
-  });
+  // Check if the screen width is less than or equal to a certain threshold (e.g., 768 pixels for mobile)
+  if (window.innerWidth > 768) {
+    AOS.init({
+      duration: 1000,
+      delay: 1000,
+      easing: 'ease',
+      once: true,
+      offset: 50
+    });
+  } else {
+    AOS.init({
+      disable: true
+    });
+  }
 });
 
 var zoomFactor = 1.2;
