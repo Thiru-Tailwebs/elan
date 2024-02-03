@@ -1004,6 +1004,14 @@ a:hover {
     padding-left: 0px !important;
   }
 
+  .text-center-lg {
+    text-align: center;
+  }
+
+  .br-0-lg {
+    border-radius: 0px;
+  }
+
   .mt-40-lg {
     margin-top: 40px;
   }
@@ -1089,6 +1097,10 @@ a:hover {
       padding-right: 40px;
     }
 
+  .text-center-md {
+    text-align: center;
+  }
+
   .h-90vh-md {
     height: 90vh;
   }
@@ -1103,6 +1115,10 @@ a:hover {
 
   .h-80vh-md {
     height: 80vh;
+  }
+
+  .h-100h-md {
+    height: 100vh;
   }
 
   .fs-30-md {
@@ -1182,6 +1198,24 @@ a:hover {
     font-size: 30px;
   }
 
+  .pl-inherit-mob {
+    padding-left: inherit !important;
+  }
+
+  .br-0-mob {
+    border-radius: 0px !important;
+  }
+
+  .px-0-mob {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .px-10-mob {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .bg-image-home {
     height: 90vh;
   }
@@ -1250,6 +1284,10 @@ a:hover {
     width: 90%;
   }
 
+  .w-95p-mob {
+    width: 95%;
+  }
+
   .w-100p-mob {
     width: 100%;
   }
@@ -1307,6 +1345,10 @@ a:hover {
 
   .pr-0-mob {
     padding-right: 0px;
+  }
+
+  .pt-300-mob {
+    padding-top: 300px;
   }
 
   .pt-150-mob {
@@ -1407,8 +1449,28 @@ a:hover {
     width: 10%;
   }
 
+  .p-20-mob {
+    padding: 20px;
+  }
+
   .h-300px-mob {
     height: 300px;
+  }
+
+  .position-1-mob {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    margin: auto;
+  }
+
+  .position-static-mob{
+    position: static !important;
+  }
+
+  .box-shadow-mob {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
 }
@@ -1418,6 +1480,12 @@ a:hover {
     font-size: 25px;
   }
 } 
+
+@media (max-width: 380px){
+  .pt-small-350 {
+    padding-top: 350px;
+  }
+}
 
 
 @media (max-width: 1900px) {
