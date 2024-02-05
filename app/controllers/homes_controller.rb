@@ -64,7 +64,6 @@ class HomesController < ApplicationController
   end
 
   def send_inquiry_mail
-    puts "===> params: ", params
     name = params['name']
     email = params['email']
     mobile = params['number']
@@ -87,7 +86,6 @@ class HomesController < ApplicationController
   end
 
   def send_contact_mail
-    puts "===> params: ", params
     fname = params['fname']
     lname = params['lname']
     email = params['email']
@@ -126,8 +124,6 @@ class HomesController < ApplicationController
     NewsletterSuccessMailer.send_mail(
       email
     ).deliver_later
-
-    # TODO: to user email
 
     head :ok
   end
@@ -209,12 +205,10 @@ class HomesController < ApplicationController
     VendorRegistrationMailer.send_mail(
       fname, lname, email, phone, address, country
     ).deliver_later
-    puts "===> VendorRegistrationMailer: "
 
     SuccessMailer.send_mail(
       email, fname
     ).deliver_later
-    puts "===> SuccessMailer: "
 
     head :ok
   end
