@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post "/send-book-service-mail", to: "homes#send_book_service_mail"
   post "/send-newsletter-mail", to: "homes#send_newsletter_mail"
   post "/send-design-service-mail", to: "homes#send_design_service_mail"
+  post "/send-vendor-registration-mail", to: "homes#send_vendor_registration_mail"
 
   devise_for :users
   # get '/admin/dashboard' => 'admin/dashboard#index'
