@@ -163,6 +163,35 @@ class HomesController < ApplicationController
     head :ok
   end
 
+  def send_design_service1_mail
+    puts "===> params: ", params
+    name = params['name']
+    phone = params['phone']
+    email = params['email']
+    area = params['area']
+    city = params['city']
+
+    DesignService.create(
+      name: name,
+      phone: phone,
+      email: email,
+      area: area,
+      city: city,
+    )
+
+    DesignServiceMailer.send_mail(
+      name, phone, email, area, city
+    ).deliver_later
+    puts "===> DesignServiceMailer: "
+
+    SuccessMailer.send_mail(
+      email, name
+    ).deliver_later
+    puts "===> SuccessMailer: "
+
+    head :ok
+  end
+
   private
     def set_category
       @categories = Category.where(active: true).order(:priority)

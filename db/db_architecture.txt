@@ -77,3 +77,7 @@ rails g model BookService first_name last_name email phone service message:text 
 rails g migration AddUpdateStatusFieldToBookService
 rails generate mailer BookServiceMailer
 rails g scaffold admin/BookService
+
+rails g model DesignService name phone email area city status:boolean
+rails generate mailer DesignServiceMailer
+rails g scaffold admin/DesignService
