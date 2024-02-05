@@ -36,6 +36,11 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    resources :vendor_registrations do
+      collection do
+        get '/update_status', to: "vendor_registrations#update_status"
+      end
+    end
     resources :design_services do
       collection do
         get '/update_status', to: "design_services#update_status"
