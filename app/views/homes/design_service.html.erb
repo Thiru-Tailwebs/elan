@@ -125,70 +125,22 @@
       </div>
       <div class="mt-10 d-none-mob">
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-1.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-2.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-3.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-4.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-5.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-6.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-7.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-8.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-9.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-10.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-11.png" class="w-100p">
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
-            <a>
-              <img src="/images/design-service/pro-12.png" class="w-100p">
-            </a>
-          </div>
+          <% @categories.each do |data| %>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
+              <a href="<%= show_product_path(data) %>">
+                <img src="<%= data.image2_url(:medium) %>" class="w-100p">
+                <div class="collection-position" style="background: none;"></div>
+                <div class="heading-8 white fs-14-mob position-4 text-center text-upper">
+                  <%= data.name %>
+                </div>
+              </a>
+            </div>
+          <% end %>
+          
         </div>
       </div>
       <div class="d-none-web d-none-md">
-        
+
       </div>
       <div class="mt-20 text-center">
         <button type="button" class="btn btn-5 w-40p w-80p-mob mt-20 showModal">Get Quote</button>
