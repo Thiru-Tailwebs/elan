@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-
   root 'homes#index'
 
   get '/media' => 'homes#media'
@@ -28,6 +27,8 @@ Rails.application.routes.draw do
   post "/send-contact-mail", to: "homes#send_contact_mail"
   post "/send-book-service-mail", to: "homes#send_book_service_mail"
   post "/send-newsletter-mail", to: "homes#send_newsletter_mail"
+  post "/send-design-service-mail", to: "homes#send_design_service_mail"
+  post "/send-vendor-registration-mail", to: "homes#send_vendor_registration_mail"
 
   devise_for :users
   # get '/admin/dashboard' => 'admin/dashboard#index'
@@ -35,6 +36,16 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    resources :vendor_registrations do
+      collection do
+        get '/update_status', to: "vendor_registrations#update_status"
+      end
+    end
+    resources :design_services do
+      collection do
+        get '/update_status', to: "design_services#update_status"
+      end
+    end
     resources :contacts do
       collection do
         get '/update_status', to: "contacts#update_status"

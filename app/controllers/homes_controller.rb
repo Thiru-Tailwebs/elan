@@ -64,7 +64,6 @@ class HomesController < ApplicationController
   end
 
   def send_inquiry_mail
-    puts "===> params: ", params
     name = params['name']
     email = params['email']
     mobile = params['number']
@@ -87,7 +86,6 @@ class HomesController < ApplicationController
   end
 
   def send_contact_mail
-    puts "===> params: ", params
     fname = params['fname']
     lname = params['lname']
     email = params['email']
@@ -127,13 +125,10 @@ class HomesController < ApplicationController
       email
     ).deliver_later
 
-    # TODO: to user email
-
     head :ok
   end
 
   def send_book_service_mail
-    puts "===> params: ", params
     fname = params['fname']
     lname = params['lname']
     email = params['email']
@@ -153,12 +148,67 @@ class HomesController < ApplicationController
     BookServiceMailer.send_mail(
       fname, lname, email, services, phone, message
     ).deliver_later
-    puts "===> BookService: "
 
     SuccessMailer.send_mail(
       email, fname
     ).deliver_later
-    puts "===> SuccessMailer: "
+
+    head :ok
+  end
+
+  def send_design_service_mail
+    name = params['name']
+    phone = params['phone']
+    email = params['email']
+    area = params['area']
+    city = params['city']
+
+    DesignService.create(
+      name: name,
+      phone: phone,
+      email: email,
+      area: area,
+      city: city,
+    )
+
+    DesignServiceMailer.send_mail(
+      name, phone, email, area, city
+    ).deliver_later
+
+    SuccessMailer.send_mail(
+      email, name
+    ).deliver_later
+
+    head :ok
+  end
+
+  def send_vendor_registration_mail
+    puts "===> params: ", params
+    fname = params['fname']
+    lname = params['lname']
+    email = params['email']
+    phone = params['phone']
+    address = params['address']
+    country = params['country']
+    image = params['image']
+
+    VendorRegistration.create(
+      first_name: fname,
+      last_name: lname,
+      email: email,
+      phone: phone,
+      address: address,
+      country: country,
+      image: image,
+    )
+
+    VendorRegistrationMailer.send_mail(
+      fname, lname, email, phone, address, country
+    ).deliver_later
+
+    SuccessMailer.send_mail(
+      email, fname
+    ).deliver_later
 
     head :ok
   end
