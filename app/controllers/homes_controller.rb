@@ -27,6 +27,7 @@ class HomesController < ApplicationController
   end
 
   def design_service
+    @categories = Category.where(active: true).order(:priority)
   end
 
   def blogs
