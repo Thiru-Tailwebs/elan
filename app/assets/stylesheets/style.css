@@ -4,6 +4,10 @@
 
 /* headings */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .heading-1 {
   color: #FFF;
   font-family: 'DM Serif Display', serif;

@@ -35,7 +35,7 @@
           started, we're here to assist you every step of the way
         </div>
         <form id="myForm1" class="mt-50" data-aos="fade-up">
-          <div>
+          <div class="form-1">
             <label for="fname">First Name</label>
             <input type="text" name="fname" id="fname" required>
 
@@ -51,6 +51,8 @@
             <div class="heading-6" data-aos="fade-up">
               Select Services
             </div>
+            </div>
+            <div class="form-2">
             <div class="form-check form-check-inline" data-aos="fade-up">
               <input class="form-check-input" type="checkbox" name="services" id="services1" value="Measurement">
               <label class="form-check-label" for="services1">Measurement</label>
@@ -67,7 +69,6 @@
               <input class="form-check-input" type="checkbox" name="services" id="services4" value="After Sale">
               <label class="form-check-label" for="services4">After Sale</label>
             </div>
-          
           </div>
           <div class="form-group mt-50" data-aos="fade-up">
             <label for="message">Message</label>
@@ -215,6 +216,11 @@
   #myForm1 label,
   input {
     display: block;
+    /* margin-bottom: 5px; */
+  }
+
+  .form-1 label,
+  input {
     margin-bottom: 5px;
   }
 
@@ -232,7 +238,15 @@
     border: none;
     border-bottom: 1px solid #8D8D8D;
     /* Add a line under the input */
+    /* margin-bottom: 40px; */
+  }
+
+  .form-1 input {
     margin-bottom: 40px;
+  }
+
+  .form-2 input {
+    width: auto !important;
   }
 
   /* Remove the default input focus outline */
