@@ -163,7 +163,7 @@ class HomesController < ApplicationController
     head :ok
   end
 
-  def send_design_service1_mail
+  def send_design_service_mail
     puts "===> params: ", params
     name = params['name']
     phone = params['phone']

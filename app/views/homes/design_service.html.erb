@@ -415,29 +415,25 @@
         Get in touch!
       </div>
 
-      <form class="mt-20">
+      <form class="mt-20"  id="myFormDS1">
         <div class="form-group">
-          <input type="text" class="form-control" id="name" placeholder="Name" required>
+          <input type="text" class="form-control" name="name" id="name1" placeholder="Name" required>
         </div>
-
         <div class="form-group">
-          <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+          <input type="tel" class="form-control" name="phone" id="phone1" placeholder="Phone Number" required>
         </div>
-
         <div class="form-group">
-          <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+          <input type="email" class="form-control" name="email" id="email1" placeholder="Email Address" required>
         </div>
-
         <div class="form-group">
-          <select class="form-control drop" id="area" placeholder="Email Address" required>
+          <select class="form-control drop" name="area" id="area1" required>
             <option value="" disabled selected>Select Area</option>
             <option value="area1">Area 1</option>
             <option value="area2">Area 2</option>
           </select>
         </div>
-
         <div class="form-group">
-          <input type="text" class="form-control" id="city" placeholder="City" required>
+          <input type="text" class="form-control" name="city" id="city1" placeholder="City" required>
         </div>
 
         <button type="submit" class="btn btn-5 w-100p mt-20">Get Quote</button>
@@ -640,7 +636,39 @@
       // Send AJAX request
       $.ajax({
         type: 'POST',
-        url: '<%= send_design_service1_mail_path %>',
+        url: '<%= send_design_service_mail_path %>',
+        headers: {
+          'X-CSRF-Token': csrfToken
+        },
+        data: formData,
+        success: function(response) {
+          // Assuming your modal has the ID "myModal"
+          $('#myModal1').show();
+        },
+        error: function(error) {
+          console.error('Error submitting the form:', error);
+        }
+      });
+    });
+
+    $('#myFormDS1').submit(function(e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      var formData = {
+        name: $('#name1').val(),
+        phone: $('#phone1').val(),
+        email: $('#email1').val(),
+        area: $('#area1').val(),
+        city: $('#city1').val()
+      };
+
+      var csrfToken = $('meta[name=csrf-token]').attr('content');
+
+      // Send AJAX request
+      $.ajax({
+        type: 'POST',
+        url: '<%= send_design_service_mail_path %>',
         headers: {
           'X-CSRF-Token': csrfToken
         },
@@ -659,6 +687,8 @@
     $('#closeModal1').click(function() {
       $('#myModal1').hide();
       $('#myFormDS')[0].reset();
+      $('#myFormDS1')[0].reset();
+      $("#modal").removeClass("active");
       // location.reload();
     });
 
