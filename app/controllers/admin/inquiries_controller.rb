@@ -2,7 +2,7 @@ class Admin::InquiriesController < Admin::AdminbaseController
   before_action :set_inquiry, only: %i[ destroy update_status ]
 
   def index
-    @inquiries = Inquiry.all
+    @inquiries = Inquiry.all.order('id DESC')
   end
 
   def destroy

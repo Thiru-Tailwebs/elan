@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-
   root 'homes#index'
 
   get '/media' => 'homes#media'
@@ -37,6 +36,11 @@ Rails.application.routes.draw do
 
   # Admin sidebar manus
   namespace :admin do
+    resources :design_services do
+      collection do
+        get '/update_status', to: "design_services#update_status"
+      end
+    end
     resources :contacts do
       collection do
         get '/update_status', to: "contacts#update_status"
