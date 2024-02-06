@@ -79,3 +79,4 @@ gem "shrine", "~> 3.5.0"
 gem "image_processing", "~> 1.12.2"
 gem 'state_machines-activerecord', '~> 0.9.0'
 gem 'friendly_id', '~> 5.5.0'
+gem 'social-share-button'

@@ -38,6 +38,12 @@
                         <a href="" class="ml-10" data-aos="fade-down">
                             <img src="/images/footer/footer-twit.png" class="w-30px">
                         </a>
+                    </div><br>
+                    <div class="d-flex align-items-center">
+                        <%# social_share_button(:twitter, url: show_blog_path(@blog), title: @blog.name) %>
+                        <%= social_share_button_tag %>
+                        <%# social_share_button_tag(@blog, 'data-twitter-title' => 'Title for Twitter') %>
+                        <%# social_share_button_tag(:twitter, url: show_blog_path(@blog), title: @blog.title) %>
                     </div>
                 </div>
             </div>
