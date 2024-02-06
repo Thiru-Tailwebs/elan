@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Check if the screen width is less than or equal to a certain threshold (e.g., 768 pixels for mobile)
   if (window.innerWidth > 768) {
     AOS.init({
-      duration: 700,
+      duration: 1000,
       delay: 700,
       easing: 'ease',
       once: true,
