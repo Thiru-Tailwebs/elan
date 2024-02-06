@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { :host => host, protocol: 'http' }
-  config.hosts << "*"
+  # config.hosts << nil
 
   # Gamil SMTP settings for gmail
   config.action_mailer.smtp_settings = {
