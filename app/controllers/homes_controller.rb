@@ -26,7 +26,7 @@ class HomesController < ApplicationController
   def faq
   end
 
-  def design_service
+  def home_design_service
     @categories = Category.where(active: true).order(:priority)
   end
 
