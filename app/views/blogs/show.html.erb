@@ -28,6 +28,7 @@
                     </div>
                 </div>
                 <div>
+                    <!--
                     <div class="d-flex align-items-center">
                         <a href="https://www.facebook.com/ELANFurnishings" target="_blank" class="" data-aos="fade-down">
                             <img src="/images/footer/footer-fb.png" class="w-30px">
@@ -41,6 +42,13 @@
                         <a href="https://in.pinterest.com/ELANFurnishings" data-aos="fade-down" target="_blank" class="ml-10">
                             <img src="/images/footer/footer-pinterest.png" class="w-30px w-25-mob">
                         </a>
+                    </div><br>
+                    -->
+                    <div class="d-flex align-items-center">
+                        <%# social_share_button(:twitter, url: show_blog_path(@blog), title: @blog.name) %>
+                        <%= social_share_button_tag %>
+                        <%# social_share_button_tag(@blog, 'data-twitter-title' => 'Title for Twitter') %>
+                        <%# social_share_button_tag(:twitter, url: show_blog_path(@blog), title: @blog.title) %>
                     </div>
                 </div>
             </div>

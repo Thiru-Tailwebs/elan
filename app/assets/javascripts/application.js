@@ -14,5 +14,5 @@
 //= require owlcarousel/owl.carousel.min.js
 //= require script.js
 //= require jquery.fancybox.js
-
+//= require social-share-button
 

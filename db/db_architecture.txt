@@ -84,4 +84,5 @@ rails g scaffold admin/DesignService
 
 rails g model VendorRegistration image_data:text first_name last_name email phone address:text country status:boolean
 rails generate mailer VendorRegistrationMailer
+rails generate mailer VendorRegistrationSuccessMailer
 rails g scaffold admin/VendorRegistration
