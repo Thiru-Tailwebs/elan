@@ -207,8 +207,8 @@ class HomesController < ApplicationController
       fname, lname, email, phone, address, country
     ).deliver_later
 
-    SuccessMailer.send_mail(
-      email, fname
+    VendorRegistrationSuccessMailer.send_mail(
+      email
     ).deliver_later
 
     head :ok
