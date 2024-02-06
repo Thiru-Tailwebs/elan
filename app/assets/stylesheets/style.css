@@ -1413,6 +1413,10 @@ a:hover {
     line-height: inherit;
   }
 
+    .lh-normal-mob {
+      line-height: normal;
+    }
+
   .mt-50-mob {
     margin-top: 50px;
   }

@@ -40,7 +40,7 @@
           <a class="nav-link" href="<%= root_path %>">HOME</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="<%= our_story_path %>"  data-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="<%= our_story_path %>" data-toggle="dropdown" aria-expanded="false">
             About Us
           </a>
           <div class="dropdown-menu">
@@ -49,7 +49,8 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="<%= brands_path %>" role="button" data-toggle="dropdown" aria-expanded="true">
+          <a class="nav-link dropdown-toggle" href="<%= brands_path %>" role="button" data-toggle="dropdown"
+            aria-expanded="true">
             BRAND
           </a>
           <div class="dropdown-menu">
@@ -141,11 +142,15 @@
   }
 
   /* Custom CSS for dropdown hover */
-  .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
+
+
+
+  @media (min-width: 991px) {
+    .navbar-nav .nav-item.dropdown:hover .dropdown-menu,
+    .navbar-nav .nav-item.dropdown.show .dropdown-menu {
+      display: block;
+    }
   }
-
-
 
   @media (min-width: 992px) and (max-width: 1199.98px) {
     .navbar-light .navbar-nav .nav-link {
@@ -190,9 +195,26 @@
       background-image: url('/images/home-page/hamber-mob.png') !important;
     }
 
-    .w-60-mob{
+    .w-60-mob {
       width: 60px !important;
     }
 
   }
 </style>
+
+<script>
+  // Enable hover for dropdowns
+  document.addEventListener("DOMContentLoaded", function () {
+    var dropdowns = document.querySelectorAll('.nav-item.dropdown');
+
+    dropdowns.forEach(function (dropdown) {
+      dropdown.addEventListener('mouseover', function () {
+        dropdown.classList.add('show');
+      });
+
+      dropdown.addEventListener('mouseout', function () {
+        dropdown.classList.remove('show');
+      });
+    });
+  });
+</script>

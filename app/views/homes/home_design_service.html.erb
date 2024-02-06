@@ -9,7 +9,7 @@
         <div class="h-100vh h-80vh-lg h-100h-md h-80vh-mob m-auto d-flex align-items-center">
           <div class="px-20 px-0-mob mt-50 mt-0-mob">
             <div class="row align-items-center">
-              <div class="col-lg-6">
+              <div class="col-lg-6" data-aos="zoom-out">
                 <div class="heading-3 text-upper fs-25 fs-18-mob white">
                   Unleash Designer Luxury in Your Home
                 </div>
@@ -20,7 +20,7 @@
                 </div>
               </div>
 
-              <div class="col-lg-5 offset-lg-1 mt-40-md">
+              <div class="col-lg-5 offset-lg-1 mt-40-md" data-aos="zoom-in">
                 <div class="white-bg p-15 br-10 position-1-mob w-95p-mob box-shadow-mob">
                   <div class="heading-8">
                     Get in touch!
@@ -61,38 +61,36 @@
 
   <section class="py-40 pt-300-mob pt-small-350">
     <div class="container">
-      <div class="heading-1 black-1 fs-35 fs-20-mob text-center">
+      <div class="heading-1 black-1 fs-35 fs-20-mob text-center" data-aos="fade-down">
         Area of Expertise
       </div>
       <div class="mt-20">
-        <div class="text-center heading-2 fs-16 fs-12-mob black-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse massa libero, mattis volutpat id.
-          Egestas
-          adipiscing placerat eleifend a nascetur. Mattis proin enim, nam porttitor vitae. Faucibus vel porttitor
-          imperdiet
-          ultricies a eget sed.
+        <div class="text-center heading-2 fs-16 fs-12-mob black-3" data-aos="fade-down">
+          Welcome to Elan Furnishings, where we redefine home decor with our timeless creations that blend artistry, precision,
+          and uncompromising quality to transform your living spaces into masterpieces of beauty and sophistication. Whether it is
+          bungalows, flats or commercial spaces! Our expert Designers will give you the best solutions as per your requirements.
         </div>
       </div>
       <div class="mt-30 mt-20-mob">
         <div class="row">
           <div class="col-lg-4 col-sm-4 mt-20-mob">
-            <div>
+            <div data-aos="fade-up">
               <img src="/images/design-service/area-1.png" class="w-100p">
             </div>
           </div>
           <div class="col-lg-4 col-sm-4 mt-20-mob">
-            <div>
+            <div data-aos="fade-up">
               <img src="/images/design-service/area-2.png" class="w-100p">
             </div>
           </div>
           <div class="col-lg-4 col-sm-4 mt-20-mob">
-            <div>
+            <div data-aos="fade-up">
               <img src="/images/design-service/area-3.png" class="w-100p">
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-20 text-center">
+      <div class="mt-20 text-center" data-aos="flip-up">
         <button type="button" class="btn btn-5 w-40p w-80p-mob mt-20 showModal">Get Quote</button>
       </div>
     </div>
@@ -100,11 +98,11 @@
 
   <section class="sandal-bg py-50 py-20-mob">
     <div class="container">
-      <div class="heading-1 fs-35 fs-25-mob black-1 text-center">
+      <div class="heading-1 fs-35 fs-25-mob black-1 text-center" data-aos="fade-down">
         Why Us
       </div>
       <div class="mt-20">
-        <div class="heading-2 black-3 fs-18 fs-12-mob text-center">
+        <div class="heading-2 black-3 fs-18 fs-12-mob text-center" data-aos="fade-down">
           Our expert team will understand your space. We endeavour to transform your spaces with our perfect selected
           curation of
           fine fabrics, soft furnishing, wall coverings, floor coverings, bespoke collection of artefacts and unique
@@ -120,13 +118,13 @@
 
   <section class="white-bg py-40">
     <div class="container">
-      <div class="heading-1 fs-35 fs-25-mob black-1 text-center">
+      <div class="heading-1 fs-35 fs-25-mob black-1 text-center" data-aos="fade-up">
         Choose By Products
       </div>
       <div class="mt-10 d-none-mob">
         <div class="row">
           <% @categories.each do |data| %>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-20" data-aos="flip-down">
               <a href="<%= show_product_path(data) %>">
                 <img src="<%= data.image2_url(:medium) %>" class="w-100p">
                 <div class="collection-position" style="background: none;"></div>
@@ -139,10 +137,24 @@
           
         </div>
       </div>
-      <div class="d-none-web d-none-md">
-
+      <div class="d-none-web d-none-md d-block-mob">
+        <div class="mx-10 mx-0-mob">
+          <div class="row">
+            <% @categories.each do |data|%>
+              <div class="mt-30 col-4">
+                <div class="nav-item mob-head">
+                  <a class="nav-link" href="<%= show_product_path(data) %>">
+                    <span>
+                      <%= data.name %>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <% end %>
+          </div>
+        </div>
       </div>
-      <div class="mt-20 text-center">
+      <div class="mt-20 text-center" data-aos="flip-up">
         <button type="button" class="btn btn-5 w-40p w-80p-mob mt-20 showModal">Get Quote</button>
       </div>
     </div>
@@ -150,10 +162,10 @@
 
   <section class="grey-bg-1 py-40 py-20-mob">
     <div class="container">
-      <div class="heading-1 fs-35 fs-25-mob black-1 text-center mt-30 mt-0-mob">
+      <div class="heading-1 fs-35 fs-25-mob black-1 text-center mt-30 mt-0-mob" data-aos="flip-down">
         Let’s build your home together!
       </div>
-      <div class="mt-20 text-center sub-heading black-1 fs-18 fs-14-mob lh-30 lh-inherit-mob">
+      <div class="mt-20 text-center sub-heading black-1 fs-18 fs-14-mob lh-30 lh-inherit-mob" data-aos="flip-down">
         Building a new home and furnishing your own space is a reflection of your personality. It’s one of the most
         delightful
         things you do! Here are a few questions that people often ask us. If you have any other questions, you can
@@ -161,7 +173,7 @@
         clicking on the contact us button.
       </div>
       <div class="accordion" id="accordionExample">
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingOne" data-toggle="collapse" data-target="#collapseOne"
             aria-expanded="false" aria-controls="collapseOne">
             <h2>
@@ -176,7 +188,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="false" aria-controls="collapseTwo">
             <h2>
@@ -189,7 +201,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree"
             aria-expanded="false" aria-controls="collapseThree">
             <h2>
@@ -202,7 +214,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingFour" data-toggle="collapse" data-target="#collapseFour"
             aria-expanded="false" aria-controls="collapseFour">
             <h2>
@@ -216,7 +228,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingFive" data-toggle="collapse" data-target="#collapseFive"
             aria-expanded="false" aria-controls="collapseFive">
             <h2>
@@ -229,7 +241,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingSix" data-toggle="collapse" data-target="#collapseSix"
             aria-expanded="false" aria-controls="collapseSix">
             <h2>
@@ -244,7 +256,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingSeven" data-toggle="collapse" data-target="#collapseSeven"
             aria-expanded="false" aria-controls="collapseSeven">
             <h2>
@@ -264,7 +276,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingEight" data-toggle="collapse" data-target="#collapseEight"
             aria-expanded="false" aria-controls="collapseEight">
             <h2>
@@ -283,7 +295,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingNine" data-toggle="collapse" data-target="#collapseNine"
             aria-expanded="false" aria-controls="collapseNine">
             <h2>
@@ -296,7 +308,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingTen" data-toggle="collapse" data-target="#collapseTen"
             aria-expanded="false" aria-controls="collapseTen">
             <h2>
@@ -309,7 +321,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" data-aos="flip-up">
           <div class="card-head collapsed" id="headingEleven" data-toggle="collapse" data-target="#collapseEleven"
             aria-expanded="false" aria-controls="collapseEleven">
             <h2>
@@ -329,7 +341,7 @@
   <section class="py-40 py-20">
     <div class="container-fluid">
       <div class="px-50 px-10-mob">
-        <div class="row">
+        <div class="row" data-aos="flip-down">
           <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 pl-inherit-mob pr-0-lg pr-0-web equal-image">
             <div class="d-none-mob">
               <img src="/images/design-service/de-foot.png" class="w-100p">
@@ -556,6 +568,31 @@
     }
 
   }
+</style>
+
+<style>
+  .mob-head .nav-link {
+    padding: 0px !important;
+    font-size: 10px !important;
+    text-align: center;
+    color: #2D2D2D !important;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .mob-head span {
+    display: block !important;
+  }
+
+  .mob-head .nav-link:hover {
+    color: #A7833D !important;
+  }
+
+  
 </style>
 
 <script>
