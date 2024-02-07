@@ -3,11 +3,11 @@
 <div class="">
   <section class="bg-images h-100h-md h-100vh"
     style="background-image: url('/images/design-service/design-service-banner.png');">
-    <div class="bg-shadow-1 h-100vh h-80vh-lg h-100h-md h-80vh-mob">
+    <div class="bg-shadow-1 h-100vh h-100h-md h-80vh-mob">
       
       <div class="container-fluid">
         <div class="h-100vh h-80vh-lg h-100h-md h-80vh-mob m-auto d-flex align-items-center">
-          <div class="px-20 px-0-mob mt-50 mt-0-mob">
+          <div class="px-20 px-0-mob mt-50 mt-0-mob zoom">
             <div class="row align-items-center">
               <div class="col-lg-6" data-aos="zoom-out">
                 <div class="heading-3 text-upper fs-25 fs-18-mob white">
@@ -38,9 +38,20 @@
                     </div>
                     <div class="form-group">
                       <select class="form-control drop" name="area" id="area" required>
-                        <option value="" disabled selected>Select Area</option>
-                        <option value="area1">Area 1</option>
-                        <option value="area2">Area 2</option>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="Fabrics & Drapery">Fabrics & Drapery</option>
+                        <option value="furniture">furniture</option>
+                        <option value="Upholstery">Upholstery</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Bath & Bed Linen">Bath & Bed Linen</option>
+                        <option value="Floor Coverings">Floor Coverings</option>
+                        <option value="Wall Coverings">Wall Coverings</option>
+                        <option value="Trims & Tassels">Trims & Tassels</option>
+                        <option value="Mattress">Mattress</option>
+                        <option value="Lightings">Lightings</option>
+                        <option value="Tableware">Tableware</option>
+                        <option value="Hardware & Automations">Hardware & Automations</option>
+                        <option value="Others">Others</option>
                       </select>
                     </div>
                     <div class="form-group">
@@ -59,6 +70,7 @@
     </div>
   </section>
 
+  <div class="zoom">
   <section class="py-40 pt-300-mob pt-small-350">
     <div class="container">
       <div class="heading-1 black-1 fs-35 fs-20-mob text-center" data-aos="fade-down">
@@ -471,6 +483,7 @@
     <div class="para-2">Will get back to you shortly.</div>
     <a type="button" class="close-btn" id="closeModal1">ok</a>
   </div>
+</div>
 </div>
 
 <%= render "shared/call_back" %>
