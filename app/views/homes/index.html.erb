@@ -18,8 +18,8 @@
             that turn your living space into a sanctuary of style and comfort
           </div>
         </div>
-        <a href="#explore-section">
-        <div class="text-right position-2">
+        
+        <div class="text-right position-2 zoom" onclick="smoothScroll('target-section')" style="cursor: pointer;">
           <div data-aos="flip-up">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="57" viewBox="0 0 50 67" fill="none">
               <rect x="2.35645" y="1.5" width="46" height="64" rx="23" stroke="white" stroke-width="3" />
@@ -30,7 +30,6 @@
             </svg>
           </div>
         </div>
-        </a>
       </div>
     </div>
     </div>
@@ -38,7 +37,7 @@
 </section>
 
 <div class="zoom">
-<section id="explore-section" class="black-bg-1 pt-40 pb-400 pb-100-mob pb-200-md">
+<section id="target-section" class="black-bg-1 pt-40 pb-400 pb-100-mob pb-200-md">
   <div class="container">
     <div class="heading-2 fs-16-mob text-center" data-aos="fade-up">
       Explore Our Categories
@@ -1030,7 +1029,14 @@
       } else {
         calendlySection.style.display = 'none';
       }
-    });
+  });
 
+  function smoothScroll(targetId) {
+      const targetElement = document.getElementById(targetId);
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
 
 </script>
