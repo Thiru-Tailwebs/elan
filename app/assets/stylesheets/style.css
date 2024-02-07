@@ -348,6 +348,10 @@ html {
   margin-top: 400px;
 }
 
+.mb-40 {
+  margin-bottom: 40px;
+}
+
 .mb-50 {
   margin-bottom: 50px;
 }
@@ -1123,6 +1127,10 @@ a:hover {
 
   .h-100h-md {
     height: 100vh;
+  }
+
+  .fs-40-md {
+    font-size: 40px;
   }
 
   .fs-30-md {
