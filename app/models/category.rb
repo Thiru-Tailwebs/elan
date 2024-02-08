@@ -18,7 +18,9 @@ class Category < ApplicationRecord
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
+    # Square Image
     include ImageUploader::Attachment(:image)
+    # Vertical Image
     include ImageUploader::Attachment(:image2)
 
     has_many :category_images, dependent: :destroy
