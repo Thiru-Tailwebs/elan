@@ -89,8 +89,8 @@ class HomesController < ApplicationController
   def our_services
     # setting up the meta tags
     prepare_meta_tags(
-      title: "Book Expert Design Services with Elan Furnishing",
-      description: "Transform your living space with Elan Furnishing's expert design services. Schedule an appointment with our design experts today",
+      title: "Elevate Your Space with Our Premium Home Decor Services | Elan Furnishing",
+      description: "Discover the comprehensive range of services at Elan Furnishing. From expert design consultations to handpicked treasures.",
       current_url: request.url
     )
   end

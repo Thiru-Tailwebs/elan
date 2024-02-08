@@ -8,7 +8,7 @@ module MetaTagsConcern
         description = options[:description] || "Elevate your home with Elan Furnishing – discover handpicked treasures, expert design services, and top-tier brands for an enchanting living experience"
         image       = options[:image] || "https://elandecor.in/images/home-page/elan-new-logo.png"
         current_url = options[:current_url] || "https://elandecor.in"
-        keywords    = "think-tanks in india, think-tanks in delhi, energy think-tank, climate think-tank, environment think-tank"
+        keywords    = "furnishing, home furnishings, home furnishings items, home furnishings products, home furnishings online"
 
         defaults = {
             site:        title,
