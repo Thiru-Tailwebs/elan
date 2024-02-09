@@ -1,6 +1,7 @@
 class BookServiceMailer < ApplicationMailer
     def send_mail(fname, lname, email, services, phone, message)
-        email1 = "info@elandecor.in"
+        info_email = "info@elandecor.in"
+        vedika_email = "vedika@tailwebs.com"
         subject = "Elan: New Booked Service"
 
         @fname = fname
@@ -10,6 +11,6 @@ class BookServiceMailer < ApplicationMailer
         @phone = phone
         @message = message
 
-        mail(to: email1, subject: subject)
+        mail(to: [info_email, vedika_email], subject: subject)
     end
 end

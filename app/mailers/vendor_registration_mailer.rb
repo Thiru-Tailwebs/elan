@@ -1,6 +1,7 @@
 class VendorRegistrationMailer < ApplicationMailer
     def send_mail(fname, lname, email, phone, address, country)
-        email1 = "info@elandecor.in"
+        info_email = "info@elandecor.in"
+        vedika_email = "vedika@tailwebs.com"
         subject = "Elan: New Vendor Registration"
 
         @fname = fname
@@ -10,6 +11,6 @@ class VendorRegistrationMailer < ApplicationMailer
         @address = address
         @country = country
 
-        mail(to: email1, subject: subject)
+        mail(to: [info_email, vedika_email], subject: subject)
     end
 end

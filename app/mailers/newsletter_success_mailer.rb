@@ -1,6 +1,6 @@
 class NewsletterSuccessMailer < ApplicationMailer
     def send_mail(email)
-        subject = "Subscribe Newsletter Email"
+        subject = "Newsletter signup successful!"
 
         mail(to: email, subject: subject)
     end
