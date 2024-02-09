@@ -129,7 +129,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email, name
+      email, name, nil
     ).deliver_later
 
     head :ok
@@ -155,7 +155,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email, fname
+      email, fname, nil
     ).deliver_later
 
     head :ok
@@ -200,7 +200,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email, fname
+      email, fname, nil
     ).deliver_later
 
     head :ok
@@ -225,8 +225,10 @@ class HomesController < ApplicationController
       name, phone, email, area, city
     ).deliver_later
 
+    subject = "Hey " + name + ", You've requested a quote!"
+
     SuccessMailer.send_mail(
-      email, name
+      email, name, subject 
     ).deliver_later
 
     head :ok
