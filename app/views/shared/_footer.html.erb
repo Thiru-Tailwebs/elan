@@ -7,7 +7,7 @@
             Stay in the loop with our newsletter!
           </div>
           <form id="footer" class="mt-30">
-            <label for="email">Define E-Mail Address<span><button style="background: none; border: none;" type="submit"><img src="/images/footer/footer-arrow.png"
+            <label for="email">E-Mail Address<span><button style="background: none; border: none;" type="submit"><img src="/images/footer/footer-arrow.png"
                   class="w-20px"></button></span></label>
             <input type="email" id="email1" required>
           </form>
@@ -55,9 +55,9 @@
                 Collections
               </span>
             </a>
-            <a href="<%= our_services_path %>">
+            <a href="<%= home_design_service_path %>">
               <span class="heading-8 fs-14 white">
-                Services
+                Home Design
               </span>
             </a>
             <a href="<%= nri_homes_path %>">
@@ -128,10 +128,10 @@
                         </span>
                       </a>
                     </div>
-                    <div class="mt-10-mob lh-normal-mob">
-                      <a href="<%= our_services_path %>">
+                    <div class="mt-10-mob" style="line-height: 12px;">
+                      <a href="<%= home_design_service_path %>">
                         <span class="heading-8 fs-14 fs-10-mob white">
-                          Services
+                          Home Design
                         </span>
                       </a>
                     </div>
@@ -152,9 +152,9 @@
                       </a>
                     </div>
                     <div class="mt-10-mob lh-normal-mob">
-                      <a href="<%= media_path %>">
+                      <a href="<%= our_services_path %>">
                         <span class="heading-8 fs-14 fs-10-mob white">
-                          Publications
+                          Services
                         </span>
                       </a>
                     </div>
@@ -165,7 +165,7 @@
                         </span>
                       </a>
                     </div>
-                    <div class="mt-10-mob lh-normal-mob">
+                    <div class="mt-10-mob" style="line-height: 12px;">
                       <a href="<%= vendor_registration_path %>">
                         <span class="heading-8 fs-14 fs-10-mob white">
                           Vendor Registration
@@ -268,8 +268,8 @@
 
   @media (max-width: 576px) {
     .container-1 {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
     }
 
     #footer label {
@@ -301,7 +301,7 @@
         data: formData,
         success: function (response) {
           // Assuming your modal has the ID "myModal"
-          $('#myModal').show();
+          $('#myModal1').show();
         },
         error: function (error) {
           console.error('Error submitting the form:', error);
@@ -310,8 +310,8 @@
     });
 
     // Close modal when the close button is clicked
-    $('#closeModal').click(function () {
-      $('#myModal').hide();
+    $('#closeModal1').click(function () {
+      $('#myModal1').hide();
       $('#myCall')[0].reset();
       // location.reload();
     });

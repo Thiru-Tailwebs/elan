@@ -28,7 +28,9 @@
 				<% @blogs_of_3.each_with_index do |data, index| %>
 					<div class="<% if index + 1 > 1 %>mt-30<% end %>" data-aos="<% if (index + 1) % 2 == 0 %>fade-up<% else %>fade-down<% end %>">
 						<div class="">
+							<a href="<%= show_blog_path(data) %>">
 							<img src="<%= data.image_url(:large) %>" class="w-100p">
+							</a>
 						</div>
 						<div class="mt-15">
 							<div class="d-flex align-items-center">

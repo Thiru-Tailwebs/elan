@@ -1339,6 +1339,11 @@ a:hover {
     margin-right: 0px;
   }
 
+    .mx-30-mob {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+
   .mt-20-mob {
     margin-top: 20px;
   }
