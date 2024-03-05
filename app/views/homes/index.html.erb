@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 
 <% if @banner_image.present? %>
-  <section class="bg-image-home position-relative" style="background-image: url('<%= @banner_image.image_url %>');">
+  <section class="bg-image-home position-relative" style="background-image: url('<%= @banner_image.image_url(:medium) %>');">
 <% else %>
   <section class="bg-image-home position-relative" style="background-image: url('/images/home-page/home-banner.png');">
 <% end %>
