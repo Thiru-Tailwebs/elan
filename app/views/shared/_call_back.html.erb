@@ -1,0 +1,226 @@
+<section class="black-bg-4 py-50 zoom">
+  <div class="container">
+    <div class="heading-1 fs-35 fs-25-mob" data-aos="fade-up">
+      Request a call back
+    </div>
+
+    <div class="mt-80 mt-30-mob">
+      <div class="call">
+        <form method="POST" action="<%= send_inquiry_mail_path %>" id="myCall" class="call-back mt-50 mt-20-mob row align-items-center">
+          <div class="col-md-3" data-aos="fade-up">
+            <label for="firstName">Your Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="col-md-3 mt-20-mob" data-aos="fade-up">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="col-md-3 mt-20-mob" data-aos="fade-up">
+            <label for="number">Phone Number</label>
+            <input type="text" id="number" required>
+          </div>
+          <div class="col-md-3 mt-20-mob text-center">
+            <div class="" data-aos="fade-up">
+              <button type="submit" class="btn btn-4">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="myModal" class="modal zoom">
+  <div class="modal-content">
+    <div class="d-flex justify-content-center">
+      <div>
+    <div class="para-1">Thank you for your Interest</div>
+    <div class="para-2">Will get back to you shortly.</div>
+    <a type="button" class="close-btn" id="closeModal">ok</a>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal1" class="modal zoom">
+  <div class="modal-content">
+    <div class="d-flex justify-content-center">
+      <div>
+        <div class="para-1">Newsletter Signup Successful!</div>
+        <div class="para-2">We shall keep you updated with information & offers at Elan!</div>
+        <a type="button" class="close-btn" id="closeModal1">ok</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .call form {
+    width: 100%;
+  }
+
+  .call-back label,
+  input {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .call-back label {
+    color: #FFF;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+
+  .call-back input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #8D8D8D;
+    background-color: #1E1E1E !important;
+    color: #FFF !important;
+  }
+
+  /* Remove the default input focus outline */
+  .call-back input:focus {
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    .call-back label {
+      font-size: 16px;
+    }
+  }
+</style>
+<!-- Make sure jQuery is loaded before your custom script -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  // Use no-conflict mode to avoid conflicts with other libraries
+  jQuery(document).ready(function ($) {
+    $('#myCall').submit(function (e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      var formData = {
+        name: $('#name').val(),
+        email: $('#email').val(),
+        number: $('#number').val()
+        // Add other form fields as needed
+      };
+
+      var csrfToken = $('meta[name=csrf-token]').attr('content');
+
+      // Send AJAX request
+      $.ajax({
+        type: 'POST',
+        url: '<%= send_inquiry_mail_path %>',
+        headers: {
+          'X-CSRF-Token': csrfToken
+        },
+        data: formData,
+        success: function (response) {
+          // Assuming your modal has the ID "myModal"
+          $('#myModal').show();
+        },
+        error: function (error) {
+          console.error('Error submitting the form:', error);
+        }
+      });
+    });
+
+    // Close modal when the close button is clicked
+    $('#closeModal').click(function () {
+      $('#myModal').hide();
+      $('#myCall')[0].reset();
+      $('#footer')[0].reset();
+      // location.reload();
+    });
+  });
+</script>
+
+<style>
+  /* Style for the modal */
+
+
+  .modal {
+    display: none;
+    /* Hide by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Style for the modal content */
+  .modal-content {
+    border-radius: 10px;
+    background: #FFF;
+    /* margin: 15% auto; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #8D8D8D;
+    border-radius: 5px;
+    color: #2D2D2D;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal-content .para-1 {
+    color: #2D2D2D;
+    font-family: 'DM Serif Display', serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .modal-content .para-2 {
+    color: #2D2D2D;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 30px;
+    /* 24px */
+    letter-spacing: 0.16px;
+  }
+
+  /* Style for the close button */
+  .close-btn {
+    border-radius: 6px !important;
+    background: #A7833D !important;
+    color: #FFF !important;
+    font-family: 'Lexend', sans-serif !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+    text-transform: uppercase !important;
+    width: fit-content !important;
+    margin-top: 30px;
+    padding: 10px 25px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+        max-width: 90%;
+    }
+}
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+  }
+</style>

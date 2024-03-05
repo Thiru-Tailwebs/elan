@@ -10,4 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// require scrollreveal.js
+//= require owlcarousel/owl.carousel.min.js
+//= require script.js
+//= require jquery.fancybox.js
+//= require social-share-button
 

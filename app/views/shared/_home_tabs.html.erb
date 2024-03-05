@@ -1,0 +1,208 @@
+<div class="mt-40 d-none-mob" data-aos="fade-up">
+  <!-- Nav tabs -->
+  <div class="mx-10 home-tab">
+    <div class="row">
+      <% @categories.each_with_index do |data, index|%>
+        <div class="col-lg-3 col-md-4 mt-30">
+          <div class="nav-item tab-head <% if index == 0 %>active-tab<% end %>" data-aos="fade-right">
+            <a class="nav-link <% if index == 0 %>active<% end %>" data-toggle="tab" href="#tab-<%= index + 1 %>" role="tab">
+              <span>
+                <img src="/images/home-page/tab-img.png" class="w-25px mr-2 tab-img-1">
+                <img src="/images/home-page/pro-hover.png" class="w-25px mr-2 tab-img-2 d-none">
+                <%= data.name %>
+              </span>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-50">
+    <div class="col-md-12">
+      <% @categories.each_with_index do |data, index|%>
+        <% @images = CategoryImage.get_images_from_category(data.code).first(6) %>
+        <div id="tab-<%= index + 1 %>" class="tab-content <% if index == 0 %>active<% end %>">
+          <div class="row">
+            <% @images.each do |i| %>
+              <div class="col-md-4 mt-30">
+                <div><img src="<%= i.image_url(:large) %>" class="w-100"></div>
+              </div>
+            <% end %>
+          </div>
+          <div class="mt-50 d-flex justify-content-center">
+            <a href="<%= our_collections_path %>" class="btn btn-1">VIEW ALL</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* .home-tab .tab-content {
+    display: none;
+  } */
+
+  .home-tab .active-tab {
+    border: 2px solid #A7833D !important;
+    background-color: #A7833D;
+    color: #FFF;
+  }
+
+  .home-tab .active-tab:hover {
+    border: 2px solid #A7833D !important;
+    background-color: #A7833D;
+    color: #FFF !important;
+  }
+
+  .home-tab .nav-item.active-tab span:hover {
+    color: #FFF !important;
+  }
+
+  .home-tab .active-tab .nav-link:hover {
+    color: #FFF !important;
+  }
+
+  .home-tab .tab-content.active {
+    display: block !important;
+  }
+
+  .home-tab .nav-item.tab-head {
+    border-radius: 30px;
+    border: 2px solid #FFF;
+  }
+
+  .home-tab .nav-item.tab-head:hover {
+    border: 2px solid #A7833D;
+    color: #A7833D;
+  }
+
+  .home-tab .nav-item.tab-head:focus {
+    background-color: #A7833D;
+  }
+
+  .home-tab .nav-item.tab-head:hover .tab-img-2 {
+    display: block !important;
+  }
+
+  .home-tab .nav-item.tab-head:hover .tab-img-1 {
+    display: none;
+  }
+
+  .home-tab .nav-item.tab-head.active-tab .tab-img-2 {
+    display: block !important;
+  }
+
+  .home-tab .nav-item.tab-head.active-tab .tab-img-1 {
+    display: none;
+  }
+
+
+  .home-tab .nav-item span {
+    display: flex;
+    align-items: center;
+  }
+
+  .home-tab .nav-link {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .home-tab .nav-item span:hover {
+    color: #A7833D !important;
+  }
+
+  .home-tab .nav-link:hover {
+    color: #A7833D !important;
+  }
+</style>
+
+<div class="mt-20-mob d-block-mob d-none-web" data-aos="fade-up">
+  <div class="mx-10 mx-0-mob">
+    <div class="row">
+      <% @categories.each do |data|%>
+        <div class="mt-30 col-4">
+          <div class="nav-item mob-head">
+            <a class="nav-link" href="<%= show_product_path(data) %>">
+              <span><%= data.name %></span>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mob-head .nav-link {
+    padding: 0px !important;
+    font-size: 10px !important;
+    text-align: center;
+  }
+
+  .mob-head span{
+    display: block !important;
+  }
+
+  .mob-head .nav-link:hover {
+    color: #A7833D !important;
+  }
+</style>
+
+<style>
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block !important;
+  }
+
+  .nav-item.tab-head {
+    border-radius: 30px;
+    border: 2px solid #FFF;
+  }
+
+  .nav-item span {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Activate the first tab by default
+    document.querySelector('.nav-item.tab-head:first-child').classList.add('active-tab');
+    document.querySelector('.tab-content:first-child').classList.add('active');
+
+    // Handle tab click event
+    document.querySelectorAll('.nav-item.tab-head').forEach(function (tab, index) {
+      tab.addEventListener('click', function () {
+        // Deactivate all tabs and contents
+        document.querySelectorAll('.nav-item.tab-head, .tab-content').forEach(function (item) {
+          item.classList.remove('active-tab', 'active');
+        });
+
+        // Activate the clicked tab and corresponding content
+        tab.classList.add('active-tab');
+        document.querySelector(`#tab-${index + 1}`).classList.add('active');
+      });
+    });
+  });
+</script>

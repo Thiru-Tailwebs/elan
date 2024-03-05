@@ -1,0 +1,38 @@
+<%= form_with(model: [:admin, @category_image], html: { class: 'form-horizontal' }) do |form| %>
+  <% if @category_image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@category_image.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @category_image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label "Category*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <input type="hidden" name="category_image[category_id]" value="<%= @categories.id %>">
+        <input type="text" class="form-control" value="<%= @categories.name %>" disabled>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label "Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :image, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required" %>
+        <% else %>
+          <%= form.file_field :image, class: 'form-control', multiple: "multiple", accept:'image/*' %>
+        <% end %>
+        <p><strong>Note: </strong> We accept 989 × 792 dimation image.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_category_images_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %>

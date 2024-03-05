@@ -35,5 +35,8 @@ module CampaignMailer
       Devise::PasswordsController.layout "admin_login"
     end
 
+    # Configure the host
+    config.hosts = nil
+
   end
 end

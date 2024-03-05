@@ -1,0 +1,97 @@
+
+
+<%= render "shared/header" %>
+
+<section class="bg-images" style="background-image: url('/images/brand/brand-banner.png');">
+  <div class="bg-shadow-1 h-90vh h-80vh-lg h-80vh-md h-80vh-mob">
+    <div class="container-fluid">
+      <div class="h-90vh h-80vh-lg h-80vh-md h-80vh-mob d-flex align-items-center justify-content-center">
+        <div class="zoom">
+          <div data-aos="fade-up" class="heading-4 white fs-26 fs-18-mob text-upper text-center">
+            brands we house
+          </div>
+          <div data-aos="fade-up" class="mt-15 w-90p w-90p-mob mx-auto fs-smob-25 fs-35-mob heading-1 text-center">
+            Elevating Homes with Top-Tier Brands
+          </div>
+          <div data-aos="fade-up" class="mt-30 w-70p w-90p-mob mx-auto fs-14-mob heading-3 white text-center">
+            Discover our handpicked brand partners, all dedicated to elevating your home decor experience with their unmatched
+            craftsmanship and innovation. Explore excellence, one brand at a time.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zoom">
+  <div class="sandal-bg pt-40">
+    <div class="container">
+      <ul class="nav nav-tabs brands" data-aos="fade-down" role="tablist">
+        <% @brand_categories.each_with_index do |data, index| %>
+          <li class="nav-item">
+            <a class="nav-link <% if index == 0 %>active<% end %> fs-16-mob" data-toggle="tab" href="#tabs-<%= index + 1 %>" role="tab">
+              <%= data.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="zoom">
+  <div class="container py-50">
+    <div class="position-relative" data-aos="zoom-out">
+      <img src="/images/brand/brand-1-img.png" class="w-100p img-overlay">
+      <div class="heading-1 text-overlay fs-40-md fs-20-mob">Brands we house</div>
+    </div>
+    <div class="tab-content mt-30 mt-0-mob">
+      <% @brand_categories.each_with_index do |data, index| %>
+        <% @images = BrandCategoryImage.get_images_from_brand_category(data.code) %>
+        <div class="tab-pane <% if index == 0 %>active<% end %>" id="tabs-<%= index + 1 %>" role="tabpanel">
+          <div class="mx-50 mx-0-mob">
+            <div class="row align-items-center" data-aos="zoom-in">
+              <% @images.each do |i| %>
+                <div class="col-md-3 col-4 mt-50 mt-30-mob text-center">
+                  <img src="<%= i.image_url(:medium) %>" class="w-80p">
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    <!-- <div class="mt-80 mt-40-mob mt-40-md mt-40-lg text-center" data-aos="flip-down">
+      <a href="<%= clientele_path %>" type="button" class="btn btn-2">Clientele brands</a>
+    </div> -->
+  </div>
+</section>
+
+<style>
+  .brands .nav-link {
+    color: #9B9B9B;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .nav-tabs.brands .nav-link.active {
+    background-color: unset;
+    border-color: transparent transparent #A7833D;
+    border-width: 4px;
+  }
+
+  @media (max-width: 576px){
+    .brands .nav-link {
+      font-size: 16px;
+    }
+  }
+
+</style>
+
+<%= render "shared/call_back" %>
+
+<%= render "shared/footer" %>

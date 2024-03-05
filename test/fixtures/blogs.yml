@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  name: MyString
+  state: MyString
+  slug: MyText
+  description1: MyText
+  description2: MyText
+  image_data: MyText
+  author: one
+  published_dt: 2023-11-10
+
+two:
+  title: MyString
+  name: MyString
+  state: MyString
+  slug: MyText
+  description1: MyText
+  description2: MyText
+  image_data: MyText
+  author: two
+  published_dt: 2023-11-10

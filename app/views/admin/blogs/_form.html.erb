@@ -1,0 +1,177 @@
+<%= form_with(model: [:admin, @blog], html: { multipart: true, class: 'form-horizontal' }) do |form| %>
+  <% if @blog.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @blog.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <div class="form-group row">
+      <%= form.label "Square Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :square_image, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required", name: "blog[square_image]" %>
+        <% else %>
+          <%= form.file_field :square_image, class: 'form-control', multiple: "multiple", accept:'image/*', name: "blog[square_image]" %>
+        <% end %>
+        <p><strong>Note: </strong>We accept 874 × 848 dimation image.</p>
+      </div>
+      <%= form.label "Image*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <% if controller.action_name == 'new' %>
+          <%= form.file_field :image, class: 'form-control', accept:'image/*', multiple: "multiple", required: "required", name: "blog[image]" %>
+        <% else %>
+          <%= form.file_field :image, class: 'form-control', multiple: "multiple", accept:'image/*', name: "blog[image]" %>
+        <% end %>
+        <p><strong>Note: </strong>We accept 1722 × 711 dimation image.</p>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Title*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :title, class: 'form-control', placeholder: "Enter title", required: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Name*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, class: 'form-control', placeholder: "Enter name", required: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Small Description*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :description1, class: 'form-control', placeholder: "Enter small description", required: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Author*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <select class="select2 form-control" data-placeholder="Select author" style="width: 100%;" name="blog[author_id]" id="blog_author_id" required>
+          <option value="" selected disabled>Select author</option>
+          <% @authors.each do |data| %>
+            <option value="<%= data.id %>" <% if @blog.author_id == data.id %> selected <% end %>><%= data.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <%= form.label "Is Featured*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-4">
+        <select class="select2 form-control" data-placeholder="Select is_featured" style="width: 100%;" name="blog[is_featured]" required>
+          <option value="true" <% if @blog.is_featured == true %> selected <% end %>>True</option>
+          <option value="false" <% if @blog.is_featured == false %> selected <% end %>>False</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+			<%= form.label "Blog Type*", class: 'control-label col-md-2' %>
+			<div class="col-md-10">
+				<%= form.collection_select(:blog_types, @blog_types, :id, :name, {
+					selected: @blog.blog_types.pluck(:id)
+				},:multiple => true, class: "select2 form-control", id: "blog_blog_type", data: {
+					placeholder: 'Select blog types'
+				}) %>
+			</div>
+    </div>
+    <div class="form-group row">
+      <%= form.label "Description*", class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <textarea id="summernote" name="blog[description2]" id="blog_description" rows="4" required>
+          <% if @blog.description2.present? %>
+            <%= @blog.description2.html_safe %>
+          <% else %>
+            <%= @blog.description2 %>
+          <% end %>
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <a href="<%= admin_blogs_url %>" class="btn btn-default">Back</a>
+  </div>
+<% end %><br>
+<hr>
+
+<div class="card-body">
+  <!-- Preview Section -->
+  <div class="form-group row">
+    <label class="col-sm-12" style="text-align: center;">Preview The Description</label>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <div id="preview"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    var $summernote_editor = $('#summernote');
+    var $preview = $('#preview');
+
+    // Summernote text-editor
+    $('#summernote').summernote({
+      height: 200,
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline', 'clear']],
+        ['fontsize', ['fontsize']],
+        ['fontname', ['fontname']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview', 'help']],
+      ],
+      callbacks: {
+        onInit: function() {
+          updatePreview(); // Initial preview update
+        },
+        onImageUpload: function(files) {
+          var editor = $(this);
+          uploadImage(files[0], editor);
+        },
+        onChange: function() {
+          updatePreview(); // Update preview on editor content change
+        }
+      }
+    });
+
+    // upload image function
+    function uploadImage(file, editor) {
+      var data = new FormData();
+      var csrfToken = $('meta[name="csrf-token"]').attr('content');
+      data.append('authenticity_token', csrfToken);
+      data.append('image', file);
+
+      $.ajax({
+        method: 'POST',
+        url: '<%= admin_summernote_upload_image_path %>',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          var imageUrl = response.url;
+          $('#summernote').summernote('insertImage', imageUrl);
+        },
+        error: function(xhr, status, error) {
+          console.log(error);
+        }
+      });
+    }
+
+    // preview image function
+    function updatePreview() {
+      var content = $summernote_editor.summernote('code');
+      $preview.html(content);
+    }
+
+  });
+</script>

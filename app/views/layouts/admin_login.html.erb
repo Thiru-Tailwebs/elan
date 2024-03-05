@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <%= render "/shared/head"%>
+  <%= render "/shared/head" %>
 
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+    <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-  <%= render "/shared/link"%>
+        <%= render "/shared/link" %>
 
 </head>
-<body class="hold-transition login-page">
 
+<body class="hold-transition login-page position-relative">
+  
   <%= yield %>
-
+  
 </body>
+
 </html>
+
+<style>
+  .login-page {
+    background-image: url('/images/home-page/home-banner.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+  }
+
+</style>
