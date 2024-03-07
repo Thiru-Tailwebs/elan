@@ -732,7 +732,7 @@
               <div class="row d-flex align-items-center <% if index != 0 %>mt-30<% end %>">
                 <div class="col-lg-5 col-md-5">
                 <div class="w-100p">
-                  <img src="<%= data.square_image_url(:medium) %>" class="w-100p">
+                  <img src="<%= data.square_image_url(:medium) %>" loading="lazy" alt="blog-1" class="w-100p br-10">
                 </div>
                 </div>
                 <div class="col-lg-7 col-md-7">
@@ -753,9 +753,9 @@
                     <div class="d-flex align-items-center">
                       <div class="w-10p">
                         <% if data.author.image.present? %>
-                          <img src="<%= data.author.image_url(:medium) %>" class="w-100p">
+                          <img src="<%= data.author.image_url(:medium) %>" loading="lazy" alt="blog-2" class="w-100p br-10">
                         <% else %>
-                          <img src="/images/home-page/elan-logo.jpg" class="w-100p">
+                          <img src="/images/home-page/elan-logo.jpg" loading="lazy" alt="blog-2" class="w-100p br-10">
                         <% end %>
                       </div>
                       <div class="ml-2 heading-3 fs-12 fs-10-lg black-1">
