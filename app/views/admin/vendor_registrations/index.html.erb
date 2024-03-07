@@ -46,7 +46,9 @@
 											<tr>
 												<td>
 													<% if data.image_data.present? %>
-														<img src="<%= data.image_url(:large) %>" height="100px" width="130px">
+                                                        <a href="<%= data.image_url %>" target="_blank" class="btn btn-info mr-3" title="Resolved inquiry.">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
 													<% else %>
 														-
 													<% end %>

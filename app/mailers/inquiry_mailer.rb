@@ -1,6 +1,7 @@
 class InquiryMailer < ApplicationMailer
     def send_mail(name, email, mobile)
-        email = "info@elandecor.in"
+        info_email = "info@elandecor.in"
+        vedika_email = "vedika@tailwebs.com"
         subject = "Elan: New Inquiry"
 
         @name = name
@@ -11,6 +12,6 @@ class InquiryMailer < ApplicationMailer
         # puts("\n===> email: ", email)
         # puts("\n===> mobile: ", mobile)
 
-        mail(to: email, subject: subject)
+        mail(to: [info_email, vedika_email], subject: subject)
     end
 end

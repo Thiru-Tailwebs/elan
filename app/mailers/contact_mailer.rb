@@ -1,6 +1,7 @@
 class ContactMailer < ApplicationMailer
     def send_mail(fname, lname, email, mobile, message)
-        email = "info@elandecor.in"
+        info_email = "info@elandecor.in"
+        vedika_email = "vedika@tailwebs.com"
         subject = "Elan: New Contact"
 
         @fname = fname
@@ -13,6 +14,6 @@ class ContactMailer < ApplicationMailer
         # puts("\n===> email: ", email)
         # puts("\n===> mobile: ", mobile)
 
-        mail(to: email, subject: subject)
+        mail(to: [info_email, vedika_email], subject: subject)
     end
 end

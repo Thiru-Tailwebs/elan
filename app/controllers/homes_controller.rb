@@ -1,7 +1,5 @@
 class HomesController < ApplicationController
-  before_action :set_category, only: %i[
-    index media
-  ]
+  before_action :set_category, only: %i[index media home_design_service]
 
   def index
     @banner_image = HeaderImage.where(active: true).last
@@ -15,53 +13,104 @@ class HomesController < ApplicationController
   end
 
   def media
+    prepare_meta_tags(
+      title: "Elan Furnishing in the Spotlight: Media Moments & Design Inspiration",
+      description: "Explore Elan Furnishing's media buzz and design inspiration. From magazine features to news articles, witness our home decor journey unfold in the world of design",
+      current_url: request.url
+    )
   end
 
   def contact_us
+    prepare_meta_tags(
+      title: "Get in Touch with Elan Furnishing experts",
+      description: "Reach out to Elan Furnishing for personalized home design solutions. Our expert team is ready to assist you in transforming your space",
+      current_url: request.url
+    )
   end
 
-  def Vendor_Registration
+  def vendor_registration
+    prepare_meta_tags(
+      title: "Become a Partner: Vendor Registration with Elan Furnishing",
+      description: "Join forces with Elan Furnishing. Explore opportunities for vendor registration and become a valued partner today!",
+      current_url: request.url
+    )
   end
 
   def faq
+    prepare_meta_tags(
+      title: "Elan Furnishing FAQ: Answers to Your Home Decor Queries",
+      description: "Explore the Elan Furnishing FAQ for solutions to your home decor queries. Find expert advice on fabrics, furniture, accessories, and more, ensuring a seamless and enchanting transformation of your living space",
+      current_url: request.url
+    )
   end
 
   def home_design_service
-    @categories = Category.where(active: true).order(:priority)
-  end
-
-  def blogs
-  end
-
-  def our_collections
+    prepare_meta_tags(
+      title: "Elan Furnishing Design Services: Crafting Your Dream Space with Elegance",
+      description: "Explore Elan Furnishing's expert design services. Let our team transform your space with a curated selection of fine fabrics, furniture, accessories, and bespoke decor, fully customized to your requirements.",
+      current_url: request.url
+    )
   end
 
   def our_story
+    prepare_meta_tags(
+      title: "Crafting Enchanting Living Spaces with Elegance | Elan Furnishing Story ",
+      description: "Explore the essence of Elan Furnishing, where passion meets craftsmanship. Discover our commitment to transforming homes with handpicked treasures",
+      current_url: request.url
+    )
   end
 
   def brands
     @brand_categories = BrandCategory.where(
       active: true
     ).order(:priority)
+
+    # setting up the meta tags
+    prepare_meta_tags(
+      title: "Discover Top-Tier Elegance: Brands Partnered with Elan Furnishing",
+      description: "Explore excellence with Elan Furnishing's handpicked brand partners. Uncover a curated selection dedicated to elevating your home decor experience",
+      current_url: request.url
+    )
   end
 
   def clientele
     @clientele_image = ClienteleImage.where(
       active: true
     ).order(:priority)
+
+    # setting up the meta tags
+    prepare_meta_tags(
+      title: "Elan Furnishing's Valued Clientele: Transforming Spaces, Inspiring Lives",
+      description: "Join our esteemed clientele and witness the transformative impact of Elan Furnishing's exquisite designs. Explore stories of turning houses into homes",
+      current_url: request.url
+    )
   end
 
   def our_services
+    # setting up the meta tags
+    prepare_meta_tags(
+      title: "Elevate Your Space with Our Premium Home Decor Services | Elan Furnishing",
+      description: "Discover the comprehensive range of services at Elan Furnishing. From expert design consultations to handpicked treasures.",
+      current_url: request.url
+    )
   end
 
   def book_services
-
-  end
-
-  def blogs_detail
+    # setting up the meta tags
+    prepare_meta_tags(
+      title: "Book Expert Design Services with Elan Furnishing",
+      description: "Transform your living space with Elan Furnishing's expert design services. Schedule an appointment with our design experts today",
+      current_url: request.url
+    )
   end
 
   def nri_homes
+    # setting up the meta tags
+    prepare_meta_tags(
+      title: "Elan Furnishing: Elevating NRI Homes with Timeless Elegance",
+      description: "Discover how Elan Furnishing brings timeless elegance to NRI homes. Explore handpicked treasures, expert design services, and top-tier brands",
+      current_url: request.url
+    )
   end
 
   def send_inquiry_mail
@@ -80,7 +129,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email, name
+      email, name, nil
     ).deliver_later
 
     head :ok
@@ -106,7 +155,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email, fname
+      email, fname, nil
     ).deliver_later
 
     head :ok
@@ -151,7 +200,7 @@ class HomesController < ApplicationController
     ).deliver_later
 
     SuccessMailer.send_mail(
-      email, fname
+      email, fname, nil
     ).deliver_later
 
     head :ok
@@ -176,8 +225,10 @@ class HomesController < ApplicationController
       name, phone, email, area, city
     ).deliver_later
 
+    subject = "Hey " + name + ", You've requested a quote!"
+
     SuccessMailer.send_mail(
-      email, name
+      email, name, subject 
     ).deliver_later
 
     head :ok

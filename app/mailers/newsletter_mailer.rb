@@ -1,10 +1,11 @@
 class NewsletterMailer < ApplicationMailer
     def send_mail(user_email)
         @user_email = user_email
-
-        email = "info@elandecor.in"
+    
+        info_email = "info@elandecor.in"
+        vedika_email = "vedika@tailwebs.com"
         subject = "Elan: Newsletter Email"
 
-        mail(to: email, subject: subject)
+        mail(to: [info_email, vedika_email], subject: subject)
     end
 end
